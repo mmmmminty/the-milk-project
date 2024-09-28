@@ -6,7 +6,7 @@ use log::info;
 pub fn detect() -> Result<String> {
     /// Maximum number of frames to read before giving up.
     /// Default is 25, with an fps of 5.0, this is 5 seconds.
-    const MAX_FRAME_READS: usize = 25;
+    const MAX_FRAME_READS: usize = 2005;
 
     let decoder = bardecoder::default_decoder();
     let cam = camera_capture::create(0)
@@ -28,6 +28,7 @@ pub fn detect() -> Result<String> {
         let result = decoder.decode(&converted);
         
         for code in result {
+            println!("Attempting to decode: {:?}", code);
             match code {
                 Ok(data) => {
                     info!("Detected: {}", data);
