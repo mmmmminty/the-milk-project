@@ -11,6 +11,7 @@ qrcodegen = "1.8.0"
 sqlx = "0.8.2"
 nokhwa = { version = "0.10.4", default-features = false, features = ["input-native", "flume"] }
 quircs = "0.10.2"
+chrono = "0.4.38"
 
 [dependencies.uuid]
 version = "1.10.0"
