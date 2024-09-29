@@ -1,9 +1,9 @@
-use image::Rgba;
+use image::{GenericImageView, Rgba};
 use nokhwa::*;
 use anyhow::Result;
 use log::info;
 use pixel_format::RgbAFormat;
-use utils::{CameraIndex, RequestedFormat, RequestedFormatType};
+use utils::{CameraFormat, CameraIndex, FrameFormat, RequestedFormat, RequestedFormatType, Resolution};
 
 /// Detects a barcode from the camera feed.
 pub fn detect() -> Result<String> {
@@ -11,52 +11,36 @@ pub fn detect() -> Result<String> {
     /// Default is 25, with an fps of 5.0, this is 5 seconds.
     const MAX_FRAME_READS: usize = 2005;
 
-    let decoder = bardecoder::default_decoder();
-    let index = CameraIndex::Index(0); 
+    let mut decoder = quircs::Quirc::default();
+    let index = CameraIndex::Index(0);
     let requested = RequestedFormat::new::<RgbAFormat>(RequestedFormatType::AbsoluteHighestResolution);
     let mut camera = Camera::new(index, requested).unwrap();
-    camera.open_stream().unwrap();
+    camera.open_stream()?;
     info!("Found camera");
 
-    for frame_count in 0..MAX_FRAME_READS {
-        let frame = camera.frame().unwrap();
-        let image: image::ImageBuffer<Rgba<u8>, Vec<u8>> = frame.decode_image::<RgbAFormat>().unwrap(); 
+    while let Ok(frame) = camera.frame() {
+        let image = frame.decode_image::<RgbAFormat>().unwrap(); 
+        let img_gray = image::imageops::grayscale(&image);
+        let codes = decoder.identify(image.width() as usize, image.height() as usize, &img_gray);
 
-        fn convert_to_black_and_white(image: &image::ImageBuffer<Rgba<u8>, Vec<u8>>) -> image::ImageBuffer<Rgba<u8>, Vec<u8>> {
-            let mut new_image = image.clone();
-            for (_x, _y, pixel) in new_image.enumerate_pixels_mut() {
-                let Rgba(data) = *pixel;
-                let gray_value = (0.299 * data[0] as f32 + 0.587 * data[1] as f32 + 0.114 * data[2] as f32) as u8;
-                *pixel = Rgba([gray_value, gray_value, gray_value, data[3]]);
-            }
-            new_image
-        }
-
-        let new_image = convert_to_black_and_white(&image);
-
-        let result = decoder.decode(&new_image);
-        info!("Got & decoded frame... checking for barcode");
-        println!("Got & decoded frame... checking for barcode");
-        println!("Results: {}", result.len());
-
-        for code in result {
+        for code in codes {
             match code {
-                Ok(data) => {
-                    info!("Detected: {}", data);
-                    return Ok(data);
+                Ok(code) => {
+                    let decoded = code.decode().expect("failed to decode qr code");
+                    println!("qrcode: {}", std::str::from_utf8(&decoded.payload).unwrap());
+                    return Ok(std::str::from_utf8(&decoded.payload).unwrap().to_string());
                 },
                 Err(e) => {
-                    info!("Error in barcode: {}", e);
                     println!("Error in barcode: {}", e);
                 }
             }
         }
 
-        println!("Frame: {}", frame_count);
-        // new_image.save("frame.bmp").unwrap();
-        if frame_count >= MAX_FRAME_READS {
-            return Err(anyhow::anyhow!("Exceeded maximum frame reads"));
-        }
+        // println!("Frame: {}", frame_count);
+        // img_gray.save("frame.bmp").unwrap();
+        // if frame_count >= MAX_FRAME_READS {
+        //     return Err(anyhow::anyhow!("Exceeded maximum frame reads"));
+        // }
     }
 
     Err(anyhow::anyhow!("Failed to detect barcode"))
