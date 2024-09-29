@@ -1,6 +1,9 @@
-use image::{DynamicImage, ImageBuffer, Rgba, RgbaImage};
+use image::{GenericImageView, Rgba};
+use nokhwa::*;
 use anyhow::Result;
 use log::info;
+use pixel_format::RgbAFormat;
+use utils::{CameraFormat, CameraIndex, FrameFormat, RequestedFormat, RequestedFormatType, Resolution};
 
 /// Detects a barcode from the camera feed.
 pub fn detect() -> Result<String> {
@@ -8,42 +11,36 @@ pub fn detect() -> Result<String> {
     /// Default is 25, with an fps of 5.0, this is 5 seconds.
     const MAX_FRAME_READS: usize = 2005;
 
-    let decoder = bardecoder::default_decoder();
-    let cam = camera_capture::create(0)
-        .unwrap()
-        .fps(5.0)
-        .unwrap()
-        .start()?;
+    let mut decoder = quircs::Quirc::default();
+    let index = CameraIndex::Index(0);
+    let requested = RequestedFormat::new::<RgbAFormat>(RequestedFormatType::AbsoluteHighestResolution);
+    let mut camera = Camera::new(index, requested).unwrap();
+    camera.open_stream()?;
+    info!("Found camera");
 
-    for (frame_count, frame) in cam.enumerate() {
-        let (width, height) = frame.dimensions();
-        let mut converted_img: RgbaImage = ImageBuffer::new(width, height);
+    while let Ok(frame) = camera.frame() {
+        let image = frame.decode_image::<RgbAFormat>().unwrap(); 
+        let img_gray = image::imageops::grayscale(&image);
+        let codes = decoder.identify(image.width() as usize, image.height() as usize, &img_gray);
 
-        for (x, y, pixel) in frame.enumerate_pixels() {
-            let rgba = Rgba([pixel[0], pixel[1], pixel[2], 255]);
-            converted_img.put_pixel(x, y, rgba);
-        }
-
-        let converted = DynamicImage::ImageRgba8(converted_img);    
-        let result = decoder.decode(&converted);
-        
-        for code in result {
-            println!("Attempting to decode: {:?}", code);
+        for code in codes {
             match code {
-                Ok(data) => {
-                    info!("Detected: {}", data);
-                    return Ok(data);
+                Ok(code) => {
+                    let decoded = code.decode().expect("failed to decode qr code");
+                    println!("qrcode: {}", std::str::from_utf8(&decoded.payload).unwrap());
+                    return Ok(std::str::from_utf8(&decoded.payload).unwrap().to_string());
                 },
                 Err(e) => {
-                    info!("Error: {}", e);
+                    println!("Error in barcode: {}", e);
                 }
             }
         }
 
-        println!("Frame: {}", frame_count);
-        if frame_count >= MAX_FRAME_READS {
-            return Err(anyhow::anyhow!("Exceeded maximum frame reads"));
-        }
+        // println!("Frame: {}", frame_count);
+        // img_gray.save("frame.bmp").unwrap();
+        // if frame_count >= MAX_FRAME_READS {
+        //     return Err(anyhow::anyhow!("Exceeded maximum frame reads"));
+        // }
     }
 
     Err(anyhow::anyhow!("Failed to detect barcode"))
