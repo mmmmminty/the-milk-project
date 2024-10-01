@@ -1,10 +1,12 @@
 use crate::database::*;
+use anyhow::Result;
 use chrono::NaiveDate;
+use label::generate_label;
 use uuid::{uuid, Uuid};
 
 pub mod invariants;
-pub mod validation;
 pub mod label;
+pub mod validation;
 
 pub const MILK_UUID_A: Uuid = uuid!("65e89efb-f055-472f-a77d-c3ea8fbecc13");
 pub const MILK_UUID_B: Uuid = uuid!("0e2d9e02-297c-4135-8eb1-0133190f759c");
@@ -14,7 +16,7 @@ pub const MOTHER_ID: i32 = 393;
 pub const WRONG_MOTHER_ID: i32 = 999;
 pub const BABY_ID: i32 = 482;
 
-pub fn init_test_data() -> MilkDatabaseTest {
+pub fn init_test_data() -> Result<MilkDatabaseTest> {
     let mother = Mother {
         id: MOTHER_ID,
         name: String::from("Theresa Jenkins"),
@@ -98,10 +100,15 @@ pub fn init_test_data() -> MilkDatabaseTest {
         expressed_by: 999,
     };
 
-    MilkDatabaseTest {
+    // generate_label(milk_a.volume, milk_a.additives.as_ref().unwrap(), &mother.name, &baby.name, Some(&milk_a.id.to_string()))?;
+    // generate_label(milk_b.volume, milk_b.additives.as_ref().unwrap(), &mother.name, &baby.name, Some(&milk_b.id.to_string()))?;
+    // generate_label(milk_c.volume, milk_c.additives.as_ref().unwrap(), &mother.name, &baby.name, Some(&milk_c.id.to_string()))?;
+    // generate_label(milk_d.volume, milk_d.additives.as_ref().unwrap(), &wrong_mother.name, &baby.name, Some(&milk_d.id.to_string()))?;
+
+    Ok(MilkDatabaseTest {
         mothers: vec![mother, wrong_mother],
         babies: vec![baby],
         bottles: vec![milk_a, milk_b, milk_c, milk_d],
         feeds: vec![],
-    }
+    })
 }

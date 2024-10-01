@@ -2,8 +2,8 @@ use anyhow::Result;
 use qrcodegen::{QrCode, QrCodeEcc};
 
 /// Encodes a string into a QR code and saves it to a file.
-pub fn encode(id: String, path: String) -> Result<()> {
-    let qr = QrCode::encode_text(&id, QrCodeEcc::Quartile).unwrap();
+pub fn encode(id: &str, path: &str) -> Result<()> {
+    let qr = QrCode::encode_text(id, QrCodeEcc::Quartile).unwrap();
     let svg = to_svg_string(&qr, 4);
 
     std::fs::write(path, svg)?;

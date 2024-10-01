@@ -1,7 +1,7 @@
+use super::*;
 use anyhow::{anyhow, Result};
 use chrono::NaiveDateTime;
 use invariants::Validation;
-use super::*;
 use log::info;
 
 pub fn validate_milk(
@@ -39,7 +39,11 @@ pub fn validate_milk(
     // Checking if the milk has any allergens
     if baby.allergens.is_some() {
         for allergen in baby.allergens.as_ref().unwrap().split_whitespace() {
-            if milk.additives.as_ref().is_some_and(|additives| additives.contains(allergen)) {
+            if milk
+                .additives
+                .as_ref()
+                .is_some_and(|additives| additives.contains(allergen))
+            {
                 info!("Allergenated milk detected: {}", milk.id);
                 return Ok(Validation::Allergenated(allergen.to_string()));
             }

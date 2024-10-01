@@ -13,6 +13,12 @@ nokhwa = { version = "0.10.4", default-features = false, features = ["input-nati
 chrono = "0.4.38"
 simplelog = "0.12.2"
 bardecoder = "0.5.0"
+rusttype = "0.9"
+imageproc = "0.25.0"
+ab_glyph = "0.2.28"
+usvg = "0.44.0"
+resvg = "0.44.0"
+rustyline = "14.0.0"
 
 [dependencies.uuid]
 version = "1.10.0"

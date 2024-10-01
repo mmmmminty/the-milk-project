@@ -1,13 +1,16 @@
 use anyhow::Result;
 use chrono::{NaiveDate, NaiveDateTime};
-use log::{debug, error, info, warn};
+use log::*;
+use rustyline::{history::FileHistory, Editor};
 use simplelog::*;
-use std::fs::File;
-use uuid::Uuid;
+use std::{fs::File, process::Command};
 
+#[allow(unused_imports)]
 use detection::{detect, detect_threaded};
 use encode::encode;
-use test_data::{init_test_data, invariants::Validation, label::generate_label, validation::validate_milk};
+use test_data::{
+    init_test_data, invariants::Validation, label::generate_label, validation::validate_milk,
+};
 
 mod database;
 mod detection;
@@ -30,19 +33,24 @@ fn init_logging() {
 
 fn main() -> Result<()> {
     init_logging();
+    let mut rl = Editor::<(), FileHistory>::new().unwrap();
     info!("Starting Milk Project");
-    let mut test_data = init_test_data();
+    let mut test_data = init_test_data()?;
     info!("Test data initialized");
-
     info!("Starting main loop");
     loop {
-        println!("Enter F to scan for a feed, E to create a new label, or Q to quit");
-        print!(">> ");
-        let mut input = String::new();
-        std::io::stdin().read_line(&mut input).unwrap();
-        let input = input.trim();
+        let input =
+            rl.readline("Enter F to scan for a feed, E to create a new label, or Q to quit\n>> ");
+        let input = match input {
+            Ok(input) => input.trim().to_string(),
+            Err(_) => {
+                warn!("Error reading input");
+                println!("Error reading input, please try again.");
+                continue;
+            }
+        };
 
-        match input {
+        match input.as_str() {
             "F" => {
                 debug!("Input: F");
                 let bottle_id = match detect() {
@@ -59,20 +67,25 @@ fn main() -> Result<()> {
                     .unwrap();
 
                 match validate_milk(&mut test_data, &bottle_id, test_date) {
-                    Ok(validation) => match validation {
-                        Validation::Valid(baby) => {
-                            println!("Milk is all good for {}!", baby);
+                    Ok(validation) => {
+                        match validation {
+                            Validation::Valid(baby) => {
+                                println!("Milk is all good for {}!", baby);
+                            }
+                            Validation::Expired(date) => {
+                                println!("Milk is expired, expired on {}!", date);
+                            }
+                            Validation::Allergenated(allergen) => {
+                                println!(
+                                    "Baby is allergic to {}, which is contained in the milk!",
+                                    allergen
+                                );
+                            }
+                            Validation::IncorrectMother(mother) => {
+                                println!("This milk is from {}, who is not the mother of the selected baby!", mother);
+                            }
                         }
-                        Validation::Expired(date) => {
-                            println!("Milk is expired, expired on {}!", date);
-                        }
-                        Validation::Allergenated(allergen) => {
-                            println!("Baby is allergic to {}, which is contained in the milk!", allergen);
-                        }
-                        Validation::IncorrectMother(mother) => {
-                            println!("This milk is from {}, who is not the mother of the selected baby!", mother);
-                        }
-                    },
+                    }
                     Err(e) => {
                         warn!("Error validating milk: {:?}", e);
                         println!("Error validating milk, please try again.");
@@ -83,34 +96,76 @@ fn main() -> Result<()> {
             "E" => {
                 debug!("Input: E");
                 println!("Enter the following fields to create a new label:");
-                print!("Volume (mL): ");
-                let mut volume = String::new();
-                std::io::stdin().read_line(&mut volume).unwrap();
-                let volume: i32 = volume.trim().parse().unwrap();
+                let volume: i32 = loop {
+                    let input = rl.readline("Volume (mL): ");
+                    match input {
+                        Ok(input) => match input.trim().parse() {
+                            Ok(volume) => break volume,
+                            Err(_) => {
+                                println!("Invalid input for volume, please enter a number.");
+                                continue;
+                            }
+                        },
+                        Err(_) => {
+                            warn!("Error reading input for volume");
+                            println!("Error reading input, please try again.");
+                            continue;
+                        }
+                    }
+                };
 
-                print!("Additives (Comma-seperated): ");
-                let mut additives = String::new();
-                std::io::stdin().read_line(&mut additives).unwrap();
-                let additives = additives.trim();
+                let additives = loop {
+                    let input = rl.readline("Additives (Comma-separated): ");
+                    match input {
+                        Ok(input) => break input.trim().to_string(),
+                        Err(_) => {
+                            warn!("Error reading input for additives");
+                            println!("Error reading input, please try again.");
+                            continue;
+                        }
+                    }
+                };
 
-                print!("Mother: ");
-                let mut mother = String::new();
-                std::io::stdin().read_line(&mut mother).unwrap();
-                let mother = mother.trim();
+                let mother = loop {
+                    let input = rl.readline("Mother: ");
+                    match input {
+                        Ok(input) => break input.trim().to_string(),
+                        Err(_) => {
+                            warn!("Error reading input for mother");
+                            println!("Error reading input, please try again.");
+                            continue;
+                        }
+                    }
+                };
 
-                print!("Baby: ");
-                let mut baby = String::new();
-                std::io::stdin().read_line(&mut baby).unwrap();
-                let baby = baby.trim();
+                let baby = loop {
+                    let input = rl.readline("Baby: ");
+                    match input {
+                        Ok(input) => break input.trim().to_string(),
+                        Err(_) => {
+                            warn!("Error reading input for baby");
+                            println!("Error reading input, please try again.");
+                            continue;
+                        }
+                    }
+                };
 
-                let path = match generate_label(volume, additives, mother, baby) {
-                    Ok(path) => path,
+                match generate_label(volume, &additives, &mother, &baby, None) {
+                    Ok(label) => {
+                        println!("Label generated successfully, saved to {}.", label.code);
+                        if let Err(e) = Command::new("open").arg(&label.code).spawn() {
+                            warn!("Failed to open label: {:?}", e);
+                            println!("Failed to open label, but I promise it's there!");
+                        }
+                    }
                     Err(e) => {
                         warn!("Error generating label: {:?}", e);
                         println!("Error generating label, please try again.");
                         continue;
                     }
                 };
+
+                info!("Label generated successfully");
             }
             "Q" => {
                 debug!("Input: Q");
