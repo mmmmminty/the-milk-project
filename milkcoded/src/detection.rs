@@ -107,6 +107,7 @@ pub fn detect_threaded() -> Result<String> {
 /// Detects a barcode from the camera feed.
 /// Everything is done in a single thread, processed frame by frame.
 pub fn detect() -> Result<String> {
+    find_cameras();
     nokhwa_initialize(|s| info!("Initialised Nokhwa: {s}"));
     let format = RequestedFormat::new::<RgbAFormat>(RequestedFormatType::AbsoluteHighestResolution);
     let mut frame_count = 0;
