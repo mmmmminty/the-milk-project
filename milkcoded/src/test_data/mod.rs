@@ -1,8 +1,6 @@
 use crate::database::*;
 use anyhow::Result;
-use chrono::NaiveDate;
-use label::generate_label;
-use uuid::{uuid, Uuid};
+use chrono::NaiveDate;use uuid::{uuid, Uuid};
 
 pub mod invariants;
 pub mod label;
@@ -57,11 +55,11 @@ pub fn init_test_data() -> Result<MilkDatabaseTest> {
         id: MILK_UUID_B,
         volume: 150,
         additives: Some(String::from("HG7")),
-        expiry: NaiveDate::from_ymd_opt(2024, 10, 15)
+        expiry: NaiveDate::from_ymd_opt(2024, 10, 12)
             .unwrap()
             .and_hms_opt(12, 30, 0)
             .unwrap(),
-        expressed_at: NaiveDate::from_ymd_opt(2024, 10, 9)
+        expressed_at: NaiveDate::from_ymd_opt(2024, 10, 6)
             .unwrap()
             .and_hms_opt(12, 30, 0)
             .unwrap(),

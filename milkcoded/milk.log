@@ -1,202 +1,92 @@
-14:05:22 [INFO] Starting Milk Project
-14:05:22 [INFO] Test data initialized
-14:05:22 [INFO] Starting main loop
-14:05:22 [DEBUG] (1) rustyline: ANSI colors already enabled
-14:05:22 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
-14:05:22 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 3, row: 1 }, default_prompt: true, cursor: Position { col: 3, row: 1 }, end: Position { col: 3, row: 1 } }
-14:05:23 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x45, utf16: 0x45, dwControlKeyState: 0x10 => key: KeyEvent(Char('E'), Modifiers(0x0))
-14:05:23 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'E')
-14:05:23 [DEBUG] (1) rustyline: Changeset::insert(0, 'E')
-14:05:24 [DEBUG] (1) rustyline: wVirtualKeyCode: 0xd, utf16: 0xd, dwControlKeyState: 0x0 => key: KeyEvent(Enter, Modifiers(0x0))
-14:05:24 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
-14:05:24 [DEBUG] (1) milkcoded: Input: E
-14:05:24 [DEBUG] (1) rustyline: ANSI colors already enabled
-14:05:24 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
-14:05:24 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 13, row: 0 }, default_prompt: true, cursor: Position { col: 13, row: 0 }, end: Position { col: 13, row: 0 } }
-14:05:27 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x31, utf16: 0x31, dwControlKeyState: 0x0 => key: KeyEvent(Char('1'), Modifiers(0x0))
-14:05:27 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, '1')
-14:05:27 [DEBUG] (1) rustyline: Changeset::insert(0, '1')
-14:05:27 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x30, utf16: 0x30, dwControlKeyState: 0x0 => key: KeyEvent(Char('0'), Modifiers(0x0))
-14:05:27 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, '0')
-14:05:27 [DEBUG] (1) rustyline: Changeset::insert(1, '0')
-14:05:27 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x30, utf16: 0x30, dwControlKeyState: 0x0 => key: KeyEvent(Char('0'), Modifiers(0x0))
-14:05:27 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, '0')
-14:05:27 [DEBUG] (1) rustyline: Changeset::insert(2, '0')
-14:05:28 [DEBUG] (1) rustyline: wVirtualKeyCode: 0xd, utf16: 0xd, dwControlKeyState: 0x0 => key: KeyEvent(Enter, Modifiers(0x0))
-14:05:28 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
-14:05:28 [DEBUG] (1) rustyline: ANSI colors already enabled
-14:05:28 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
-14:05:28 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 29, row: 0 }, default_prompt: true, cursor: Position { col: 29, row: 0 }, end: Position { col: 29, row: 0 } }
-14:05:31 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x41, utf16: 0x41, dwControlKeyState: 0x10 => key: KeyEvent(Char('A'), Modifiers(0x0))
-14:05:31 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'A')
-14:05:31 [DEBUG] (1) rustyline: Changeset::insert(0, 'A')
-14:05:31 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x44, utf16: 0x44, dwControlKeyState: 0x10 => key: KeyEvent(Char('D'), Modifiers(0x0))
-14:05:31 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'D')
-14:05:31 [DEBUG] (1) rustyline: Changeset::insert(1, 'D')
-14:05:31 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x33, utf16: 0x33, dwControlKeyState: 0x0 => key: KeyEvent(Char('3'), Modifiers(0x0))
-14:05:31 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, '3')
-14:05:31 [DEBUG] (1) rustyline: Changeset::insert(2, '3')
-14:05:32 [DEBUG] (1) rustyline: wVirtualKeyCode: 0xbc, utf16: 0x2c, dwControlKeyState: 0x0 => key: KeyEvent(Char(','), Modifiers(0x0))
-14:05:32 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, ',')
-14:05:32 [DEBUG] (1) rustyline: Changeset::insert(3, ',')
-14:05:32 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x20, utf16: 0x20, dwControlKeyState: 0x0 => key: KeyEvent(Char(' '), Modifiers(0x0))
-14:05:32 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, ' ')
-14:05:32 [DEBUG] (1) rustyline: Changeset::insert(4, ' ')
-14:05:32 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x42, utf16: 0x42, dwControlKeyState: 0x10 => key: KeyEvent(Char('B'), Modifiers(0x0))
-14:05:32 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'B')
-14:05:32 [DEBUG] (1) rustyline: Changeset::insert(5, 'B')
-14:05:32 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x44, utf16: 0x44, dwControlKeyState: 0x10 => key: KeyEvent(Char('D'), Modifiers(0x0))
-14:05:32 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'D')
-14:05:32 [DEBUG] (1) rustyline: Changeset::insert(6, 'D')
-14:05:33 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x34, utf16: 0x34, dwControlKeyState: 0x0 => key: KeyEvent(Char('4'), Modifiers(0x0))
-14:05:33 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, '4')
-14:05:33 [DEBUG] (1) rustyline: Changeset::insert(7, '4')
-14:05:33 [DEBUG] (1) rustyline: wVirtualKeyCode: 0xbc, utf16: 0x2c, dwControlKeyState: 0x0 => key: KeyEvent(Char(','), Modifiers(0x0))
-14:05:33 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, ',')
-14:05:33 [DEBUG] (1) rustyline: Changeset::insert(8, ',')
-14:05:34 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x20, utf16: 0x20, dwControlKeyState: 0x0 => key: KeyEvent(Char(' '), Modifiers(0x0))
-14:05:34 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, ' ')
-14:05:34 [DEBUG] (1) rustyline: Changeset::insert(9, ' ')
-14:05:34 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x42, utf16: 0x42, dwControlKeyState: 0x10 => key: KeyEvent(Char('B'), Modifiers(0x0))
-14:05:34 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'B')
-14:05:34 [DEBUG] (1) rustyline: Changeset::insert(10, 'B')
-14:05:34 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x44, utf16: 0x44, dwControlKeyState: 0x10 => key: KeyEvent(Char('D'), Modifiers(0x0))
-14:05:34 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'D')
-14:05:34 [DEBUG] (1) rustyline: Changeset::insert(11, 'D')
-14:05:34 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x44, utf16: 0x44, dwControlKeyState: 0x10 => key: KeyEvent(Char('D'), Modifiers(0x0))
-14:05:34 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'D')
-14:05:34 [DEBUG] (1) rustyline: Changeset::insert(12, 'D')
-14:05:35 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x8, utf16: 0x8, dwControlKeyState: 0x0 => key: KeyEvent(Backspace, Modifiers(0x0))
-14:05:35 [DEBUG] (1) rustyline: Emacs command: Kill(BackwardChar(1))
-14:05:35 [DEBUG] (1) rustyline: Changeset::delete(12, "D")
-14:05:35 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 29, row: 0 }, default_prompt: true, cursor: Position { col: 42, row: 0 }, end: Position { col: 42, row: 0 } }
-14:05:35 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 29, row: 0 }, default_prompt: true, cursor: Position { col: 41, row: 0 }, end: Position { col: 41, row: 0 } }
-14:05:35 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x32, utf16: 0x32, dwControlKeyState: 0x0 => key: KeyEvent(Char('2'), Modifiers(0x0))
-14:05:35 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, '2')
-14:05:35 [DEBUG] (1) rustyline: Changeset::insert(12, '2')
-14:05:36 [DEBUG] (1) rustyline: wVirtualKeyCode: 0xd, utf16: 0xd, dwControlKeyState: 0x0 => key: KeyEvent(Enter, Modifiers(0x0))
-14:05:36 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
-14:05:36 [DEBUG] (1) rustyline: ANSI colors already enabled
-14:05:36 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
-14:05:36 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 8, row: 0 }, default_prompt: true, cursor: Position { col: 8, row: 0 }, end: Position { col: 8, row: 0 } }
-14:05:38 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x54, utf16: 0x54, dwControlKeyState: 0x10 => key: KeyEvent(Char('T'), Modifiers(0x0))
-14:05:38 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'T')
-14:05:38 [DEBUG] (1) rustyline: Changeset::insert(0, 'T')
-14:05:38 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x48, utf16: 0x68, dwControlKeyState: 0x0 => key: KeyEvent(Char('h'), Modifiers(0x0))
-14:05:38 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'h')
-14:05:38 [DEBUG] (1) rustyline: Changeset::insert(1, 'h')
-14:05:38 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x45, utf16: 0x65, dwControlKeyState: 0x0 => key: KeyEvent(Char('e'), Modifiers(0x0))
-14:05:38 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'e')
-14:05:38 [DEBUG] (1) rustyline: Changeset::insert(2, 'e')
-14:05:38 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x52, utf16: 0x72, dwControlKeyState: 0x0 => key: KeyEvent(Char('r'), Modifiers(0x0))
-14:05:38 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'r')
-14:05:38 [DEBUG] (1) rustyline: Changeset::insert(3, 'r')
-14:05:39 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x45, utf16: 0x65, dwControlKeyState: 0x0 => key: KeyEvent(Char('e'), Modifiers(0x0))
-14:05:39 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'e')
-14:05:39 [DEBUG] (1) rustyline: Changeset::insert(4, 'e')
-14:05:39 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x41, utf16: 0x61, dwControlKeyState: 0x0 => key: KeyEvent(Char('a'), Modifiers(0x0))
-14:05:39 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'a')
-14:05:39 [DEBUG] (1) rustyline: Changeset::insert(5, 'a')
-14:05:39 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x8, utf16: 0x8, dwControlKeyState: 0x0 => key: KeyEvent(Backspace, Modifiers(0x0))
-14:05:39 [DEBUG] (1) rustyline: Emacs command: Kill(BackwardChar(1))
-14:05:39 [DEBUG] (1) rustyline: Changeset::delete(5, "a")
-14:05:39 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 8, row: 0 }, default_prompt: true, cursor: Position { col: 14, row: 0 }, end: Position { col: 14, row: 0 } }
-14:05:39 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 8, row: 0 }, default_prompt: true, cursor: Position { col: 13, row: 0 }, end: Position { col: 13, row: 0 } }
-14:05:39 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x53, utf16: 0x73, dwControlKeyState: 0x0 => key: KeyEvent(Char('s'), Modifiers(0x0))
-14:05:39 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 's')
-14:05:39 [DEBUG] (1) rustyline: Changeset::insert(5, 's')
-14:05:40 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x41, utf16: 0x61, dwControlKeyState: 0x0 => key: KeyEvent(Char('a'), Modifiers(0x0))
-14:05:40 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'a')
-14:05:40 [DEBUG] (1) rustyline: Changeset::insert(6, 'a')
-14:05:40 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x53, utf16: 0x73, dwControlKeyState: 0x0 => key: KeyEvent(Char('s'), Modifiers(0x0))
-14:05:40 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 's')
-14:05:40 [DEBUG] (1) rustyline: Changeset::insert(7, 's')
-14:05:40 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x20, utf16: 0x20, dwControlKeyState: 0x0 => key: KeyEvent(Char(' '), Modifiers(0x0))
-14:05:40 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, ' ')
-14:05:40 [DEBUG] (1) rustyline: Changeset::insert(8, ' ')
-14:05:40 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x8, utf16: 0x8, dwControlKeyState: 0x0 => key: KeyEvent(Backspace, Modifiers(0x0))
-14:05:40 [DEBUG] (1) rustyline: Emacs command: Kill(BackwardChar(1))
-14:05:40 [DEBUG] (1) rustyline: Changeset::delete(8, " ")
-14:05:40 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 8, row: 0 }, default_prompt: true, cursor: Position { col: 17, row: 0 }, end: Position { col: 17, row: 0 } }
-14:05:40 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 8, row: 0 }, default_prompt: true, cursor: Position { col: 16, row: 0 }, end: Position { col: 16, row: 0 } }
-14:05:40 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x8, utf16: 0x8, dwControlKeyState: 0x0 => key: KeyEvent(Backspace, Modifiers(0x0))
-14:05:40 [DEBUG] (1) rustyline: Emacs command: Kill(BackwardChar(1))
-14:05:40 [DEBUG] (1) rustyline: Changeset::delete(7, "s")
-14:05:40 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 8, row: 0 }, default_prompt: true, cursor: Position { col: 16, row: 0 }, end: Position { col: 16, row: 0 } }
-14:05:40 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 8, row: 0 }, default_prompt: true, cursor: Position { col: 15, row: 0 }, end: Position { col: 15, row: 0 } }
-14:05:40 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x20, utf16: 0x20, dwControlKeyState: 0x0 => key: KeyEvent(Char(' '), Modifiers(0x0))
-14:05:40 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, ' ')
-14:05:40 [DEBUG] (1) rustyline: Changeset::insert(7, ' ')
-14:05:41 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x4a, utf16: 0x4a, dwControlKeyState: 0x10 => key: KeyEvent(Char('J'), Modifiers(0x0))
-14:05:41 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'J')
-14:05:41 [DEBUG] (1) rustyline: Changeset::insert(8, 'J')
-14:05:41 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x45, utf16: 0x65, dwControlKeyState: 0x0 => key: KeyEvent(Char('e'), Modifiers(0x0))
-14:05:41 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'e')
-14:05:41 [DEBUG] (1) rustyline: Changeset::insert(9, 'e')
-14:05:41 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x4e, utf16: 0x6e, dwControlKeyState: 0x0 => key: KeyEvent(Char('n'), Modifiers(0x0))
-14:05:41 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'n')
-14:05:41 [DEBUG] (1) rustyline: Changeset::insert(10, 'n')
-14:05:41 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x4b, utf16: 0x6b, dwControlKeyState: 0x0 => key: KeyEvent(Char('k'), Modifiers(0x0))
-14:05:41 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'k')
-14:05:41 [DEBUG] (1) rustyline: Changeset::insert(11, 'k')
-14:05:42 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x49, utf16: 0x69, dwControlKeyState: 0x0 => key: KeyEvent(Char('i'), Modifiers(0x0))
-14:05:42 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'i')
-14:05:42 [DEBUG] (1) rustyline: Changeset::insert(12, 'i')
-14:05:42 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x4e, utf16: 0x6e, dwControlKeyState: 0x0 => key: KeyEvent(Char('n'), Modifiers(0x0))
-14:05:42 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'n')
-14:05:42 [DEBUG] (1) rustyline: Changeset::insert(13, 'n')
-14:05:42 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x53, utf16: 0x73, dwControlKeyState: 0x0 => key: KeyEvent(Char('s'), Modifiers(0x0))
-14:05:42 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 's')
-14:05:42 [DEBUG] (1) rustyline: Changeset::insert(14, 's')
-14:05:42 [DEBUG] (1) rustyline: wVirtualKeyCode: 0xd, utf16: 0xd, dwControlKeyState: 0x0 => key: KeyEvent(Enter, Modifiers(0x0))
-14:05:42 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
-14:05:42 [DEBUG] (1) rustyline: ANSI colors already enabled
-14:05:42 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
-14:05:42 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 6, row: 0 }, default_prompt: true, cursor: Position { col: 6, row: 0 }, end: Position { col: 6, row: 0 } }
-14:05:47 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x51, utf16: 0x51, dwControlKeyState: 0x10 => key: KeyEvent(Char('Q'), Modifiers(0x0))
-14:05:47 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'Q')
-14:05:47 [DEBUG] (1) rustyline: Changeset::insert(0, 'Q')
-14:05:47 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x57, utf16: 0x57, dwControlKeyState: 0x10 => key: KeyEvent(Char('W'), Modifiers(0x0))
-14:05:47 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'W')
-14:05:47 [DEBUG] (1) rustyline: Changeset::insert(1, 'W')
-14:05:47 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x8, utf16: 0x8, dwControlKeyState: 0x0 => key: KeyEvent(Backspace, Modifiers(0x0))
-14:05:47 [DEBUG] (1) rustyline: Emacs command: Kill(BackwardChar(1))
-14:05:47 [DEBUG] (1) rustyline: Changeset::delete(1, "W")
-14:05:47 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 6, row: 0 }, default_prompt: true, cursor: Position { col: 8, row: 0 }, end: Position { col: 8, row: 0 } }
-14:05:47 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 6, row: 0 }, default_prompt: true, cursor: Position { col: 7, row: 0 }, end: Position { col: 7, row: 0 } }
-14:05:47 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x55, utf16: 0x75, dwControlKeyState: 0x0 => key: KeyEvent(Char('u'), Modifiers(0x0))
-14:05:47 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'u')
-14:05:47 [DEBUG] (1) rustyline: Changeset::insert(1, 'u')
-14:05:47 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x41, utf16: 0x61, dwControlKeyState: 0x0 => key: KeyEvent(Char('a'), Modifiers(0x0))
-14:05:47 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'a')
-14:05:47 [DEBUG] (1) rustyline: Changeset::insert(2, 'a')
-14:05:48 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x47, utf16: 0x67, dwControlKeyState: 0x0 => key: KeyEvent(Char('g'), Modifiers(0x0))
-14:05:48 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'g')
-14:05:48 [DEBUG] (1) rustyline: Changeset::insert(3, 'g')
-14:05:48 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x4d, utf16: 0x6d, dwControlKeyState: 0x0 => key: KeyEvent(Char('m'), Modifiers(0x0))
-14:05:48 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'm')
-14:05:48 [DEBUG] (1) rustyline: Changeset::insert(4, 'm')
-14:05:48 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x49, utf16: 0x69, dwControlKeyState: 0x0 => key: KeyEvent(Char('i'), Modifiers(0x0))
-14:05:48 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'i')
-14:05:48 [DEBUG] (1) rustyline: Changeset::insert(5, 'i')
-14:05:48 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x52, utf16: 0x72, dwControlKeyState: 0x0 => key: KeyEvent(Char('r'), Modifiers(0x0))
-14:05:48 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'r')
-14:05:48 [DEBUG] (1) rustyline: Changeset::insert(6, 'r')
-14:05:48 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x45, utf16: 0x65, dwControlKeyState: 0x0 => key: KeyEvent(Char('e'), Modifiers(0x0))
-14:05:48 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'e')
-14:05:48 [DEBUG] (1) rustyline: Changeset::insert(7, 'e')
-14:05:49 [DEBUG] (1) rustyline: wVirtualKeyCode: 0xd, utf16: 0xd, dwControlKeyState: 0x0 => key: KeyEvent(Enter, Modifiers(0x0))
-14:05:49 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
-14:05:49 [INFO] Generating label with ID: 29b720eb-79aa-41d5-acce-7a25ffbea851
-14:05:49 [WARN] Failed to open label: Error { kind: NotFound, message: "program not found" }
-14:05:49 [INFO] Label generated successfully
-14:05:49 [DEBUG] (1) rustyline: ANSI colors already enabled
-14:05:49 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
-14:05:49 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 3, row: 1 }, default_prompt: true, cursor: Position { col: 3, row: 1 }, end: Position { col: 3, row: 1 } }
-14:06:36 [DEBUG] (1) rustyline: wVirtualKeyCode: 0x51, utf16: 0x51, dwControlKeyState: 0x10 => key: KeyEvent(Char('Q'), Modifiers(0x0))
-14:06:36 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'Q')
-14:06:36 [DEBUG] (1) rustyline: Changeset::insert(0, 'Q')
-14:06:36 [DEBUG] (1) rustyline: wVirtualKeyCode: 0xd, utf16: 0xd, dwControlKeyState: 0x0 => key: KeyEvent(Enter, Modifiers(0x0))
-14:06:36 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
-14:06:36 [DEBUG] (1) milkcoded: Input: Q
-14:06:36 [INFO] Milk Project Exited
+16:07:04 [INFO] Starting Milk Project
+16:07:04 [INFO] Test data initialized
+16:07:04 [INFO] Starting main loop
+16:07:06 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
+16:07:06 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
+16:07:06 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
+16:07:06 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
+16:07:06 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
+16:07:06 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 3, row: 2 }, default_prompt: true, cursor: Position { col: 3, row: 2 }, end: Position { col: 3, row: 2 } }
+16:07:07 [DEBUG] (1) rustyline: c: 'F' => key: KeyEvent(Char('F'), Modifiers(0x0))
+16:07:07 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'F')
+16:07:07 [DEBUG] (1) rustyline: Changeset::insert(0, 'F')
+16:07:08 [DEBUG] (1) rustyline: c: '\u{7f}' => key: KeyEvent(Backspace, Modifiers(0x0))
+16:07:08 [DEBUG] (1) rustyline: Emacs command: Kill(BackwardChar(1))
+16:07:08 [DEBUG] (1) rustyline: Changeset::delete(0, "F")
+16:07:08 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 3, row: 2 }, default_prompt: true, cursor: Position { col: 4, row: 2 }, end: Position { col: 4, row: 2 } }
+16:07:08 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 3, row: 2 }, default_prompt: true, cursor: Position { col: 3, row: 2 }, end: Position { col: 3, row: 2 } }
+16:07:09 [DEBUG] (1) rustyline: c: 'E' => key: KeyEvent(Char('E'), Modifiers(0x0))
+16:07:09 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'E')
+16:07:09 [DEBUG] (1) rustyline: Changeset::insert(0, 'E')
+16:07:09 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
+16:07:09 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
+16:07:09 [DEBUG] (1) milkcoded: Input: E
+16:07:09 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
+16:07:09 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
+16:07:09 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
+16:07:09 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
+16:07:09 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
+16:07:09 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 13, row: 0 }, default_prompt: true, cursor: Position { col: 13, row: 0 }, end: Position { col: 13, row: 0 } }
+16:07:10 [DEBUG] (1) rustyline: c: '3' => key: KeyEvent(Char('3'), Modifiers(0x0))
+16:07:10 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, '3')
+16:07:10 [DEBUG] (1) rustyline: Changeset::insert(0, '3')
+16:07:10 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
+16:07:10 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
+16:07:10 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
+16:07:10 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
+16:07:10 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
+16:07:10 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
+16:07:10 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
+16:07:10 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 29, row: 0 }, default_prompt: true, cursor: Position { col: 29, row: 0 }, end: Position { col: 29, row: 0 } }
+16:07:11 [DEBUG] (1) rustyline: c: 'e' => key: KeyEvent(Char('e'), Modifiers(0x0))
+16:07:11 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'e')
+16:07:11 [DEBUG] (1) rustyline: Changeset::insert(0, 'e')
+16:07:11 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
+16:07:11 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
+16:07:11 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
+16:07:11 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
+16:07:11 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
+16:07:11 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
+16:07:11 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
+16:07:11 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 8, row: 0 }, default_prompt: true, cursor: Position { col: 8, row: 0 }, end: Position { col: 8, row: 0 } }
+16:07:11 [DEBUG] (1) rustyline: c: 'e' => key: KeyEvent(Char('e'), Modifiers(0x0))
+16:07:11 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'e')
+16:07:11 [DEBUG] (1) rustyline: Changeset::insert(0, 'e')
+16:07:11 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
+16:07:11 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
+16:07:11 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
+16:07:11 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
+16:07:11 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
+16:07:11 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
+16:07:11 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
+16:07:11 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 6, row: 0 }, default_prompt: true, cursor: Position { col: 6, row: 0 }, end: Position { col: 6, row: 0 } }
+16:07:11 [DEBUG] (1) rustyline: c: 'e' => key: KeyEvent(Char('e'), Modifiers(0x0))
+16:07:11 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'e')
+16:07:11 [DEBUG] (1) rustyline: Changeset::insert(0, 'e')
+16:07:12 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
+16:07:12 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
+16:07:12 [INFO] Generating label with ID: d719b509-846c-41dd-8ed4-f197b0002221
+16:07:12 [DEBUG] (1) milkcoded::test_data::label: Label QR rendered successfully
+16:07:12 [INFO] Label saved: Label { volume: 3, additives: "e", mother: "e", baby: "e", expiry: "2024-10-11", id: "d719b509-846c-41dd-8ed4-f197b0002221", code: "labels/label_d719b509-846c-41dd-8ed4-f197b0002221.png" }
+16:07:12 [INFO] Label generated successfully
+16:07:19 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
+16:07:19 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
+16:07:19 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
+16:07:19 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
+16:07:19 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
+16:07:19 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 3, row: 2 }, default_prompt: true, cursor: Position { col: 3, row: 2 }, end: Position { col: 3, row: 2 } }
+16:07:54 [DEBUG] (1) rustyline: c: 'g' => key: KeyEvent(Char('g'), Modifiers(0x0))
+16:07:54 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'g')
+16:07:54 [DEBUG] (1) rustyline: Changeset::insert(0, 'g')
+16:07:54 [DEBUG] (1) rustyline: c: '\u{7f}' => key: KeyEvent(Backspace, Modifiers(0x0))
+16:07:54 [DEBUG] (1) rustyline: Emacs command: Kill(BackwardChar(1))
+16:07:54 [DEBUG] (1) rustyline: Changeset::delete(0, "g")
+16:07:54 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 3, row: 2 }, default_prompt: true, cursor: Position { col: 4, row: 2 }, end: Position { col: 4, row: 2 } }
+16:07:54 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 3, row: 2 }, default_prompt: true, cursor: Position { col: 3, row: 2 }, end: Position { col: 3, row: 2 } }
+16:07:55 [DEBUG] (1) rustyline: c: 'Q' => key: KeyEvent(Char('Q'), Modifiers(0x0))
+16:07:55 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'Q')
+16:07:55 [DEBUG] (1) rustyline: Changeset::insert(0, 'Q')
+16:07:55 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
+16:07:55 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
+16:07:55 [DEBUG] (1) milkcoded: Input: Q
+16:07:55 [INFO] Milk Project Exited

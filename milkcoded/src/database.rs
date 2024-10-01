@@ -3,6 +3,7 @@ use sqlx::FromRow;
 use uuid::Uuid;
 
 #[derive(Debug, FromRow)]
+#[allow(unused)]
 pub struct MilkDatabaseTest {
     pub mothers: Vec<Mother>,
     pub babies: Vec<Baby>,
@@ -11,6 +12,7 @@ pub struct MilkDatabaseTest {
 }
 
 #[derive(Debug, FromRow)]
+#[allow(unused)]
 pub struct Mother {
     pub id: i32,
     pub name: String,
@@ -18,6 +20,7 @@ pub struct Mother {
 }
 
 #[derive(Debug, FromRow)]
+#[allow(unused)]
 pub struct Baby {
     pub id: i32,
     pub name: String,
@@ -26,12 +29,14 @@ pub struct Baby {
 }
 
 #[derive(Debug, FromRow)]
+#[allow(unused)]
 pub struct IsMotherOf {
     pub mother_id: i32,
     pub baby_id: i32,
 }
 
 #[derive(Debug, FromRow)]
+#[allow(unused)]
 pub struct Milk {
     pub id: Uuid,
     pub volume: i32,
@@ -42,6 +47,7 @@ pub struct Milk {
 }
 
 #[derive(Debug, FromRow)]
+#[allow(unused)]
 pub struct Feed {
     pub baby: i32,
     pub milk: i32,

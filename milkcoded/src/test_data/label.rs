@@ -42,7 +42,9 @@ pub fn generate_label(
         additives: additives.to_string(),
         mother: mother.to_string(),
         baby: baby.to_string(),
-        expiry: (chrono::Utc::now() + chrono::Duration::days(10)).to_string(),
+        expiry: (chrono::Utc::now() + chrono::Duration::days(10))
+            .format("%Y-%m-%d")
+            .to_string(),
         id: id.clone(),
         code: output_path,
     };

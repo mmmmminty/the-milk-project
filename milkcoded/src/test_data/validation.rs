@@ -9,12 +9,12 @@ pub fn validate_milk(
     bottle_id: &String,
     time: NaiveDateTime,
 ) -> Result<Validation> {
-    info!("Validating milk: {}", bottle_id);
     let milk = context
         .bottles
         .iter()
         .find(|bottle| &bottle.id.to_string() == bottle_id)
         .ok_or(anyhow!("No corresponding milk in database"))?;
+    info!("Validating milk: {:?}", milk);
 
     let baby = context
         .babies
