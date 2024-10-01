@@ -4,6 +4,7 @@ use log::*;
 use rustyline::{history::FileHistory, Editor};
 use simplelog::*;
 use std::{fs::File, process::Command};
+use terminal_fonts::to_block_string;
 
 #[allow(unused_imports)]
 use detection::{detect, detect_threaded};
@@ -21,7 +22,7 @@ fn init_logging() {
     let file = File::create("milk.log").unwrap();
     CombinedLogger::init(vec![
         TermLogger::new(
-            LevelFilter::Info,
+            LevelFilter::Error,
             Config::default(),
             TerminalMode::Mixed,
             ColorChoice::Auto,
@@ -38,9 +39,16 @@ fn main() -> Result<()> {
     let mut test_data = init_test_data()?;
     info!("Test data initialized");
     info!("Starting main loop");
+
     loop {
-        let input =
-            rl.readline("Enter F to scan for a feed, E to create a new label, or Q to quit\n>> ");
+        std::thread::sleep(std::time::Duration::from_secs(2));
+        print!("\x1b[2J\x1b[H");
+        println!("{}\n", to_block_string("MILK"));
+        println!("\x1b[1mWelcome to the Milk Project!\x1b[0m");
+        println!("Current Assigned Baby: {}.", test_data.babies[0].name);
+
+        let input = rl
+            .readline("Enter F to scan for a feed, E to create a new label, or Q to quit.\n\n>> ");
         let input = match input {
             Ok(input) => input.trim().to_string(),
             Err(_) => {
@@ -67,35 +75,38 @@ fn main() -> Result<()> {
                     .unwrap();
 
                 match validate_milk(&mut test_data, &bottle_id, test_date) {
-                    Ok(validation) => {
-                        match validation {
-                            Validation::Valid(baby) => {
-                                println!("Milk is all good for {}!", baby);
-                            }
-                            Validation::Expired(date) => {
-                                println!("Milk is expired, expired on {}!", date);
-                            }
-                            Validation::Allergenated(allergen) => {
-                                println!(
-                                    "Baby is allergic to {}, which is contained in the milk!",
+                    Ok(validation) => match validation {
+                        Validation::Valid(baby) => {
+                            println!("\n\x1b[1;32m{}\x1b[0m\n", to_block_string("VALID"));
+                            println!("\x1b[1;32mMilk is all good for {}!\x1b[0m", baby);
+                        }
+                        Validation::Expired(date) => {
+                            println!("\n\x1b[1;31m{}\x1b[0m\n", to_block_string("EXPIRED"));
+                            println!("\x1b[1;31mMilk is expired, expired on {}!\x1b[0m", date);
+                        }
+                        Validation::Allergenated(allergen) => {
+                            println!("\n\x1b[1;31m{}\x1b[0m\n", to_block_string("ALLEGERNATED"));
+                            println!(
+                                    "\x1b[1;31mBaby is allergic to {}, which is contained in the milk!\x1b[0m",
                                     allergen
                                 );
-                            }
-                            Validation::IncorrectMother(mother) => {
-                                println!("This milk is from {}, who is not the mother of the selected baby!", mother);
-                            }
                         }
-                    }
+                        Validation::IncorrectMother(mother) => {
+                            println!("\n\x1b[1;31m{}\x1b[0m\n", to_block_string("WRONG MOM"));
+                            println!("\x1b[1;31mThis milk is from {}, who is not the mother of the selected baby!\x1b[0m", mother);
+                        }
+                    },
                     Err(e) => {
                         warn!("Error validating milk: {:?}", e);
                         println!("Error validating milk, please try again.");
                         continue;
                     }
                 };
+                std::thread::sleep(std::time::Duration::from_secs(5));
             }
             "E" => {
                 debug!("Input: E");
-                println!("Enter the following fields to create a new label:");
+                println!("\x1b[1mEnter the following fields to create a new label:\x1b[0m");
                 let volume: i32 = loop {
                     let input = rl.readline("Volume (mL): ");
                     match input {
@@ -152,7 +163,11 @@ fn main() -> Result<()> {
 
                 match generate_label(volume, &additives, &mother, &baby, None) {
                     Ok(label) => {
-                        println!("Label generated successfully, saved to {}.", label.code);
+                        println!("\n\x1b[1;32m{}\x1b[0m\n", to_block_string("SUCCESS"));
+                        println!(
+                            "\x1b[1;32mLabel generated successfully, saved to {}.\x1b[0m",
+                            label.code
+                        );
                         if let Err(e) = Command::new("open").arg(&label.code).spawn() {
                             warn!("Failed to open label: {:?}", e);
                             println!("Failed to open label, but I promise it's there!");
@@ -166,6 +181,7 @@ fn main() -> Result<()> {
                 };
 
                 info!("Label generated successfully");
+                std::thread::sleep(std::time::Duration::from_secs(5));
             }
             "Q" => {
                 debug!("Input: Q");
@@ -177,6 +193,9 @@ fn main() -> Result<()> {
             }
         }
     }
+
+    print!("\x1b[2J\x1b[H");
+    println!("\n{}\n", to_block_string("GOODBYE"));
 
     info!("Milk Project Exited");
     Ok(())
