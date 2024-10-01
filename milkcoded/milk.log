@@ -1,0 +1,536 @@
+11:12:22 [INFO] Starting Milk Project
+11:12:22 [INFO] Test data initialized
+11:12:22 [INFO] Initialised Nokhwa: true
+11:12:22 [INFO] Started camera
+11:12:23 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 0 started
+11:12:23 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:23 [DEBUG] (1) milkcoded::detection: Nothing found on frame 0
+11:12:23 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 1 started
+11:12:23 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:23 [DEBUG] (1) milkcoded::detection: Nothing found on frame 1
+11:12:23 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 2 started
+11:12:23 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:23 [DEBUG] (1) milkcoded::detection: Nothing found on frame 2
+11:12:23 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 3 started
+11:12:24 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:24 [DEBUG] (1) milkcoded::detection: Nothing found on frame 3
+11:12:24 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 4 started
+11:12:24 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:24 [DEBUG] (1) milkcoded::detection: Nothing found on frame 4
+11:12:24 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 5 started
+11:12:24 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:24 [DEBUG] (1) milkcoded::detection: Nothing found on frame 5
+11:12:24 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 6 started
+11:12:24 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:24 [DEBUG] (1) milkcoded::detection: Nothing found on frame 6
+11:12:24 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 7 started
+11:12:24 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:24 [DEBUG] (1) milkcoded::detection: Nothing found on frame 7
+11:12:24 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 8 started
+11:12:24 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:24 [DEBUG] (1) milkcoded::detection: Nothing found on frame 8
+11:12:24 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 9 started
+11:12:25 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:25 [DEBUG] (1) milkcoded::detection: Nothing found on frame 9
+11:12:25 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 10 started
+11:12:25 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:25 [DEBUG] (1) milkcoded::detection: Nothing found on frame 10
+11:12:25 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 11 started
+11:12:25 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:25 [DEBUG] (1) milkcoded::detection: Nothing found on frame 11
+11:12:25 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 12 started
+11:12:25 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:25 [DEBUG] (1) milkcoded::detection: Nothing found on frame 12
+11:12:25 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 13 started
+11:12:25 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:25 [DEBUG] (1) milkcoded::detection: Nothing found on frame 13
+11:12:25 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 14 started
+11:12:25 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:25 [DEBUG] (1) milkcoded::detection: Nothing found on frame 14
+11:12:25 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 15 started
+11:12:25 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:25 [DEBUG] (1) milkcoded::detection: Nothing found on frame 15
+11:12:25 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 16 started
+11:12:26 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:26 [DEBUG] (1) milkcoded::detection: Nothing found on frame 16
+11:12:26 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 17 started
+11:12:26 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:26 [DEBUG] (1) milkcoded::detection: Nothing found on frame 17
+11:12:26 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 18 started
+11:12:26 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:26 [DEBUG] (1) milkcoded::detection: Nothing found on frame 18
+11:12:26 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 19 started
+11:12:26 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:26 [DEBUG] (1) milkcoded::detection: Nothing found on frame 19
+11:12:26 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 20 started
+11:12:27 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:27 [DEBUG] (1) milkcoded::detection: Nothing found on frame 20
+11:12:27 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 21 started
+11:12:27 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:27 [DEBUG] (1) milkcoded::detection: Nothing found on frame 21
+11:12:27 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 22 started
+11:12:27 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:27 [DEBUG] (1) milkcoded::detection: Nothing found on frame 22
+11:12:27 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 23 started
+11:12:27 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:27 [DEBUG] (1) milkcoded::detection: Nothing found on frame 23
+11:12:27 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 24 started
+11:12:27 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:27 [DEBUG] (1) milkcoded::detection: Nothing found on frame 24
+11:12:27 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 25 started
+11:12:28 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:28 [DEBUG] (1) milkcoded::detection: Nothing found on frame 25
+11:12:28 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 26 started
+11:12:28 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:28 [DEBUG] (1) milkcoded::detection: Nothing found on frame 26
+11:12:28 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 27 started
+11:12:28 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:28 [DEBUG] (1) milkcoded::detection: Nothing found on frame 27
+11:12:28 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 28 started
+11:12:28 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:28 [DEBUG] (1) milkcoded::detection: Nothing found on frame 28
+11:12:28 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 29 started
+11:12:28 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:28 [DEBUG] (1) milkcoded::detection: Nothing found on frame 29
+11:12:28 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 30 started
+11:12:28 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:28 [DEBUG] (1) milkcoded::detection: Nothing found on frame 30
+11:12:28 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 31 started
+11:12:28 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:28 [DEBUG] (1) milkcoded::detection: Nothing found on frame 31
+11:12:28 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 32 started
+11:12:29 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:29 [DEBUG] (1) milkcoded::detection: Nothing found on frame 32
+11:12:29 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 33 started
+11:12:29 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:29 [DEBUG] (1) milkcoded::detection: Nothing found on frame 33
+11:12:29 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 34 started
+11:12:29 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:29 [DEBUG] (1) milkcoded::detection: Nothing found on frame 34
+11:12:29 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 35 started
+11:12:30 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:30 [DEBUG] (1) milkcoded::detection: Nothing found on frame 35
+11:12:30 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 36 started
+11:12:30 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:30 [DEBUG] (1) milkcoded::detection: Nothing found on frame 36
+11:12:30 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 37 started
+11:12:30 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:30 [DEBUG] (1) milkcoded::detection: Nothing found on frame 37
+11:12:30 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 38 started
+11:12:30 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:30 [DEBUG] (1) milkcoded::detection: Nothing found on frame 38
+11:12:31 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 39 started
+11:12:31 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:31 [DEBUG] (1) milkcoded::detection: Nothing found on frame 39
+11:12:31 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 40 started
+11:12:31 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:31 [DEBUG] (1) milkcoded::detection: Nothing found on frame 40
+11:12:31 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 41 started
+11:12:31 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:31 [DEBUG] (1) milkcoded::detection: Nothing found on frame 41
+11:12:31 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 42 started
+11:12:31 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:31 [DEBUG] (1) milkcoded::detection: Nothing found on frame 42
+11:12:31 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 43 started
+11:12:32 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:32 [DEBUG] (1) milkcoded::detection: Nothing found on frame 43
+11:12:32 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 44 started
+11:12:32 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:32 [DEBUG] (1) milkcoded::detection: Nothing found on frame 44
+11:12:32 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 45 started
+11:12:32 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:32 [DEBUG] (1) milkcoded::detection: Nothing found on frame 45
+11:12:32 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 46 started
+11:12:32 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 675.0,
+            y: 433.0,
+        },
+        module_size: 11.035714285714285,
+        last_module_size: 0.0,
+    },
+]
+11:12:32 [DEBUG] (1) milkcoded::detection: Nothing found on frame 46
+11:12:32 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 47 started
+11:12:32 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:32 [DEBUG] (1) milkcoded::detection: Nothing found on frame 47
+11:12:32 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 48 started
+11:12:32 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:32 [DEBUG] (1) milkcoded::detection: Nothing found on frame 48
+11:12:32 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 49 started
+11:12:33 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:33 [DEBUG] (1) milkcoded::detection: Nothing found on frame 49
+11:12:33 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 50 started
+11:12:33 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:33 [DEBUG] (1) milkcoded::detection: Nothing found on frame 50
+11:12:33 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 51 started
+11:12:33 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:33 [DEBUG] (1) milkcoded::detection: Nothing found on frame 51
+11:12:33 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 52 started
+11:12:33 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:33 [DEBUG] (1) milkcoded::detection: Nothing found on frame 52
+11:12:33 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 53 started
+11:12:33 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:33 [DEBUG] (1) milkcoded::detection: Nothing found on frame 53
+11:12:33 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 54 started
+11:12:33 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:33 [DEBUG] (1) milkcoded::detection: Nothing found on frame 54
+11:12:33 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 55 started
+11:12:33 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:33 [DEBUG] (1) milkcoded::detection: Nothing found on frame 55
+11:12:33 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 56 started
+11:12:34 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:34 [DEBUG] (1) milkcoded::detection: Nothing found on frame 56
+11:12:34 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 57 started
+11:12:34 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:34 [DEBUG] (1) milkcoded::detection: Nothing found on frame 57
+11:12:34 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 58 started
+11:12:34 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:34 [DEBUG] (1) milkcoded::detection: Nothing found on frame 58
+11:12:34 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 59 started
+11:12:34 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:34 [DEBUG] (1) milkcoded::detection: Nothing found on frame 59
+11:12:34 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 60 started
+11:12:34 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:34 [DEBUG] (1) milkcoded::detection: Nothing found on frame 60
+11:12:34 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 61 started
+11:12:34 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 767.5,
+            y: 595.0,
+        },
+        module_size: 11.607142857142858,
+        last_module_size: 0.0,
+    },
+]
+11:12:34 [DEBUG] (1) milkcoded::detection: Nothing found on frame 61
+11:12:34 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 62 started
+11:12:34 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 785.0,
+            y: 601.0,
+        },
+        module_size: 11.642857142857142,
+        last_module_size: 0.0,
+    },
+]
+11:12:34 [DEBUG] (1) milkcoded::detection: Nothing found on frame 62
+11:12:34 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 63 started
+11:12:35 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:35 [DEBUG] (1) milkcoded::detection: Nothing found on frame 63
+11:12:35 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 64 started
+11:12:35 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 785.5,
+            y: 582.0,
+        },
+        module_size: 10.892857142857142,
+        last_module_size: 0.0,
+    },
+]
+11:12:35 [DEBUG] (1) milkcoded::detection: Nothing found on frame 64
+11:12:35 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 65 started
+11:12:35 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 474.5,
+            y: 583.0,
+        },
+        module_size: 11.535714285714285,
+        last_module_size: 0.0,
+    },
+]
+11:12:35 [DEBUG] (1) milkcoded::detection: Nothing found on frame 65
+11:12:35 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 66 started
+11:12:35 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 480.5,
+            y: 591.0,
+        },
+        module_size: 11.392857142857142,
+        last_module_size: 0.0,
+    },
+]
+11:12:35 [DEBUG] (1) milkcoded::detection: Nothing found on frame 66
+11:12:35 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 67 started
+11:12:35 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 478.0,
+            y: 595.0,
+        },
+        module_size: 11.25,
+        last_module_size: 0.0,
+    },
+]
+11:12:35 [DEBUG] (1) milkcoded::detection: Nothing found on frame 67
+11:12:35 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 68 started
+11:12:35 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:35 [DEBUG] (1) milkcoded::detection: Nothing found on frame 68
+11:12:35 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 69 started
+11:12:35 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 465.5,
+            y: 595.0,
+        },
+        module_size: 11.571428571428571,
+        last_module_size: 0.0,
+    },
+]
+11:12:35 [DEBUG] (1) milkcoded::detection: Nothing found on frame 69
+11:12:35 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 70 started
+11:12:36 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 463.5,
+            y: 604.0,
+        },
+        module_size: 11.178571428571429,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 770.0,
+            y: 605.0,
+        },
+        module_size: 10.75,
+        last_module_size: 0.0,
+    },
+]
+11:12:36 [DEBUG] (1) milkcoded::detection: Nothing found on frame 70
+11:12:36 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 71 started
+11:12:36 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:36 [DEBUG] (1) milkcoded::detection: Nothing found on frame 71
+11:12:36 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 72 started
+11:12:36 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:36 [DEBUG] (1) milkcoded::detection: Nothing found on frame 72
+11:12:36 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 73 started
+11:12:36 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:36 [DEBUG] (1) milkcoded::detection: Nothing found on frame 73
+11:12:36 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 74 started
+11:12:36 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:36 [DEBUG] (1) milkcoded::detection: Nothing found on frame 74
+11:12:36 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 75 started
+11:12:37 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:37 [DEBUG] (1) milkcoded::detection: Nothing found on frame 75
+11:12:37 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 76 started
+11:12:37 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:37 [DEBUG] (1) milkcoded::detection: Nothing found on frame 76
+11:12:37 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 77 started
+11:12:37 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:37 [DEBUG] (1) milkcoded::detection: Nothing found on frame 77
+11:12:37 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 78 started
+11:12:37 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:37 [DEBUG] (1) milkcoded::detection: Nothing found on frame 78
+11:12:37 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 79 started
+11:12:37 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:37 [DEBUG] (1) milkcoded::detection: Nothing found on frame 79
+11:12:37 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 80 started
+11:12:37 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:37 [DEBUG] (1) milkcoded::detection: Nothing found on frame 80
+11:12:37 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 81 started
+11:12:38 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:38 [DEBUG] (1) milkcoded::detection: Nothing found on frame 81
+11:12:38 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 82 started
+11:12:38 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:38 [DEBUG] (1) milkcoded::detection: Nothing found on frame 82
+11:12:38 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 83 started
+11:12:38 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:38 [DEBUG] (1) milkcoded::detection: Nothing found on frame 83
+11:12:38 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 84 started
+11:12:38 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:38 [DEBUG] (1) milkcoded::detection: Nothing found on frame 84
+11:12:38 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 85 started
+11:12:38 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:38 [DEBUG] (1) milkcoded::detection: Nothing found on frame 85
+11:12:38 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 86 started
+11:12:38 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:38 [DEBUG] (1) milkcoded::detection: Nothing found on frame 86
+11:12:38 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 87 started
+11:12:39 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 660.5,
+            y: 398.0,
+        },
+        module_size: 10.642857142857142,
+        last_module_size: 0.0,
+    },
+]
+11:12:39 [DEBUG] (1) milkcoded::detection: Nothing found on frame 87
+11:12:39 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 88 started
+11:12:39 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:39 [DEBUG] (1) milkcoded::detection: Nothing found on frame 88
+11:12:39 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 89 started
+11:12:39 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:39 [DEBUG] (1) milkcoded::detection: Nothing found on frame 89
+11:12:39 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 90 started
+11:12:39 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:39 [DEBUG] (1) milkcoded::detection: Nothing found on frame 90
+11:12:39 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 91 started
+11:12:39 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:39 [DEBUG] (1) milkcoded::detection: Nothing found on frame 91
+11:12:39 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 92 started
+11:12:39 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:39 [DEBUG] (1) milkcoded::detection: Nothing found on frame 92
+11:12:39 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 93 started
+11:12:39 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 753.5,
+            y: 493.0,
+        },
+        module_size: 9.464285714285715,
+        last_module_size: 0.0,
+    },
+]
+11:12:39 [DEBUG] (1) milkcoded::detection: Nothing found on frame 93
+11:12:40 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 94 started
+11:12:40 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 484.0,
+            y: 501.0,
+        },
+        module_size: 9.892857142857142,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 761.0,
+            y: 520.0,
+        },
+        module_size: 10.107142857142858,
+        last_module_size: 0.0,
+    },
+]
+11:12:40 [DEBUG] (1) milkcoded::detection: Nothing found on frame 94
+11:12:40 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 95 started
+11:12:40 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+11:12:40 [DEBUG] (1) milkcoded::detection: Nothing found on frame 95
+11:12:40 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 96 started
+11:12:40 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 493.5,
+            y: 638.0,
+        },
+        module_size: 10.357142857142858,
+        last_module_size: 0.0,
+    },
+]
+11:12:40 [DEBUG] (1) milkcoded::detection: Nothing found on frame 96
+11:12:40 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 97 started
+11:12:40 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 495.0,
+            y: 622.0,
+        },
+        module_size: 10.607142857142858,
+        last_module_size: 0.0,
+    },
+]
+11:12:40 [DEBUG] (1) milkcoded::detection: Nothing found on frame 97
+11:12:40 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 98 started
+11:12:40 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 497.0,
+            y: 331.0,
+        },
+        module_size: 10.535714285714285,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 492.5,
+            y: 619.0,
+        },
+        module_size: 10.714285714285715,
+        last_module_size: 0.0,
+    },
+]
+11:12:40 [DEBUG] (1) milkcoded::detection: Nothing found on frame 98
+11:12:40 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 99 started
+11:12:41 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 488.5,
+            y: 346.0,
+        },
+        module_size: 10.785714285714285,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 488.0,
+            y: 638.0,
+        },
+        module_size: 10.857142857142858,
+        last_module_size: 0.0,
+    },
+]
+11:12:41 [DEBUG] (1) milkcoded::detection: Nothing found on frame 99
+11:12:41 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 100 started
+11:12:41 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 492.5,
+            y: 646.0,
+        },
+        module_size: 11.285714285714286,
+        last_module_size: 0.0,
+    },
+]
+11:12:41 [DEBUG] (1) milkcoded::detection: Nothing found on frame 100
+11:12:41 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 101 started
+11:12:41 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 498.0,
+            y: 361.0,
+        },
+        module_size: 10.928571428571429,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 800.5,
+            y: 653.0,
+        },
+        module_size: 11.0,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 499.0,
+            y: 658.0,
+        },
+        module_size: 11.178571428571429,
+        last_module_size: 0.0,
+    },
+]
+11:12:41 [DEBUG] (1) bardecoder::extract::qr: LOC QRLocation { top_left: Point { x: 499.0, y: 658.0 }, top_right: Point { x: 498.0, y: 361.0 }, bottom_left: Point { x: 800.5, y: 653.0 }, module_size: 10.928571428571429, version: 4 }
+11:12:41 [DEBUG] (1) bardecoder::extract::qr: LEFT X 753 RIGHT X 764
+11:12:41 [DEBUG] (1) bardecoder::extract::qr: TOP Y 384 BOTTOM Y 396
+11:12:41 [DEBUG] (1) bardecoder::extract::qr: ORIG EST Point { x: 764.8269230769231, y: 390.84615384615387 }, NEW EST Point { x: 758.5, y: 390.0 }
+11:12:41 [DEBUG] (1) bardecoder::extract::qr: DELTA Delta { dx: -6.326923076923094, dy: -0.846153846153868 }
+11:12:41 [DEBUG] (1) bardecoder::extract::qr: PERSPECTIVE Perspective { dx: Delta { dx: -0.038461538461538464, dy: -11.423076923076923 }, ddx: Delta { dx: -0.01196015704522324, dy: -0.0015995346808201664 }, dy: Delta { dx: 11.596153846153847, dy: -0.19230769230769232 }, ddy: Delta { dx: 0.0, dy: 0.0 } }
+11:12:41 [DEBUG] (1) bardecoder::extract::qr: START Point { x: 464.21153846153845, y: 658.5769230769231 }
+11:12:41 [DEBUG] (1) bardecoder::decode::qr::format: MASK 110
+11:12:41 [DEBUG] (1) bardecoder::decode::qr::blocks: BLOCK 0, CODEWORDS 50
+11:12:41 [DEBUG] (1) bardecoder::decode::qr::blocks: BLOCK 1, CODEWORDS 50
+11:12:41 [DEBUG] (1) bardecoder::decode::qr::correct: ALL SYNDROMES WERE ZERO, NO CORRECTION NEEDED
+11:12:41 [DEBUG] (1) bardecoder::decode::qr::correct: ALL SYNDROMES WERE ZERO, NO CORRECTION NEEDED
+11:12:41 [DEBUG] (1) bardecoder::decode::qr::decoder: TOTAL LENGTH 48
+11:12:41 [DEBUG] (1) bardecoder::decode::qr::data: EIGHT BIT RAW [54, 53, 101, 56, 57, 101, 102, 98, 45, 102, 48, 53, 53, 45, 52, 55, 50, 102, 45, 97, 55, 55, 100, 45, 99, 51, 101, 97, 56, 102, 98, 101, 99, 99, 49, 51]
+11:12:41 [DEBUG] (1) bardecoder::decode::qr::data: EIGHT BIT AS ISO 8859-1 "65e89efb-f055-472f-a77d-c3ea8fbecc13"
+11:12:41 [INFO] Decoder thread for frame 101 found: 65e89efb-f055-472f-a77d-c3ea8fbecc13
+11:12:41 [INFO] Code found after 101 frames
