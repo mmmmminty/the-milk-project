@@ -1,5 +1,5 @@
-use sqlx::FromRow;
 use chrono::NaiveDateTime;
+use sqlx::FromRow;
 use uuid::Uuid;
 
 #[derive(Debug, FromRow)]
