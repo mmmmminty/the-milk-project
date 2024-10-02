@@ -9,7 +9,6 @@ image = "0.24"
 log = "0.4.22"
 qrcodegen = "1.8.0"
 sqlx = "0.8.2"
-nokhwa = { version = "0.10.4", default-features = false, features = ["input-native", "flume", "output-threaded"] }
 chrono = "0.4.38"
 simplelog = "0.12.2"
 bardecoder = "0.5.0"
@@ -20,6 +19,7 @@ usvg = "0.44.0"
 resvg = "0.44.0"
 rustyline = "14.0.0"
 terminal-fonts = "0.1.0"
+kamera = "0.0.2"
 
 [dependencies.uuid]
 version = "1.10.0"

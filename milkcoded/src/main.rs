@@ -7,7 +7,7 @@ use std::{fs::File, process::Command};
 use terminal_fonts::to_block_string;
 
 #[allow(unused_imports)]
-use detection::{detect, detect_threaded};
+use detection::detect;
 use encode::encode;
 use test_data::{
     init_test_data, invariants::Validation, label::generate_label, validation::validate_milk,
@@ -22,7 +22,7 @@ fn init_logging() {
     let file = File::create("milk.log").unwrap();
     CombinedLogger::init(vec![
         TermLogger::new(
-            LevelFilter::Debug,
+            LevelFilter::Error,
             Config::default(),
             TerminalMode::Mixed,
             ColorChoice::Auto,
@@ -61,6 +61,7 @@ fn main() -> Result<()> {
         match input.as_str() {
             "F" => {
                 debug!("Input: F");
+                println!("Scanning for bottle code...");
                 let bottle_id = match detect() {
                     Ok(bottle_id) => bottle_id,
                     Err(e) => {
@@ -102,7 +103,7 @@ fn main() -> Result<()> {
                         continue;
                     }
                 };
-                std::thread::sleep(std::time::Duration::from_secs(5));
+                std::thread::sleep(std::time::Duration::from_secs(3));
             }
             "E" => {
                 debug!("Input: E");
@@ -184,7 +185,7 @@ fn main() -> Result<()> {
                 };
 
                 info!("Label generated successfully");
-                std::thread::sleep(std::time::Duration::from_secs(5));
+                std::thread::sleep(std::time::Duration::from_secs(3));
             }
             "Q" => {
                 debug!("Input: Q");
