@@ -1,6 +1,7 @@
 use crate::database::*;
 use anyhow::Result;
-use chrono::NaiveDate;use uuid::{uuid, Uuid};
+use chrono::NaiveDate;
+use uuid::{uuid, Uuid};
 
 pub mod invariants;
 pub mod label;

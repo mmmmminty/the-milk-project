@@ -1,6 +1,6 @@
 use anyhow::Result;
-use log::{debug, info, warn};
 use kamera::Camera;
+use log::{debug, info, warn};
 
 /// Maximum number of frames to read before giving up.
 const MAX_FRAME_READS: usize = 30;
@@ -16,7 +16,7 @@ pub fn detect() -> Result<String> {
     // camera.change_device();
     camera.start();
     info!("Started camera");
-    
+
     while let Some(frame) = camera.wait_for_frame() {
         debug!("Frame {frame_count} analysis started");
 
@@ -32,7 +32,7 @@ pub fn detect() -> Result<String> {
         let decoded = decoder.decode(&image);
         let mut code = None;
 
-        for res in decoded { 
+        for res in decoded {
             match res {
                 Ok(val) => {
                     info!("Frame {frame_count} analysis found: {val}");
@@ -46,23 +46,20 @@ pub fn detect() -> Result<String> {
 
         if let Some(code) = code {
             info!("Code found after {frame_count} frames");
-            
+
             // Sneaky sneaky...
             let time = chrono::Local::now().format("%H-%M-%S").to_string();
             image.save(format!("sniped/sniped_{time}.png"))?;
 
             result = Ok(code);
             break;
-
         } else if let None = code {
             debug!("Nothing found on frame {frame_count}");
             frame_count += 1;
-
         } else if frame_count >= MAX_FRAME_READS {
             warn!("Exceeded maximum frame reads ({frame_count})");
             result = Err(anyhow::anyhow!("Exceeded maximum frame reads"));
             break;
-
         }
     }
 
