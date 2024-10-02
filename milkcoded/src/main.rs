@@ -22,7 +22,7 @@ fn init_logging() {
     let file = File::create("milk.log").unwrap();
     CombinedLogger::init(vec![
         TermLogger::new(
-            LevelFilter::Error,
+            LevelFilter::Debug,
             Config::default(),
             TerminalMode::Mixed,
             ColorChoice::Auto,
@@ -172,6 +172,9 @@ fn main() -> Result<()> {
                             warn!("Failed to open label: {:?}", e);
                             println!("Failed to open label, but I promise it's there!");
                         }
+
+                        // Garbage code tbh
+                        test_data.bottles.push(label.to_milk()?);
                     }
                     Err(e) => {
                         warn!("Error generating label: {:?}", e);

@@ -1,4 +1,5 @@
 use std::fs;
+use std::str::FromStr;
 
 use ab_glyph::{FontArc, PxScale};
 use anyhow::Result;
@@ -10,6 +11,8 @@ use uuid::Uuid;
 
 use crate::encode;
 
+use super::Milk;
+
 #[derive(Debug)]
 pub struct Label {
     pub volume: i32,
@@ -19,6 +22,19 @@ pub struct Label {
     pub expiry: String,
     pub id: String,
     pub code: String,
+}
+
+impl Label {
+    pub fn to_milk(self) -> Result<Milk> {
+        Ok(Milk {
+            id: uuid::Uuid::from_str(&self.id)?,
+            volume: self.volume,
+            additives: Some(self.additives),
+            expiry: chrono::NaiveDateTime::parse_from_str(&self.expiry, "%Y-%m-%d")?,
+            expressed_at: chrono::Utc::now().naive_utc(),
+            expressed_by: 00000000000,
+        })
+    }
 }
 
 pub fn generate_label(

@@ -1,92 +1,692 @@
-16:07:04 [INFO] Starting Milk Project
-16:07:04 [INFO] Test data initialized
-16:07:04 [INFO] Starting main loop
-16:07:06 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
-16:07:06 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
-16:07:06 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
-16:07:06 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
-16:07:06 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
-16:07:06 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 3, row: 2 }, default_prompt: true, cursor: Position { col: 3, row: 2 }, end: Position { col: 3, row: 2 } }
-16:07:07 [DEBUG] (1) rustyline: c: 'F' => key: KeyEvent(Char('F'), Modifiers(0x0))
-16:07:07 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'F')
-16:07:07 [DEBUG] (1) rustyline: Changeset::insert(0, 'F')
-16:07:08 [DEBUG] (1) rustyline: c: '\u{7f}' => key: KeyEvent(Backspace, Modifiers(0x0))
-16:07:08 [DEBUG] (1) rustyline: Emacs command: Kill(BackwardChar(1))
-16:07:08 [DEBUG] (1) rustyline: Changeset::delete(0, "F")
-16:07:08 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 3, row: 2 }, default_prompt: true, cursor: Position { col: 4, row: 2 }, end: Position { col: 4, row: 2 } }
-16:07:08 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 3, row: 2 }, default_prompt: true, cursor: Position { col: 3, row: 2 }, end: Position { col: 3, row: 2 } }
-16:07:09 [DEBUG] (1) rustyline: c: 'E' => key: KeyEvent(Char('E'), Modifiers(0x0))
-16:07:09 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'E')
-16:07:09 [DEBUG] (1) rustyline: Changeset::insert(0, 'E')
-16:07:09 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
-16:07:09 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
-16:07:09 [DEBUG] (1) milkcoded: Input: E
-16:07:09 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
-16:07:09 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
-16:07:09 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
-16:07:09 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
-16:07:09 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
-16:07:09 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 13, row: 0 }, default_prompt: true, cursor: Position { col: 13, row: 0 }, end: Position { col: 13, row: 0 } }
-16:07:10 [DEBUG] (1) rustyline: c: '3' => key: KeyEvent(Char('3'), Modifiers(0x0))
-16:07:10 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, '3')
-16:07:10 [DEBUG] (1) rustyline: Changeset::insert(0, '3')
-16:07:10 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
-16:07:10 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
-16:07:10 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
-16:07:10 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
-16:07:10 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
-16:07:10 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
-16:07:10 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
-16:07:10 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 29, row: 0 }, default_prompt: true, cursor: Position { col: 29, row: 0 }, end: Position { col: 29, row: 0 } }
-16:07:11 [DEBUG] (1) rustyline: c: 'e' => key: KeyEvent(Char('e'), Modifiers(0x0))
-16:07:11 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'e')
-16:07:11 [DEBUG] (1) rustyline: Changeset::insert(0, 'e')
-16:07:11 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
-16:07:11 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
-16:07:11 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
-16:07:11 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
-16:07:11 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
-16:07:11 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
-16:07:11 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
-16:07:11 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 8, row: 0 }, default_prompt: true, cursor: Position { col: 8, row: 0 }, end: Position { col: 8, row: 0 } }
-16:07:11 [DEBUG] (1) rustyline: c: 'e' => key: KeyEvent(Char('e'), Modifiers(0x0))
-16:07:11 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'e')
-16:07:11 [DEBUG] (1) rustyline: Changeset::insert(0, 'e')
-16:07:11 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
-16:07:11 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
-16:07:11 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
-16:07:11 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
-16:07:11 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
-16:07:11 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
-16:07:11 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
-16:07:11 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 6, row: 0 }, default_prompt: true, cursor: Position { col: 6, row: 0 }, end: Position { col: 6, row: 0 } }
-16:07:11 [DEBUG] (1) rustyline: c: 'e' => key: KeyEvent(Char('e'), Modifiers(0x0))
-16:07:11 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'e')
-16:07:11 [DEBUG] (1) rustyline: Changeset::insert(0, 'e')
-16:07:12 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
-16:07:12 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
-16:07:12 [INFO] Generating label with ID: d719b509-846c-41dd-8ed4-f197b0002221
-16:07:12 [DEBUG] (1) milkcoded::test_data::label: Label QR rendered successfully
-16:07:12 [INFO] Label saved: Label { volume: 3, additives: "e", mother: "e", baby: "e", expiry: "2024-10-11", id: "d719b509-846c-41dd-8ed4-f197b0002221", code: "labels/label_d719b509-846c-41dd-8ed4-f197b0002221.png" }
-16:07:12 [INFO] Label generated successfully
-16:07:19 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
-16:07:19 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
-16:07:19 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
-16:07:19 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
-16:07:19 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
-16:07:19 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 3, row: 2 }, default_prompt: true, cursor: Position { col: 3, row: 2 }, end: Position { col: 3, row: 2 } }
-16:07:54 [DEBUG] (1) rustyline: c: 'g' => key: KeyEvent(Char('g'), Modifiers(0x0))
-16:07:54 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'g')
-16:07:54 [DEBUG] (1) rustyline: Changeset::insert(0, 'g')
-16:07:54 [DEBUG] (1) rustyline: c: '\u{7f}' => key: KeyEvent(Backspace, Modifiers(0x0))
-16:07:54 [DEBUG] (1) rustyline: Emacs command: Kill(BackwardChar(1))
-16:07:54 [DEBUG] (1) rustyline: Changeset::delete(0, "g")
-16:07:54 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 3, row: 2 }, default_prompt: true, cursor: Position { col: 4, row: 2 }, end: Position { col: 4, row: 2 } }
-16:07:54 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 3, row: 2 }, default_prompt: true, cursor: Position { col: 3, row: 2 }, end: Position { col: 3, row: 2 } }
-16:07:55 [DEBUG] (1) rustyline: c: 'Q' => key: KeyEvent(Char('Q'), Modifiers(0x0))
-16:07:55 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'Q')
-16:07:55 [DEBUG] (1) rustyline: Changeset::insert(0, 'Q')
-16:07:55 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
-16:07:55 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
-16:07:55 [DEBUG] (1) milkcoded: Input: Q
-16:07:55 [INFO] Milk Project Exited
+13:36:14 [INFO] Starting Milk Project
+13:36:14 [INFO] Test data initialized
+13:36:14 [INFO] Starting main loop
+13:36:16 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
+13:36:16 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
+13:36:16 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
+13:36:16 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
+13:36:16 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
+13:36:16 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 3, row: 2 }, default_prompt: true, cursor: Position { col: 3, row: 2 }, end: Position { col: 3, row: 2 } }
+13:36:17 [DEBUG] (1) rustyline: c: 'F' => key: KeyEvent(Char('F'), Modifiers(0x0))
+13:36:17 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'F')
+13:36:17 [DEBUG] (1) rustyline: Changeset::insert(0, 'F')
+13:36:18 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
+13:36:18 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
+13:36:18 [DEBUG] (1) milkcoded: Input: F
+13:36:18 [INFO] Started camera
+13:36:19 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 0 started
+13:36:21 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 24.0,
+            y: 574.0,
+        },
+        module_size: 2.7142857142857144,
+        last_module_size: 0.0,
+    },
+]
+13:36:21 [DEBUG] (1) milkcoded::detection: Nothing found on frame 0
+13:36:21 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 1 started
+13:36:22 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 410.5,
+            y: 49.0,
+        },
+        module_size: 3.321428571428571,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 1062.5,
+            y: 60.0,
+        },
+        module_size: 1.7857142857142858,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 696.0,
+            y: 70.0,
+        },
+        module_size: 5.321428571428571,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 937.0,
+            y: 86.0,
+        },
+        module_size: 4.321428571428571,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 132.5,
+            y: 91.0,
+        },
+        module_size: 5.571428571428571,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 208.5,
+            y: 845.0,
+        },
+        module_size: 8.464285714285714,
+        last_module_size: 0.0,
+    },
+]
+13:36:22 [DEBUG] (1) milkcoded::detection: Nothing found on frame 1
+13:36:22 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 2 started
+13:36:24 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 43.0,
+            y: 256.0,
+        },
+        module_size: 3.3571428571428568,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 193.0,
+            y: 844.0,
+        },
+        module_size: 3.892857142857143,
+        last_module_size: 0.0,
+    },
+]
+13:36:24 [DEBUG] (1) milkcoded::detection: Nothing found on frame 2
+13:36:24 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 3 started
+13:36:26 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 656.0,
+            y: 461.0,
+        },
+        module_size: 7.464285714285714,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 718.0,
+            y: 724.0,
+        },
+        module_size: 9.214285714285715,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 656.5,
+            y: 822.0,
+        },
+        module_size: 7.678571428571429,
+        last_module_size: 0.0,
+    },
+]
+13:36:26 [DEBUG] (1) milkcoded::detection: Nothing found on frame 3
+13:36:26 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 4 started
+13:36:28 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 803.5,
+            y: 355.0,
+        },
+        module_size: 6.678571428571429,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 628.0,
+            y: 354.0,
+        },
+        module_size: 7.0,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 630.0,
+            y: 532.0,
+        },
+        module_size: 7.25,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 632.0,
+            y: 683.0,
+        },
+        module_size: 7.107142857142858,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 809.0,
+            y: 680.0,
+        },
+        module_size: 6.857142857142858,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 677.5,
+            y: 781.0,
+        },
+        module_size: 6.678571428571429,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 637.5,
+            y: 870.0,
+        },
+        module_size: 7.321428571428571,
+        last_module_size: 0.0,
+    },
+]
+13:36:28 [DEBUG] (1) bardecoder::extract::qr: LOC QRLocation { top_left: Point { x: 628.0, y: 354.0 }, top_right: Point { x: 803.5, y: 355.0 }, bottom_left: Point { x: 630.0, y: 532.0 }, module_size: 6.678571428571429, version: 4 }
+13:36:28 [DEBUG] (1) bardecoder::extract::qr: LEFT X 783 RIGHT X 788
+13:36:28 [DEBUG] (1) bardecoder::extract::qr: TOP Y 506 BOTTOM Y 512
+13:36:28 [DEBUG] (1) bardecoder::extract::qr: ORIG EST Point { x: 785.0192307692307, y: 512.3461538461538 }, NEW EST Point { x: 785.5, y: 509.0 }
+13:36:28 [DEBUG] (1) bardecoder::extract::qr: DELTA Delta { dx: 0.48076923076928324, dy: -3.346153846153811 }
+13:36:28 [DEBUG] (1) bardecoder::extract::qr: PERSPECTIVE Perspective { dx: Delta { dx: 6.75, dy: 0.038461538461538464 }, ddx: Delta { dx: 0.0009088265231933521, dy: -0.006325432601424974 }, dy: Delta { dx: 0.07692307692307693, dy: 6.846153846153846 }, ddy: Delta { dx: 0.0, dy: 0.0 } }
+13:36:28 [DEBUG] (1) bardecoder::extract::qr: START Point { x: 627.7692307692307, y: 333.46153846153845 }
+13:36:28 [DEBUG] (1) bardecoder::decode::qr::format: MASK 010
+13:36:28 [DEBUG] (1) bardecoder::decode::qr::blocks: BLOCK 0, CODEWORDS 50
+13:36:28 [DEBUG] (1) bardecoder::decode::qr::blocks: BLOCK 1, CODEWORDS 50
+13:36:28 [DEBUG] (1) bardecoder::decode::qr::correct: ALL SYNDROMES WERE ZERO, NO CORRECTION NEEDED
+13:36:28 [DEBUG] (1) bardecoder::decode::qr::correct: LOC GF8(1) 0 
+13:36:28 [DEBUG] (1) bardecoder::decode::qr::correct: LOCS [0]
+13:36:28 [DEBUG] (1) bardecoder::decode::qr::correct: FIXING LOCATION 49 FROM 00001001 TO 10001001
+13:36:28 [DEBUG] (1) bardecoder::decode::qr::decoder: TOTAL LENGTH 48
+13:36:28 [DEBUG] (1) bardecoder::decode::qr::data: EIGHT BIT RAW [48, 101, 50, 100, 57, 101, 48, 50, 45, 50, 57, 55, 99, 45, 52, 49, 51, 53, 45, 56, 101, 98, 49, 45, 48, 49, 51, 51, 49, 57, 48, 102, 55, 53, 57, 99]
+13:36:28 [DEBUG] (1) bardecoder::decode::qr::data: EIGHT BIT AS ISO 8859-1 "0e2d9e02-297c-4135-8eb1-0133190f759c"
+13:36:28 [DEBUG] (1) bardecoder::extract::qr: LOC QRLocation { top_left: Point { x: 630.0, y: 532.0 }, top_right: Point { x: 803.5, y: 355.0 }, bottom_left: Point { x: 809.0, y: 680.0 }, module_size: 6.678571428571429, version: 6 }
+13:36:28 [DEBUG] (1) bardecoder::extract::qr: LOC QRLocation { top_left: Point { x: 632.0, y: 683.0 }, top_right: Point { x: 630.0, y: 532.0 }, bottom_left: Point { x: 809.0, y: 680.0 }, module_size: 7.25, version: 4 }
+13:36:28 [DEBUG] (1) bardecoder::extract::qr: LOC QRLocation { top_left: Point { x: 809.0, y: 680.0 }, top_right: Point { x: 637.5, y: 870.0 }, bottom_left: Point { x: 630.0, y: 532.0 }, module_size: 7.25, version: 6 }
+13:36:28 [DEBUG] (1) bardecoder::extract::qr: LOC QRLocation { top_left: Point { x: 632.0, y: 683.0 }, top_right: Point { x: 809.0, y: 680.0 }, bottom_left: Point { x: 637.5, y: 870.0 }, module_size: 7.107142857142858, version: 4 }
+13:36:28 [DEBUG] (1) bardecoder::extract::qr: LEFT X 793 RIGHT X 799
+13:36:28 [DEBUG] (1) bardecoder::extract::qr: TOP Y 839 BOTTOM Y 846
+13:36:28 [DEBUG] (1) bardecoder::extract::qr: ORIG EST Point { x: 793.4423076923077, y: 845.7692307692307 }, NEW EST Point { x: 796.0, y: 842.5 }
+13:36:28 [DEBUG] (1) bardecoder::extract::qr: DELTA Delta { dx: 2.557692307692264, dy: -3.2692307692307168 }
+13:36:28 [DEBUG] (1) bardecoder::extract::qr: PERSPECTIVE Perspective { dx: Delta { dx: 6.8076923076923075, dy: -0.11538461538461539 }, ddx: Delta { dx: 0.004834957103388023, dy: -0.00618002035771402 }, dy: Delta { dx: 0.21153846153846154, dy: 7.1923076923076925 }, ddy: Delta { dx: 0.0, dy: 0.0 } }
+13:36:28 [DEBUG] (1) bardecoder::extract::qr: START Point { x: 631.3653846153846, y: 661.4230769230769 }
+13:36:28 [DEBUG] (1) bardecoder::decode::qr::format: MASK 100
+13:36:28 [DEBUG] (1) bardecoder::decode::qr::blocks: BLOCK 0, CODEWORDS 50
+13:36:28 [DEBUG] (1) bardecoder::decode::qr::blocks: BLOCK 1, CODEWORDS 50
+13:36:28 [DEBUG] (1) bardecoder::decode::qr::correct: ALL SYNDROMES WERE ZERO, NO CORRECTION NEEDED
+13:36:28 [DEBUG] (1) bardecoder::decode::qr::correct: LOC GF8(234) 22 
+13:36:28 [DEBUG] (1) bardecoder::decode::qr::correct: LOC GF8(201) 23 
+13:36:28 [DEBUG] (1) bardecoder::decode::qr::correct: LOCS [22, 23]
+13:36:28 [DEBUG] (1) bardecoder::decode::qr::correct: FIXING LOCATION 27 FROM 10101110 TO 01111011
+13:36:28 [DEBUG] (1) bardecoder::decode::qr::correct: FIXING LOCATION 26 FROM 10101000 TO 01111100
+13:36:28 [INFO] Decoder thread for frame 4 found: 0e2d9e02-297c-4135-8eb1-0133190f759c
+13:36:28 [INFO] Decoder thread for frame 4 had an extraction error: Error decoding QR Code: Unable to find alignment pattern
+13:36:28 [INFO] Decoder thread for frame 4 had an extraction error: Error decoding QR Code: Unable to find alignment pattern
+13:36:28 [INFO] Decoder thread for frame 4 had an extraction error: Error decoding QR Code: Unable to find alignment pattern
+13:36:28 [INFO] Decoder thread for frame 4 had an extraction error: Error decoding QR Code: Error correcting did not fix corrupted data
+13:36:28 [INFO] Code found after 4 frames
+13:36:29 [INFO] Validating milk: Milk { id: 0e2d9e02-297c-4135-8eb1-0133190f759c, volume: 150, additives: Some("HG7"), expiry: 2024-10-12T12:30:00, expressed_at: 2024-10-06T12:30:00, expressed_by: 393 }
+13:36:29 [INFO] Expired milk detected: 0e2d9e02-297c-4135-8eb1-0133190f759c
+13:36:36 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
+13:36:36 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
+13:36:36 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
+13:36:36 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
+13:36:36 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
+13:36:36 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 3, row: 2 }, default_prompt: true, cursor: Position { col: 3, row: 2 }, end: Position { col: 3, row: 2 } }
+13:36:42 [DEBUG] (1) rustyline: c: 'F' => key: KeyEvent(Char('F'), Modifiers(0x0))
+13:36:42 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'F')
+13:36:42 [DEBUG] (1) rustyline: Changeset::insert(0, 'F')
+13:36:42 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
+13:36:42 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
+13:36:42 [DEBUG] (1) milkcoded: Input: F
+13:36:42 [INFO] Started camera
+13:36:43 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 0 started
+13:36:45 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 177.0,
+            y: 120.0,
+        },
+        module_size: 5.464285714285714,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 497.5,
+            y: 236.0,
+        },
+        module_size: 4.2857142857142865,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 169.5,
+            y: 830.0,
+        },
+        module_size: 4.821428571428571,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 12.0,
+            y: 911.0,
+        },
+        module_size: 2.75,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 73.5,
+            y: 927.0,
+        },
+        module_size: 2.2142857142857144,
+        last_module_size: 0.0,
+    },
+]
+13:36:45 [DEBUG] (1) milkcoded::detection: Nothing found on frame 0
+13:36:45 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 1 started
+13:36:47 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 153.5,
+            y: 440.0,
+        },
+        module_size: 1.8571428571428572,
+        last_module_size: 0.0,
+    },
+]
+13:36:47 [DEBUG] (1) milkcoded::detection: Nothing found on frame 1
+13:36:48 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 2 started
+13:36:50 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 57.5,
+            y: 552.0,
+        },
+        module_size: 2.7142857142857144,
+        last_module_size: 0.0,
+    },
+]
+13:36:50 [DEBUG] (1) milkcoded::detection: Nothing found on frame 2
+13:36:50 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 3 started
+13:36:52 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 491.0,
+            y: 664.0,
+        },
+        module_size: 7.285714285714286,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 485.5,
+            y: 856.0,
+        },
+        module_size: 7.428571428571429,
+        last_module_size: 0.0,
+    },
+]
+13:36:52 [DEBUG] (1) milkcoded::detection: Nothing found on frame 3
+13:36:52 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 4 started
+13:36:53 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 962.5,
+            y: 286.0,
+        },
+        module_size: 7.678571428571429,
+        last_module_size: 0.0,
+    },
+]
+13:36:53 [DEBUG] (1) milkcoded::detection: Nothing found on frame 4
+13:36:53 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 5 started
+13:36:55 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 873.5,
+            y: 437.0,
+        },
+        module_size: 7.107142857142858,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 792.5,
+            y: 510.0,
+        },
+        module_size: 12.642857142857142,
+        last_module_size: 0.0,
+    },
+]
+13:36:55 [DEBUG] (1) milkcoded::detection: Nothing found on frame 5
+13:36:55 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 6 started
+13:36:57 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 735.0,
+            y: 618.0,
+        },
+        module_size: 6.964285714285714,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 657.0,
+            y: 691.0,
+        },
+        module_size: 12.285714285714285,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 740.5,
+            y: 798.0,
+        },
+        module_size: 6.9642857142857135,
+        last_module_size: 0.0,
+    },
+]
+13:36:57 [DEBUG] (1) milkcoded::detection: Nothing found on frame 6
+13:36:57 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 7 started
+13:36:58 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 744.0,
+            y: 627.0,
+        },
+        module_size: 6.75,
+        last_module_size: 0.0,
+    },
+]
+13:36:58 [DEBUG] (1) milkcoded::detection: Nothing found on frame 7
+13:36:58 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 8 started
+13:37:00 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 683.0,
+            y: 893.0,
+        },
+        module_size: 8.071428571428571,
+        last_module_size: 0.0,
+    },
+]
+13:37:00 [DEBUG] (1) milkcoded::detection: Nothing found on frame 8
+13:37:00 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 9 started
+13:37:02 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 562.0,
+            y: 110.0,
+        },
+        module_size: 14.892857142857142,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 964.0,
+            y: 127.0,
+        },
+        module_size: 15.142857142857142,
+        last_module_size: 0.0,
+    },
+]
+13:37:02 [DEBUG] (1) milkcoded::detection: Nothing found on frame 9
+13:37:02 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 10 started
+13:37:03 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 531.0,
+            y: 58.0,
+        },
+        module_size: 15.607142857142858,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 958.5,
+            y: 74.0,
+        },
+        module_size: 15.785714285714285,
+        last_module_size: 0.0,
+    },
+]
+13:37:03 [DEBUG] (1) milkcoded::detection: Nothing found on frame 10
+13:37:03 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 11 started
+13:37:05 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 1150.5,
+            y: 355.0,
+        },
+        module_size: 16.392857142857142,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 907.5,
+            y: 450.0,
+        },
+        module_size: 15.035714285714285,
+        last_module_size: 0.0,
+    },
+]
+13:37:05 [DEBUG] (1) milkcoded::detection: Nothing found on frame 11
+13:37:05 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 12 started
+13:37:07 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+13:37:07 [DEBUG] (1) milkcoded::detection: Nothing found on frame 12
+13:37:07 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 13 started
+13:37:09 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+13:37:09 [DEBUG] (1) milkcoded::detection: Nothing found on frame 13
+13:37:09 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 14 started
+13:37:11 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+13:37:11 [DEBUG] (1) milkcoded::detection: Nothing found on frame 14
+13:37:11 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 15 started
+13:37:14 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+13:37:14 [DEBUG] (1) milkcoded::detection: Nothing found on frame 15
+13:37:14 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 16 started
+13:37:16 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+13:37:16 [DEBUG] (1) milkcoded::detection: Nothing found on frame 16
+13:37:16 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 17 started
+13:37:18 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 573.0,
+            y: 650.0,
+        },
+        module_size: 2.678571428571429,
+        last_module_size: 0.0,
+    },
+]
+13:37:18 [DEBUG] (1) milkcoded::detection: Nothing found on frame 17
+13:37:18 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 18 started
+13:37:20 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+13:37:20 [DEBUG] (1) milkcoded::detection: Nothing found on frame 18
+13:37:20 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 19 started
+13:37:22 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+13:37:22 [DEBUG] (1) milkcoded::detection: Nothing found on frame 19
+13:37:22 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 20 started
+13:37:23 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+13:37:23 [DEBUG] (1) milkcoded::detection: Nothing found on frame 20
+13:37:23 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 21 started
+13:37:25 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 827.5,
+            y: 460.0,
+        },
+        module_size: 3.857142857142857,
+        last_module_size: 0.0,
+    },
+]
+13:37:25 [DEBUG] (1) milkcoded::detection: Nothing found on frame 21
+13:37:25 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 22 started
+13:37:27 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 876.5,
+            y: 550.0,
+        },
+        module_size: 4.142857142857143,
+        last_module_size: 0.0,
+    },
+]
+13:37:27 [DEBUG] (1) milkcoded::detection: Nothing found on frame 22
+13:37:27 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 23 started
+13:37:30 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 747.5,
+            y: 480.0,
+        },
+        module_size: 5.285714285714286,
+        last_module_size: 0.0,
+    },
+]
+13:37:30 [DEBUG] (1) milkcoded::detection: Nothing found on frame 23
+13:37:30 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 24 started
+13:37:33 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 796.0,
+            y: 579.0,
+        },
+        module_size: 5.107142857142858,
+        last_module_size: 0.0,
+    },
+]
+13:37:33 [DEBUG] (1) milkcoded::detection: Nothing found on frame 24
+13:37:33 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 25 started
+13:37:34 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 259.0,
+            y: 930.0,
+        },
+        module_size: 2.75,
+        last_module_size: 0.0,
+    },
+]
+13:37:34 [DEBUG] (1) milkcoded::detection: Nothing found on frame 25
+13:37:34 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 26 started
+13:37:36 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 170.0,
+            y: 366.0,
+        },
+        module_size: 9.964285714285715,
+        last_module_size: 0.0,
+    },
+]
+13:37:36 [DEBUG] (1) milkcoded::detection: Nothing found on frame 26
+13:37:36 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 27 started
+13:37:37 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+13:37:37 [DEBUG] (1) milkcoded::detection: Nothing found on frame 27
+13:37:37 [DEBUG] (1) milkcoded::detection: Decoder thread for frame 28 started
+13:37:39 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 446.5,
+            y: 153.0,
+        },
+        module_size: 5.25,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 582.0,
+            y: 158.0,
+        },
+        module_size: 5.107142857142858,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 448.5,
+            y: 290.0,
+        },
+        module_size: 5.285714285714286,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 449.5,
+            y: 406.0,
+        },
+        module_size: 5.321428571428571,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 584.5,
+            y: 405.0,
+        },
+        module_size: 5.035714285714286,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 452.0,
+            y: 543.0,
+        },
+        module_size: 5.392857142857143,
+        last_module_size: 0.0,
+    },
+]
+13:37:39 [DEBUG] (1) bardecoder::extract::qr: LOC QRLocation { top_left: Point { x: 446.5, y: 153.0 }, top_right: Point { x: 582.0, y: 158.0 }, bottom_left: Point { x: 448.5, y: 290.0 }, module_size: 5.25, version: 4 }
+13:37:39 [DEBUG] (1) bardecoder::extract::qr: LEFT X 566 RIGHT X 571
+13:37:39 [DEBUG] (1) bardecoder::extract::qr: TOP Y 273 BOTTOM Y 278
+13:37:39 [DEBUG] (1) bardecoder::extract::qr: ORIG EST Point { x: 568.1346153846154, y: 278.6153846153846 }, NEW EST Point { x: 568.5, y: 275.5 }
+13:37:39 [DEBUG] (1) bardecoder::extract::qr: DELTA Delta { dx: 0.3653846153846416, dy: -3.1153846153845848 }
+13:37:39 [DEBUG] (1) bardecoder::extract::qr: PERSPECTIVE Perspective { dx: Delta { dx: 5.211538461538462, dy: 0.19230769230769232 }, ddx: Delta { dx: 0.0006907081576269218, dy: -0.005889195870292221 }, dy: Delta { dx: 0.07692307692307693, dy: 5.269230769230769 }, ddy: Delta { dx: 0.0, dy: 0.0 } }
+13:37:39 [DEBUG] (1) bardecoder::extract::qr: START Point { x: 446.2692307692308, y: 137.19230769230768 }
+13:37:39 [DEBUG] (1) bardecoder::decode::qr::format: MASK 010
+13:37:39 [DEBUG] (1) bardecoder::decode::qr::blocks: BLOCK 0, CODEWORDS 50
+13:37:39 [DEBUG] (1) bardecoder::decode::qr::blocks: BLOCK 1, CODEWORDS 50
+13:37:39 [DEBUG] (1) bardecoder::decode::qr::correct: ALL SYNDROMES WERE ZERO, NO CORRECTION NEEDED
+13:37:39 [DEBUG] (1) bardecoder::decode::qr::correct: ALL SYNDROMES WERE ZERO, NO CORRECTION NEEDED
+13:37:39 [DEBUG] (1) bardecoder::decode::qr::decoder: TOTAL LENGTH 48
+13:37:39 [DEBUG] (1) bardecoder::decode::qr::data: EIGHT BIT RAW [48, 101, 50, 100, 57, 101, 48, 50, 45, 50, 57, 55, 99, 45, 52, 49, 51, 53, 45, 56, 101, 98, 49, 45, 48, 49, 51, 51, 49, 57, 48, 102, 55, 53, 57, 99]
+13:37:39 [DEBUG] (1) bardecoder::decode::qr::data: EIGHT BIT AS ISO 8859-1 "0e2d9e02-297c-4135-8eb1-0133190f759c"
+13:37:39 [DEBUG] (1) bardecoder::extract::qr: LOC QRLocation { top_left: Point { x: 448.5, y: 290.0 }, top_right: Point { x: 582.0, y: 158.0 }, bottom_left: Point { x: 584.5, y: 405.0 }, module_size: 5.107142857142858, version: 6 }
+13:37:39 [DEBUG] (1) bardecoder::extract::qr: LOC QRLocation { top_left: Point { x: 449.5, y: 406.0 }, top_right: Point { x: 448.5, y: 290.0 }, bottom_left: Point { x: 584.5, y: 405.0 }, module_size: 5.285714285714286, version: 4 }
+13:37:39 [DEBUG] (1) bardecoder::extract::qr: LOC QRLocation { top_left: Point { x: 584.5, y: 405.0 }, top_right: Point { x: 452.0, y: 543.0 }, bottom_left: Point { x: 448.5, y: 290.0 }, module_size: 5.285714285714286, version: 7 }
+13:37:39 [DEBUG] (1) bardecoder::extract::qr: LOC QRLocation { top_left: Point { x: 449.5, y: 406.0 }, top_right: Point { x: 584.5, y: 405.0 }, bottom_left: Point { x: 452.0, y: 543.0 }, module_size: 5.321428571428571, version: 4 }
+13:37:39 [DEBUG] (1) bardecoder::extract::qr: LEFT X 570 RIGHT X 576
+13:37:39 [DEBUG] (1) bardecoder::extract::qr: TOP Y 522 BOTTOM Y 527
+13:37:39 [DEBUG] (1) bardecoder::extract::qr: ORIG EST Point { x: 571.1346153846154, y: 526.3076923076924 }, NEW EST Point { x: 573.0, y: 524.5 }
+13:37:39 [DEBUG] (1) bardecoder::extract::qr: DELTA Delta { dx: 1.8653846153846416, dy: -1.8076923076923777 }
+13:37:39 [DEBUG] (1) bardecoder::extract::qr: PERSPECTIVE Perspective { dx: Delta { dx: 5.1923076923076925, dy: -0.038461538461538464 }, ddx: Delta { dx: 0.0035262469099898706, dy: -0.003417187727206763 }, dy: Delta { dx: 0.09615384615384616, dy: 5.269230769230769 }, ddy: Delta { dx: 0.0, dy: 0.0 } }
+13:37:39 [DEBUG] (1) bardecoder::extract::qr: START Point { x: 449.21153846153845, y: 390.1923076923077 }
+13:37:39 [DEBUG] (1) bardecoder::decode::qr::format: MASK 100
+13:37:39 [DEBUG] (1) bardecoder::decode::qr::blocks: BLOCK 0, CODEWORDS 50
+13:37:39 [DEBUG] (1) bardecoder::decode::qr::blocks: BLOCK 1, CODEWORDS 50
+13:37:39 [DEBUG] (1) bardecoder::decode::qr::correct: ALL SYNDROMES WERE ZERO, NO CORRECTION NEEDED
+13:37:39 [DEBUG] (1) bardecoder::decode::qr::correct: ALL SYNDROMES WERE ZERO, NO CORRECTION NEEDED
+13:37:39 [DEBUG] (1) bardecoder::decode::qr::decoder: TOTAL LENGTH 48
+13:37:39 [DEBUG] (1) bardecoder::decode::qr::data: EIGHT BIT RAW [99, 101, 50, 99, 97, 100, 102, 54, 45, 48, 100, 49, 100, 45, 52, 101, 52, 52, 45, 97, 55, 100, 102, 45, 101, 101, 48, 98, 102, 54, 98, 55, 49, 50, 56, 48]
+13:37:39 [DEBUG] (1) bardecoder::decode::qr::data: EIGHT BIT AS ISO 8859-1 "ce2cadf6-0d1d-4e44-a7df-ee0bf6b71280"
+13:37:39 [INFO] Decoder thread for frame 28 found: 0e2d9e02-297c-4135-8eb1-0133190f759c
+13:37:39 [INFO] Decoder thread for frame 28 had an extraction error: Error decoding QR Code: Unable to find alignment pattern
+13:37:39 [INFO] Decoder thread for frame 28 had an extraction error: Error decoding QR Code: Unable to find alignment pattern
+13:37:39 [INFO] Decoder thread for frame 28 had an extraction error: Error decoding QR Code: Unable to find alignment pattern
+13:37:39 [INFO] Decoder thread for frame 28 found: ce2cadf6-0d1d-4e44-a7df-ee0bf6b71280
+13:37:39 [INFO] Code found after 28 frames
+13:37:40 [INFO] Validating milk: Milk { id: ce2cadf6-0d1d-4e44-a7df-ee0bf6b71280, volume: 150, additives: Some(""), expiry: 2024-10-18T12:30:00, expressed_at: 2024-10-12T12:30:00, expressed_by: 999 }
+13:37:40 [INFO] Incorrect mother for milk: ce2cadf6-0d1d-4e44-a7df-ee0bf6b71280
+13:37:47 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
+13:37:47 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
+13:37:47 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
+13:37:47 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
+13:37:47 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
+13:37:47 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 3, row: 2 }, default_prompt: true, cursor: Position { col: 3, row: 2 }, end: Position { col: 3, row: 2 } }
+13:37:54 [DEBUG] (1) rustyline: c: 'Q' => key: KeyEvent(Char('Q'), Modifiers(0x0))
+13:37:54 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'Q')
+13:37:54 [DEBUG] (1) rustyline: Changeset::insert(0, 'Q')
+13:37:55 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
+13:37:55 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
+13:37:55 [DEBUG] (1) milkcoded: Input: Q
+13:37:55 [INFO] Milk Project Exited
