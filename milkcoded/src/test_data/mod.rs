@@ -1,6 +1,7 @@
 use crate::database::*;
 use anyhow::Result;
-use chrono::NaiveDate;use uuid::{uuid, Uuid};
+use chrono::NaiveDate;
+use uuid::{uuid, Uuid};
 
 pub mod invariants;
 pub mod label;
@@ -98,10 +99,10 @@ pub fn init_test_data() -> Result<MilkDatabaseTest> {
         expressed_by: 999,
     };
 
-    // generate_label(milk_a.volume, milk_a.additives.as_ref().unwrap(), &mother.name, &baby.name, Some(&milk_a.id.to_string()))?;
-    // generate_label(milk_b.volume, milk_b.additives.as_ref().unwrap(), &mother.name, &baby.name, Some(&milk_b.id.to_string()))?;
-    // generate_label(milk_c.volume, milk_c.additives.as_ref().unwrap(), &mother.name, &baby.name, Some(&milk_c.id.to_string()))?;
-    // generate_label(milk_d.volume, milk_d.additives.as_ref().unwrap(), &wrong_mother.name, &baby.name, Some(&milk_d.id.to_string()))?;
+    // label::generate_label(milk_a.volume, milk_a.additives.as_ref().unwrap(), &mother.name, &baby.name, Some(&milk_a.id.to_string()))?;
+    // label::generate_label(milk_b.volume, milk_b.additives.as_ref().unwrap(), &mother.name, &baby.name, Some(&milk_b.id.to_string()))?;
+    // label::generate_label(milk_c.volume, milk_c.additives.as_ref().unwrap(), &mother.name, &baby.name, Some(&milk_c.id.to_string()))?;
+    // label::generate_label(milk_d.volume, milk_d.additives.as_ref().unwrap(), &wrong_mother.name, &baby.name, Some(&milk_d.id.to_string()))?;
 
     Ok(MilkDatabaseTest {
         mothers: vec![mother, wrong_mother],
