@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/log-milk-nurse.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Milk Log (Nurse)</title>
+  </head>
+
+  <body>
+    <div class="container">
+
+        <img src="assets/logo.png" id="logo" />
+
+        <div class="log-milk">
+          <h1>Milk #num</h1> <!---- add unique milk id -->
+          <p class="baby-name">Baby's Full Name:</p> <!---- get baby name from somewhere? -->
+
+          <div class="input-group">
+              <label>Express Time:</label>
+              <input type="datetime-local" id="expressTime">
+          </div>
+
+          <div class="input-group">
+            <label>Storage:</label>
+            <div class="radio-group">
+                <label class="radio-label">
+                    <input type="radio" name="storage" value="fridge" checked>
+                    <span class="radio-custom"></span>
+                    Fridge
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="storage" value="freezer">
+                    <span class="radio-custom"></span>
+                    Freezer
+                </label>
+            </div>
+        </div>
+
+        <div class="input-group nutrients-input">
+          <label>Additional Nutrients:</label>
+          <div class="nutrient-add-group">
+              <input type="text" id="nutrientName" placeholder="Nutrient name" class="nutrient-input">
+              <input type="number" id="nutrientValue" placeholder="Amount" class="nutrient-input" min="0">
+              <select id="nutrientUnit" class="nutrient-input">
+                  <option value="g">g</option>
+                  <option value="mg">mg</option>
+                  <option value="mcg">mcg</option>
+              </select>
+              <button type="button" onclick="addNutrient()" class="add-btn">Add</button>
+          </div>
+      </div>
+      
+      <div id="nutrientsList" class="nutrients-list"></div>
+
+      <div class="input-group">
+        <label>Expiry Time:</label>
+        <input type="datetime-local" id="expiryTime"> <!---- maybe add an expiry calculator -->
+      </div>
+
+          <button type="button">Save</button> <!---- send data to backend -->
+        </div>
+
+    </div>
+  </body>
+
+  <script src="src/log-milk.js"></script>
+
+</html>
