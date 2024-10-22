@@ -1,0 +1,32 @@
+.match-result {
+  height: 90%;
+  width: 65%;
+  border-radius: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.match-result h1 {
+  margin: 0;
+  padding: 0;
+  padding-top: 70px;
+  font-size: 65px;
+  opacity: 1;
+}
+
+.match {
+  background-color: rgb(0, 255, 0, 0.3);
+}
+
+.match h1 {
+  color: #00ff00;
+}
+
+.not-match {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+.not-match h1 {
+  color: #ff0000;
+}
