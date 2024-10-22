@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Milk project</title>
+    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+    <script src="{{ url_for('static', filename='html5-qrcode.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+  </head>
+  <body>
+    <h1>Milk</h1>
+    <div id="create_popup">
+      <button id="create_qr">Make Label</button>
+      <div style="width: 750px" id="reader"></div>
+      <div id="result"></div>
+    </div>
+
+    <div id="qr_scanner_popup">
+      <button id="scan_qr">Scan Qr Code</button>
+      <div style="width: 750px" id="reader"></div>
+      <div id="result">
+      </div>
+    </div>
+    
+  </body>
+</html>
