@@ -1,27 +1,28 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en-AU">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Milk project</title>
-    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
-    <script src="{{ url_for('static', filename='html5-qrcode.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Milk Matcher</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/index.css" />
   </head>
   <body>
-    <h1>Milk</h1>
-    <div id="create_popup">
-      <button id="create_qr">Make Label</button>
-      <div style="width: 750px" id="reader"></div>
-      <div id="result"></div>
-    </div>
-
-    <div id="qr_scanner_popup">
-      <button id="scan_qr">Scan Qr Code</button>
-      <div style="width: 750px" id="reader"></div>
-      <div id="result">
+    <div class="container">
+      <img src="assets/logo.png" id="logo" />
+      <div class="login show">
+        <h1>Login</h1>
+        <button type="button">Log in</button>
+      </div>
+      <div class="register hide">
+        <h1>Sign Up</h1>
+        <button type="button">Sign Up</button>
       </div>
     </div>
-    
+    <script src="src/global.js"></script>
   </body>
 </html>
