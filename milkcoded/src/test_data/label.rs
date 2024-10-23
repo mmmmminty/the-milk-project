@@ -178,7 +178,7 @@ fn render_svg(svg_path: &str, image: &mut RgbaImage) -> Result<()> {
     // Render the SVG into the pixmap
     resvg::render(
         &rtree,
-        resvg::tiny_skia::Transform::from_scale(7.0, 7.0),
+        resvg::tiny_skia::Transform::from_scale(8.0, 8.0),
         &mut pixmap.as_mut(),
     );
 

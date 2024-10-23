@@ -1,91 +1,400 @@
-15:52:05 [INFO] Starting Milk Project
-15:52:05 [INFO] Test data initialized
-15:52:05 [INFO] Starting main loop
-15:52:07 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
-15:52:07 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
-15:52:07 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
-15:52:07 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
-15:52:07 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
-15:52:07 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 3, row: 2 }, default_prompt: true, cursor: Position { col: 3, row: 2 }, end: Position { col: 3, row: 2 } }
-15:52:08 [DEBUG] (1) rustyline: c: 'F' => key: KeyEvent(Char('F'), Modifiers(0x0))
-15:52:08 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'F')
-15:52:08 [DEBUG] (1) rustyline: Changeset::insert(0, 'F')
-15:52:09 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
-15:52:09 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
-15:52:09 [DEBUG] (1) milkcoded: Input: F
-15:52:10 [INFO] Started camera
-15:52:10 [DEBUG] (1) milkcoded::detection: Frame 0 analysis started
-15:52:12 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
-15:52:12 [DEBUG] (1) milkcoded::detection: Nothing found on frame 0
-15:52:12 [DEBUG] (1) milkcoded::detection: Frame 1 analysis started
-15:52:14 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
-15:52:14 [DEBUG] (1) milkcoded::detection: Nothing found on frame 1
-15:52:14 [DEBUG] (1) milkcoded::detection: Frame 2 analysis started
-15:52:16 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+23:51:10 [INFO] Starting Milk Project
+23:51:10 [INFO] Test data initialized
+23:51:10 [INFO] Starting main loop
+23:51:12 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
+23:51:12 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
+23:51:12 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
+23:51:12 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
+23:51:12 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
+23:51:12 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 3, row: 2 }, default_prompt: true, cursor: Position { col: 3, row: 2 }, end: Position { col: 3, row: 2 } }
+23:51:34 [DEBUG] (1) rustyline: c: 'F' => key: KeyEvent(Char('F'), Modifiers(0x0))
+23:51:34 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'F')
+23:51:34 [DEBUG] (1) rustyline: Changeset::insert(0, 'F')
+23:51:35 [DEBUG] (1) rustyline: c: ' ' => key: KeyEvent(Char(' '), Modifiers(0x0))
+23:51:35 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, ' ')
+23:51:35 [DEBUG] (1) rustyline: Changeset::insert(1, ' ')
+23:51:45 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
+23:51:45 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
+23:51:45 [DEBUG] (1) milkcoded: Input: F
+23:51:47 [INFO] Started camera
+23:51:48 [DEBUG] (1) milkcoded::detection: Frame 0 analysis started
+23:51:49 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
     QRFinderPosition {
         location: Point {
-            x: 574.0,
-            y: 306.0,
+            x: 252.5,
+            y: 241.0,
         },
-        module_size: 5.107142857142858,
+        module_size: 7.75,
         last_module_size: 0.0,
     },
 ]
-15:52:16 [DEBUG] (1) milkcoded::detection: Nothing found on frame 2
-15:52:16 [DEBUG] (1) milkcoded::detection: Frame 3 analysis started
-15:52:18 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+23:51:49 [DEBUG] (1) milkcoded::detection: Nothing found on frame 0
+23:51:49 [DEBUG] (1) milkcoded::detection: Frame 1 analysis started
+23:51:50 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+23:51:50 [DEBUG] (1) milkcoded::detection: Nothing found on frame 1
+23:51:50 [DEBUG] (1) milkcoded::detection: Frame 2 analysis started
+23:51:51 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
     QRFinderPosition {
         location: Point {
-            x: 571.0,
-            y: 172.0,
+            x: 445.0,
+            y: 153.0,
         },
-        module_size: 5.964285714285714,
+        module_size: 8.642857142857142,
         last_module_size: 0.0,
     },
     QRFinderPosition {
         location: Point {
-            x: 704.0,
-            y: 174.0,
+            x: 633.5,
+            y: 154.0,
         },
-        module_size: 5.964285714285714,
+        module_size: 8.892857142857142,
         last_module_size: 0.0,
     },
     QRFinderPosition {
         location: Point {
-            x: 569.0,
-            y: 303.0,
+            x: 445.5,
+            y: 339.0,
         },
-        module_size: 5.964285714285714,
+        module_size: 8.392857142857142,
         last_module_size: 0.0,
     },
 ]
-15:52:18 [DEBUG] (1) bardecoder::extract::qr: LOC QRLocation { top_left: Point { x: 571.0, y: 172.0 }, top_right: Point { x: 704.0, y: 174.0 }, bottom_left: Point { x: 569.0, y: 303.0 }, module_size: 5.964285714285714, version: 3 }
-15:52:18 [DEBUG] (1) bardecoder::extract::qr: LEFT X 681 RIGHT X 686
-15:52:18 [DEBUG] (1) bardecoder::extract::qr: TOP Y 283 BOTTOM Y 289
-15:52:18 [DEBUG] (1) bardecoder::extract::qr: ORIG EST Point { x: 684.1363636363636, y: 286.8636363636364 }, NEW EST Point { x: 683.5, y: 286.0 }
-15:52:18 [DEBUG] (1) bardecoder::extract::qr: DELTA Delta { dx: -0.636363636363626, dy: -0.863636363636374 }
-15:52:18 [DEBUG] (1) bardecoder::extract::qr: PERSPECTIVE Perspective { dx: Delta { dx: 6.045454545454546, dy: 0.09090909090909091 }, ddx: Delta { dx: -0.001762780156131928, dy: -0.002392344497607684 }, dy: Delta { dx: -0.09090909090909091, dy: 5.954545454545454 }, ddy: Delta { dx: 0.0, dy: 0.0 } }
-15:52:18 [DEBUG] (1) bardecoder::extract::qr: START Point { x: 571.2727272727273, y: 154.13636363636363 }
-15:52:18 [DEBUG] (1) bardecoder::decode::qr::format: MASK 010
-15:52:18 [DEBUG] (1) bardecoder::decode::qr::blocks: BLOCK 0, CODEWORDS 70
-15:52:18 [DEBUG] (1) bardecoder::decode::qr::correct: ALL SYNDROMES WERE ZERO, NO CORRECTION NEEDED
-15:52:18 [DEBUG] (1) bardecoder::decode::qr::decoder: TOTAL LENGTH 44
-15:52:18 [DEBUG] (1) bardecoder::decode::qr::data: EIGHT BIT RAW [48, 101, 50, 100, 57, 101, 48, 50, 45, 50, 57, 55, 99, 45, 52, 49, 51, 53, 45, 56, 101, 98, 49, 45, 48, 49, 51, 51, 49, 57, 48, 102, 55, 53, 57, 99]
-15:52:18 [DEBUG] (1) bardecoder::decode::qr::data: EIGHT BIT AS ISO 8859-1 "0e2d9e02-297c-4135-8eb1-0133190f759c"
-15:52:18 [INFO] Frame 3 analysis found: 0e2d9e02-297c-4135-8eb1-0133190f759c
-15:52:18 [INFO] Code found after 3 frames
-15:52:21 [INFO] Validating milk: Milk { id: 0e2d9e02-297c-4135-8eb1-0133190f759c, volume: 150, additives: Some("HG7"), expiry: 2024-10-12T12:30:00, expressed_at: 2024-10-06T12:30:00, expressed_by: 393 }
-15:52:21 [INFO] Expired milk detected: 0e2d9e02-297c-4135-8eb1-0133190f759c
-15:52:26 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
-15:52:26 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
-15:52:26 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
-15:52:26 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
-15:52:26 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
-15:52:26 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 3, row: 2 }, default_prompt: true, cursor: Position { col: 3, row: 2 }, end: Position { col: 3, row: 2 } }
-15:52:28 [DEBUG] (1) rustyline: c: 'Q' => key: KeyEvent(Char('Q'), Modifiers(0x0))
-15:52:28 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'Q')
-15:52:28 [DEBUG] (1) rustyline: Changeset::insert(0, 'Q')
-15:52:28 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
-15:52:28 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
-15:52:28 [DEBUG] (1) milkcoded: Input: Q
-15:52:28 [INFO] Milk Project Exited
+23:51:51 [DEBUG] (1) bardecoder::extract::qr: LOC QRLocation { top_left: Point { x: 445.0, y: 153.0 }, top_right: Point { x: 633.5, y: 154.0 }, bottom_left: Point { x: 445.5, y: 339.0 }, module_size: 8.642857142857142, version: 3 }
+23:51:51 [DEBUG] (1) bardecoder::extract::qr: LEFT X 600 RIGHT X 609
+23:51:51 [DEBUG] (1) bardecoder::extract::qr: TOP Y 310 BOTTOM Y 320
+23:51:51 [DEBUG] (1) bardecoder::extract::qr: ORIG EST Point { x: 608.2272727272726, y: 314.5 }, NEW EST Point { x: 604.5, y: 315.0 }
+23:51:51 [DEBUG] (1) bardecoder::extract::qr: DELTA Delta { dx: -3.7272727272726343, dy: 0.5 }
+23:51:51 [DEBUG] (1) bardecoder::extract::qr: PERSPECTIVE Perspective { dx: Delta { dx: 8.568181818181818, dy: 0.045454545454545456 }, ddx: Delta { dx: -0.010324855200201204, dy: 0.0013850415512465374 }, dy: Delta { dx: 0.022727272727272728, dy: 8.454545454545455 }, ddy: Delta { dx: 0.0, dy: 0.0 } }
+23:51:51 [DEBUG] (1) bardecoder::extract::qr: START Point { x: 444.9318181818182, y: 127.63636363636363 }
+23:51:51 [DEBUG] (1) bardecoder::decode::qr::format: MASK 010
+23:51:51 [DEBUG] (1) bardecoder::decode::qr::blocks: BLOCK 0, CODEWORDS 70
+23:51:51 [DEBUG] (1) bardecoder::decode::qr::correct: ALL SYNDROMES WERE ZERO, NO CORRECTION NEEDED
+23:51:51 [DEBUG] (1) bardecoder::decode::qr::decoder: TOTAL LENGTH 44
+23:51:51 [DEBUG] (1) bardecoder::decode::qr::data: EIGHT BIT RAW [48, 101, 50, 100, 57, 101, 48, 50, 45, 50, 57, 55, 99, 45, 52, 49, 51, 53, 45, 56, 101, 98, 49, 45, 48, 49, 51, 51, 49, 57, 48, 102, 55, 53, 57, 99]
+23:51:51 [DEBUG] (1) bardecoder::decode::qr::data: EIGHT BIT AS ISO 8859-1 "0e2d9e02-297c-4135-8eb1-0133190f759c"
+23:51:51 [INFO] Frame 2 analysis found: 0e2d9e02-297c-4135-8eb1-0133190f759c
+23:51:51 [INFO] Code found after 2 frames
+23:51:54 [INFO] Validating milk: Milk { id: 0e2d9e02-297c-4135-8eb1-0133190f759c, volume: 150, additives: Some("HG7"), expiry: 2024-10-12T12:30:00, expressed_at: 2024-10-06T12:30:00, expressed_by: 393 }
+23:51:54 [INFO] Expired milk detected: 0e2d9e02-297c-4135-8eb1-0133190f759c
+23:51:59 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
+23:51:59 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
+23:51:59 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
+23:51:59 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
+23:51:59 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
+23:51:59 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 3, row: 2 }, default_prompt: true, cursor: Position { col: 3, row: 2 }, end: Position { col: 3, row: 2 } }
+23:52:03 [DEBUG] (1) rustyline: c: 'f' => key: KeyEvent(Char('f'), Modifiers(0x0))
+23:52:03 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'f')
+23:52:03 [DEBUG] (1) rustyline: Changeset::insert(0, 'f')
+23:52:03 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
+23:52:03 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
+23:52:03 [DEBUG] (1) milkcoded: Input: f
+23:52:05 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
+23:52:05 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
+23:52:05 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
+23:52:05 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
+23:52:05 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
+23:52:05 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 3, row: 2 }, default_prompt: true, cursor: Position { col: 3, row: 2 }, end: Position { col: 3, row: 2 } }
+23:52:05 [DEBUG] (1) rustyline: c: 'F' => key: KeyEvent(Char('F'), Modifiers(0x0))
+23:52:05 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'F')
+23:52:05 [DEBUG] (1) rustyline: Changeset::insert(0, 'F')
+23:52:05 [DEBUG] (1) rustyline: c: '\n' => key: KeyEvent(Char('J'), Modifiers(CTRL))
+23:52:05 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
+23:52:05 [DEBUG] (1) milkcoded: Input: F
+23:52:05 [INFO] Started camera
+23:52:06 [DEBUG] (1) milkcoded::detection: Frame 0 analysis started
+23:52:06 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 950.0,
+            y: 340.0,
+        },
+        module_size: 2.4642857142857144,
+        last_module_size: 0.0,
+    },
+]
+23:52:06 [DEBUG] (1) milkcoded::detection: Nothing found on frame 0
+23:52:06 [DEBUG] (1) milkcoded::detection: Frame 1 analysis started
+23:52:07 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators []
+23:52:07 [DEBUG] (1) milkcoded::detection: Nothing found on frame 1
+23:52:07 [DEBUG] (1) milkcoded::detection: Frame 2 analysis started
+23:52:08 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 665.5,
+            y: 208.0,
+        },
+        module_size: 11.571428571428571,
+        last_module_size: 0.0,
+    },
+]
+23:52:08 [DEBUG] (1) milkcoded::detection: Nothing found on frame 2
+23:52:08 [DEBUG] (1) milkcoded::detection: Frame 3 analysis started
+23:52:09 [DEBUG] (1) bardecoder::detect::linescan: Candidate QR Locators [
+    QRFinderPosition {
+        location: Point {
+            x: 531.5,
+            y: 154.0,
+        },
+        module_size: 10.75,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 760.0,
+            y: 160.0,
+        },
+        module_size: 10.428571428571429,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 706.0,
+            y: 239.0,
+        },
+        module_size: 10.035714285714285,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 528.0,
+            y: 382.0,
+        },
+        module_size: 10.214285714285715,
+        last_module_size: 0.0,
+    },
+    QRFinderPosition {
+        location: Point {
+            x: 1133.0,
+            y: 639.0,
+        },
+        module_size: 12.392857142857142,
+        last_module_size: 0.0,
+    },
+]
+23:52:09 [DEBUG] (1) bardecoder::extract::qr: LOC QRLocation { top_left: Point { x: 531.5, y: 154.0 }, top_right: Point { x: 760.0, y: 160.0 }, bottom_left: Point { x: 528.0, y: 382.0 }, module_size: 10.75, version: 3 }
+23:52:09 [DEBUG] (1) bardecoder::extract::qr: LEFT X 714 RIGHT X 725
+23:52:09 [DEBUG] (1) bardecoder::extract::qr: TOP Y 348 BOTTOM Y 360
+23:52:09 [DEBUG] (1) bardecoder::extract::qr: ORIG EST Point { x: 725.8181818181819, y: 356.0909090909091 }, NEW EST Point { x: 719.5, y: 354.0 }
+23:52:09 [DEBUG] (1) bardecoder::extract::qr: DELTA Delta { dx: -6.31818181818187, dy: -2.090909090909122 }
+23:52:09 [DEBUG] (1) bardecoder::extract::qr: PERSPECTIVE Perspective { dx: Delta { dx: 10.386363636363637, dy: 0.2727272727272727 }, ddx: Delta { dx: -0.017501888693024572, dy: -0.005791991941576515 }, dy: Delta { dx: -0.1590909090909091, dy: 10.363636363636363 }, ddy: Delta { dx: 0.0, dy: 0.0 } }
+23:52:09 [DEBUG] (1) bardecoder::extract::qr: START Point { x: 531.9772727272727, y: 122.9090909090909 }
+23:52:09 [DEBUG] (1) bardecoder::decode::qr::format: MASK 010
+23:52:09 [DEBUG] (1) bardecoder::decode::qr::blocks: BLOCK 0, CODEWORDS 70
+23:52:09 [DEBUG] (1) bardecoder::decode::qr::correct: ALL SYNDROMES WERE ZERO, NO CORRECTION NEEDED
+23:52:09 [DEBUG] (1) bardecoder::decode::qr::decoder: TOTAL LENGTH 44
+23:52:09 [DEBUG] (1) bardecoder::decode::qr::data: EIGHT BIT RAW [48, 101, 50, 100, 57, 101, 48, 50, 45, 50, 57, 55, 99, 45, 52, 49, 51, 53, 45, 56, 101, 98, 49, 45, 48, 49, 51, 51, 49, 57, 48, 102, 55, 53, 57, 99]
+23:52:09 [DEBUG] (1) bardecoder::decode::qr::data: EIGHT BIT AS ISO 8859-1 "0e2d9e02-297c-4135-8eb1-0133190f759c"
+23:52:09 [INFO] Frame 3 analysis found: 0e2d9e02-297c-4135-8eb1-0133190f759c
+23:52:09 [INFO] Code found after 3 frames
+23:52:11 [INFO] Validating milk: Milk { id: 0e2d9e02-297c-4135-8eb1-0133190f759c, volume: 150, additives: Some("HG7"), expiry: 2024-10-12T12:30:00, expressed_at: 2024-10-06T12:30:00, expressed_by: 393 }
+23:52:11 [INFO] Expired milk detected: 0e2d9e02-297c-4135-8eb1-0133190f759c
+23:52:16 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
+23:52:16 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
+23:52:16 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
+23:52:16 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
+23:52:16 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
+23:52:16 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 3, row: 2 }, default_prompt: true, cursor: Position { col: 3, row: 2 }, end: Position { col: 3, row: 2 } }
+23:52:19 [DEBUG] (1) rustyline: c: 'E' => key: KeyEvent(Char('E'), Modifiers(0x0))
+23:52:19 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'E')
+23:52:19 [DEBUG] (1) rustyline: Changeset::insert(0, 'E')
+23:52:21 [DEBUG] (1) rustyline: c: ' ' => key: KeyEvent(Char(' '), Modifiers(0x0))
+23:52:21 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, ' ')
+23:52:21 [DEBUG] (1) rustyline: Changeset::insert(1, ' ')
+23:52:24 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
+23:52:24 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
+23:52:24 [DEBUG] (1) milkcoded: Input: E
+23:52:24 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
+23:52:24 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
+23:52:24 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
+23:52:24 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
+23:52:24 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
+23:52:24 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 13, row: 0 }, default_prompt: true, cursor: Position { col: 13, row: 0 }, end: Position { col: 13, row: 0 } }
+23:52:25 [DEBUG] (1) rustyline: c: '1' => key: KeyEvent(Char('1'), Modifiers(0x0))
+23:52:25 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, '1')
+23:52:25 [DEBUG] (1) rustyline: Changeset::insert(0, '1')
+23:52:25 [DEBUG] (1) rustyline: c: '0' => key: KeyEvent(Char('0'), Modifiers(0x0))
+23:52:25 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, '0')
+23:52:25 [DEBUG] (1) rustyline: Changeset::insert(1, '0')
+23:52:25 [DEBUG] (1) rustyline: c: '0' => key: KeyEvent(Char('0'), Modifiers(0x0))
+23:52:25 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, '0')
+23:52:25 [DEBUG] (1) rustyline: Changeset::insert(2, '0')
+23:52:30 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
+23:52:30 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
+23:52:30 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
+23:52:30 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
+23:52:30 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
+23:52:30 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
+23:52:30 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
+23:52:30 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 29, row: 0 }, default_prompt: true, cursor: Position { col: 29, row: 0 }, end: Position { col: 29, row: 0 } }
+23:52:32 [DEBUG] (1) rustyline: c: 'H' => key: KeyEvent(Char('H'), Modifiers(0x0))
+23:52:32 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'H')
+23:52:32 [DEBUG] (1) rustyline: Changeset::insert(0, 'H')
+23:52:33 [DEBUG] (1) rustyline: c: 'G' => key: KeyEvent(Char('G'), Modifiers(0x0))
+23:52:33 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'G')
+23:52:33 [DEBUG] (1) rustyline: Changeset::insert(1, 'G')
+23:52:33 [DEBUG] (1) rustyline: c: '8' => key: KeyEvent(Char('8'), Modifiers(0x0))
+23:52:33 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, '8')
+23:52:33 [DEBUG] (1) rustyline: Changeset::insert(2, '8')
+23:52:34 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
+23:52:34 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
+23:52:34 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
+23:52:34 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
+23:52:34 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
+23:52:34 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
+23:52:34 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
+23:52:34 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 8, row: 0 }, default_prompt: true, cursor: Position { col: 8, row: 0 }, end: Position { col: 8, row: 0 } }
+23:52:38 [DEBUG] (1) rustyline: c: 'E' => key: KeyEvent(Char('E'), Modifiers(0x0))
+23:52:38 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'E')
+23:52:38 [DEBUG] (1) rustyline: Changeset::insert(0, 'E')
+23:52:38 [DEBUG] (1) rustyline: c: 'T' => key: KeyEvent(Char('T'), Modifiers(0x0))
+23:52:38 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'T')
+23:52:38 [DEBUG] (1) rustyline: Changeset::insert(1, 'T')
+23:52:38 [DEBUG] (1) rustyline: c: 'H' => key: KeyEvent(Char('H'), Modifiers(0x0))
+23:52:38 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'H')
+23:52:38 [DEBUG] (1) rustyline: Changeset::insert(2, 'H')
+23:52:39 [DEBUG] (1) rustyline: c: 'A' => key: KeyEvent(Char('A'), Modifiers(0x0))
+23:52:39 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'A')
+23:52:39 [DEBUG] (1) rustyline: Changeset::insert(3, 'A')
+23:52:39 [DEBUG] (1) rustyline: c: 'N' => key: KeyEvent(Char('N'), Modifiers(0x0))
+23:52:39 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'N')
+23:52:39 [DEBUG] (1) rustyline: Changeset::insert(4, 'N')
+23:52:39 [DEBUG] (1) rustyline: c: '\u{7f}' => key: KeyEvent(Backspace, Modifiers(0x0))
+23:52:39 [DEBUG] (1) rustyline: Emacs command: Kill(BackwardChar(1))
+23:52:39 [DEBUG] (1) rustyline: Changeset::delete(4, "N")
+23:52:39 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 8, row: 0 }, default_prompt: true, cursor: Position { col: 13, row: 0 }, end: Position { col: 13, row: 0 } }
+23:52:39 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 8, row: 0 }, default_prompt: true, cursor: Position { col: 12, row: 0 }, end: Position { col: 12, row: 0 } }
+23:52:39 [DEBUG] (1) rustyline: c: '\u{7f}' => key: KeyEvent(Backspace, Modifiers(0x0))
+23:52:39 [DEBUG] (1) rustyline: Emacs command: Kill(BackwardChar(1))
+23:52:39 [DEBUG] (1) rustyline: Changeset::delete(3, "A")
+23:52:39 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 8, row: 0 }, default_prompt: true, cursor: Position { col: 12, row: 0 }, end: Position { col: 12, row: 0 } }
+23:52:39 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 8, row: 0 }, default_prompt: true, cursor: Position { col: 11, row: 0 }, end: Position { col: 11, row: 0 } }
+23:52:40 [DEBUG] (1) rustyline: c: '\u{7f}' => key: KeyEvent(Backspace, Modifiers(0x0))
+23:52:40 [DEBUG] (1) rustyline: Emacs command: Kill(BackwardChar(1))
+23:52:40 [DEBUG] (1) rustyline: Changeset::delete(2, "H")
+23:52:40 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 8, row: 0 }, default_prompt: true, cursor: Position { col: 11, row: 0 }, end: Position { col: 11, row: 0 } }
+23:52:40 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 8, row: 0 }, default_prompt: true, cursor: Position { col: 10, row: 0 }, end: Position { col: 10, row: 0 } }
+23:52:40 [DEBUG] (1) rustyline: c: '\u{7f}' => key: KeyEvent(Backspace, Modifiers(0x0))
+23:52:40 [DEBUG] (1) rustyline: Emacs command: Kill(BackwardChar(1))
+23:52:40 [DEBUG] (1) rustyline: Changeset::delete(1, "T")
+23:52:40 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 8, row: 0 }, default_prompt: true, cursor: Position { col: 10, row: 0 }, end: Position { col: 10, row: 0 } }
+23:52:40 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 8, row: 0 }, default_prompt: true, cursor: Position { col: 9, row: 0 }, end: Position { col: 9, row: 0 } }
+23:52:40 [DEBUG] (1) rustyline: c: 't' => key: KeyEvent(Char('t'), Modifiers(0x0))
+23:52:40 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 't')
+23:52:40 [DEBUG] (1) rustyline: Changeset::insert(1, 't')
+23:52:40 [DEBUG] (1) rustyline: c: 'a' => key: KeyEvent(Char('a'), Modifiers(0x0))
+23:52:40 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'a')
+23:52:40 [DEBUG] (1) rustyline: Changeset::insert(2, 'a')
+23:52:41 [DEBUG] (1) rustyline: c: '\u{7f}' => key: KeyEvent(Backspace, Modifiers(0x0))
+23:52:41 [DEBUG] (1) rustyline: Emacs command: Kill(BackwardChar(1))
+23:52:41 [DEBUG] (1) rustyline: Changeset::delete(2, "a")
+23:52:41 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 8, row: 0 }, default_prompt: true, cursor: Position { col: 11, row: 0 }, end: Position { col: 11, row: 0 } }
+23:52:41 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 8, row: 0 }, default_prompt: true, cursor: Position { col: 10, row: 0 }, end: Position { col: 10, row: 0 } }
+23:52:41 [DEBUG] (1) rustyline: c: 'h' => key: KeyEvent(Char('h'), Modifiers(0x0))
+23:52:41 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'h')
+23:52:41 [DEBUG] (1) rustyline: Changeset::insert(2, 'h')
+23:52:41 [DEBUG] (1) rustyline: c: 'n' => key: KeyEvent(Char('n'), Modifiers(0x0))
+23:52:41 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'n')
+23:52:41 [DEBUG] (1) rustyline: Changeset::insert(3, 'n')
+23:52:42 [DEBUG] (1) rustyline: c: '\u{7f}' => key: KeyEvent(Backspace, Modifiers(0x0))
+23:52:42 [DEBUG] (1) rustyline: Emacs command: Kill(BackwardChar(1))
+23:52:42 [DEBUG] (1) rustyline: Changeset::delete(3, "n")
+23:52:42 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 8, row: 0 }, default_prompt: true, cursor: Position { col: 12, row: 0 }, end: Position { col: 12, row: 0 } }
+23:52:42 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 8, row: 0 }, default_prompt: true, cursor: Position { col: 11, row: 0 }, end: Position { col: 11, row: 0 } }
+23:52:42 [DEBUG] (1) rustyline: c: 'a' => key: KeyEvent(Char('a'), Modifiers(0x0))
+23:52:42 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'a')
+23:52:42 [DEBUG] (1) rustyline: Changeset::insert(3, 'a')
+23:52:42 [DEBUG] (1) rustyline: c: 'n' => key: KeyEvent(Char('n'), Modifiers(0x0))
+23:52:42 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'n')
+23:52:42 [DEBUG] (1) rustyline: Changeset::insert(4, 'n')
+23:52:42 [DEBUG] (1) rustyline: c: ' ' => key: KeyEvent(Char(' '), Modifiers(0x0))
+23:52:42 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, ' ')
+23:52:42 [DEBUG] (1) rustyline: Changeset::insert(5, ' ')
+23:52:42 [DEBUG] (1) rustyline: c: 'C' => key: KeyEvent(Char('C'), Modifiers(0x0))
+23:52:42 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'C')
+23:52:42 [DEBUG] (1) rustyline: Changeset::insert(6, 'C')
+23:52:42 [DEBUG] (1) rustyline: c: 'a' => key: KeyEvent(Char('a'), Modifiers(0x0))
+23:52:42 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'a')
+23:52:42 [DEBUG] (1) rustyline: Changeset::insert(7, 'a')
+23:52:43 [DEBUG] (1) rustyline: c: 'o' => key: KeyEvent(Char('o'), Modifiers(0x0))
+23:52:43 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'o')
+23:52:43 [DEBUG] (1) rustyline: Changeset::insert(8, 'o')
+23:52:43 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
+23:52:43 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
+23:52:43 [DEBUG] (1) rustyline: VEOF: KeyEvent(Char('D'), Modifiers(CTRL))
+23:52:43 [DEBUG] (1) rustyline: VINTR: KeyEvent(Char('C'), Modifiers(CTRL))
+23:52:43 [DEBUG] (1) rustyline: VQUIT: KeyEvent(Char('\\'), Modifiers(CTRL))
+23:52:43 [DEBUG] (1) rustyline: VSUSP: KeyEvent(Char('Z'), Modifiers(CTRL))
+23:52:43 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 0, row: 0 }, default_prompt: false, cursor: Position { col: 0, row: 0 }, end: Position { col: 0, row: 0 } }
+23:52:43 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 6, row: 0 }, default_prompt: true, cursor: Position { col: 6, row: 0 }, end: Position { col: 6, row: 0 } }
+23:52:50 [DEBUG] (1) rustyline: c: 'D' => key: KeyEvent(Char('D'), Modifiers(0x0))
+23:52:50 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'D')
+23:52:50 [DEBUG] (1) rustyline: Changeset::insert(0, 'D')
+23:52:50 [DEBUG] (1) rustyline: c: 'w' => key: KeyEvent(Char('w'), Modifiers(0x0))
+23:52:50 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'w')
+23:52:50 [DEBUG] (1) rustyline: Changeset::insert(1, 'w')
+23:52:52 [DEBUG] (1) rustyline: c: '\u{7f}' => key: KeyEvent(Backspace, Modifiers(0x0))
+23:52:52 [DEBUG] (1) rustyline: Emacs command: Kill(BackwardChar(1))
+23:52:52 [DEBUG] (1) rustyline: Changeset::delete(1, "w")
+23:52:52 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 6, row: 0 }, default_prompt: true, cursor: Position { col: 8, row: 0 }, end: Position { col: 8, row: 0 } }
+23:52:52 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 6, row: 0 }, default_prompt: true, cursor: Position { col: 7, row: 0 }, end: Position { col: 7, row: 0 } }
+23:52:52 [DEBUG] (1) rustyline: c: '\u{7f}' => key: KeyEvent(Backspace, Modifiers(0x0))
+23:52:52 [DEBUG] (1) rustyline: Emacs command: Kill(BackwardChar(1))
+23:52:52 [DEBUG] (1) rustyline: Changeset::delete(0, "D")
+23:52:52 [DEBUG] (1) rustyline: old layout: Layout { prompt_size: Position { col: 6, row: 0 }, default_prompt: true, cursor: Position { col: 7, row: 0 }, end: Position { col: 7, row: 0 } }
+23:52:52 [DEBUG] (1) rustyline: new layout: Layout { prompt_size: Position { col: 6, row: 0 }, default_prompt: true, cursor: Position { col: 6, row: 0 }, end: Position { col: 6, row: 0 } }
+23:52:54 [DEBUG] (1) rustyline: c: 'J' => key: KeyEvent(Char('J'), Modifiers(0x0))
+23:52:54 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'J')
+23:52:54 [DEBUG] (1) rustyline: Changeset::insert(0, 'J')
+23:52:55 [DEBUG] (1) rustyline: c: 'a' => key: KeyEvent(Char('a'), Modifiers(0x0))
+23:52:55 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'a')
+23:52:55 [DEBUG] (1) rustyline: Changeset::insert(1, 'a')
+23:52:55 [DEBUG] (1) rustyline: c: 'q' => key: KeyEvent(Char('q'), Modifiers(0x0))
+23:52:55 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'q')
+23:52:55 [DEBUG] (1) rustyline: Changeset::insert(2, 'q')
+23:52:55 [DEBUG] (1) rustyline: c: 'u' => key: KeyEvent(Char('u'), Modifiers(0x0))
+23:52:55 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'u')
+23:52:55 [DEBUG] (1) rustyline: Changeset::insert(3, 'u')
+23:52:55 [DEBUG] (1) rustyline: c: 'a' => key: KeyEvent(Char('a'), Modifiers(0x0))
+23:52:55 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'a')
+23:52:55 [DEBUG] (1) rustyline: Changeset::insert(4, 'a')
+23:52:55 [DEBUG] (1) rustyline: c: 'n' => key: KeyEvent(Char('n'), Modifiers(0x0))
+23:52:55 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'n')
+23:52:55 [DEBUG] (1) rustyline: Changeset::insert(5, 'n')
+23:52:56 [DEBUG] (1) rustyline: c: 't' => key: KeyEvent(Char('t'), Modifiers(0x0))
+23:52:56 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 't')
+23:52:56 [DEBUG] (1) rustyline: Changeset::insert(6, 't')
+23:52:56 [DEBUG] (1) rustyline: c: 'a' => key: KeyEvent(Char('a'), Modifiers(0x0))
+23:52:56 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'a')
+23:52:56 [DEBUG] (1) rustyline: Changeset::insert(7, 'a')
+23:52:56 [DEBUG] (1) rustyline: c: 'v' => key: KeyEvent(Char('v'), Modifiers(0x0))
+23:52:56 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'v')
+23:52:56 [DEBUG] (1) rustyline: Changeset::insert(8, 'v')
+23:52:56 [DEBUG] (1) rustyline: c: 'i' => key: KeyEvent(Char('i'), Modifiers(0x0))
+23:52:56 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'i')
+23:52:57 [DEBUG] (1) rustyline: Changeset::insert(9, 'i')
+23:52:57 [DEBUG] (1) rustyline: c: 'o' => key: KeyEvent(Char('o'), Modifiers(0x0))
+23:52:57 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'o')
+23:52:57 [DEBUG] (1) rustyline: Changeset::insert(10, 'o')
+23:52:57 [DEBUG] (1) rustyline: c: 'u' => key: KeyEvent(Char('u'), Modifiers(0x0))
+23:52:57 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'u')
+23:52:57 [DEBUG] (1) rustyline: Changeset::insert(11, 'u')
+23:52:57 [DEBUG] (1) rustyline: c: 's' => key: KeyEvent(Char('s'), Modifiers(0x0))
+23:52:57 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 's')
+23:52:57 [DEBUG] (1) rustyline: Changeset::insert(12, 's')
+23:52:57 [DEBUG] (1) rustyline: c: ' ' => key: KeyEvent(Char(' '), Modifiers(0x0))
+23:52:57 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, ' ')
+23:52:57 [DEBUG] (1) rustyline: Changeset::insert(13, ' ')
+23:52:57 [DEBUG] (1) rustyline: c: 'C' => key: KeyEvent(Char('C'), Modifiers(0x0))
+23:52:57 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'C')
+23:52:57 [DEBUG] (1) rustyline: Changeset::insert(14, 'C')
+23:52:58 [DEBUG] (1) rustyline: c: 'a' => key: KeyEvent(Char('a'), Modifiers(0x0))
+23:52:58 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'a')
+23:52:58 [DEBUG] (1) rustyline: Changeset::insert(15, 'a')
+23:52:58 [DEBUG] (1) rustyline: c: 'o' => key: KeyEvent(Char('o'), Modifiers(0x0))
+23:52:58 [DEBUG] (1) rustyline: Emacs command: SelfInsert(1, 'o')
+23:52:58 [DEBUG] (1) rustyline: Changeset::insert(16, 'o')
+23:52:59 [DEBUG] (1) rustyline: c: '\r' => key: KeyEvent(Enter, Modifiers(0x0))
+23:52:59 [DEBUG] (1) rustyline: Emacs command: AcceptOrInsertLine { accept_in_the_middle: true }
+23:52:59 [INFO] Generating label with ID: 25eef6e6-a350-4501-92e5-1b6b17c11476
+23:52:59 [DEBUG] (1) milkcoded::test_data::label: Label QR rendered successfully
+23:53:00 [INFO] Label saved: Label { volume: 100, additives: "HG8", mother: "Ethan Cao", baby: "Jaquantavious Cao", expiry: "2024-10-18", id: "25eef6e6-a350-4501-92e5-1b6b17c11476", code: "labels/label_25eef6e6-a350-4501-92e5-1b6b17c11476.png" }
