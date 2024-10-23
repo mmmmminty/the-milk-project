@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo -u postgres pg_dump -U postgres -d database > backup.sql
