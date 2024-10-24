@@ -49,3 +49,43 @@ def post_unverified_milk():
 
     milkId = create_milk(mother_id, baby_id, expressed_date, frozen)
     return jsonify({'milk_id': milk_id}), 200
+
+
+#WHATEVERS UNDER HERE HAS NOT BEEN IMPLEMENTED 
+
+# updates milk id, with parameters additives, defrost, verify 
+@bp.route('/milk/', methods=['PUT'])
+def update_milk():
+    data = request.get_json()
+
+    milk_id = data.get('id') 
+
+    if milk_id is None:
+        return jsonify({'error': 'Milk ID is required'}), 400
+    
+    verifiedBy = data.get('verified_id') # verified id of nurse, optional
+    additives = data.get('additives') #[additive1, additive2], optional
+    defrosted = data.get('defrosted') # boolean, optional
+
+    updated_milk = fetch_update_milk(milk_id, verified_by, additives, defrosted)
+    
+    if updated_milk:
+        return jsonify({'message': 'Milk updated successfully', 'milk': updated_milk}), 200
+    else:
+        return jsonify({'error': 'Failed to update milk or milk not found'}), 400
+
+#query string gives milk id, milk id is deleted 
+
+@bp.route('/milk/', methods=['DEL'])
+def delete_milk():
+    milk_id = request.args.get('id')
+
+    if milk_id is None:
+        return jsonify({'error': 'Milk ID is required'}), 400
+
+    result = fetch_remove_milk(milk_id)
+    
+     if result:
+        return jsonify({'message': 'Milk deleted successfully'}), 200
+    else:
+        return jsonify({'error': 'Failed to delete milk or milk not found'}), 400

@@ -69,4 +69,7 @@ def create_milk(mother_id, baby_id, expressionDate, frozen):
         )
     return True # should return milk_id but just debugging 
 
-create_milk(1, 1, "2024-12-31T23:59:59", False)
+def fetch_update_milk(milk_id, verified_by, additives, defrosted): 
+    return
+
+# create_milk(1, 1, "2024-12-31T23:59:59", False)
