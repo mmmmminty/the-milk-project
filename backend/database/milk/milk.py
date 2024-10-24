@@ -1,13 +1,25 @@
 from database.database import get_db_cursor
 from datetime import datetime, timedelta
 
-def fetch_milk():
+#
+def fetch_milks():
     with get_db_cursor() as cur:
-        cur.execute("SELECT * FROM Milk;")
+        cur.execute("SELECT id FROM Milk;")
         milk_data = cur.fetchall()
-        columns = [desc[0] for desc in cur.description]  
-        milk_list = [dict(zip(columns, row)) for row in milk_data]  
+        milk_list = [milk[0] for milk in milk_data]
     return milk_list
+
+def fetch_milk(id): 
+    with get_db_cursor() as cur: 
+        cur.execute("SELECT * FROM Milk WHERE id = %s;", (id,))  # Parameterized query to prevent SQL injection
+        milk_data = cur.fetchone()  
+
+        if milk_data:
+            columns = [desc[0] for desc in cur.description]  # Get the column names
+            milk = dict(zip(columns, milk_data))  # Map column names to values
+            return milk
+        else:
+            return None  
 
 #returns a list of all the unverified milk for the nurses 
 def fetch_unverified_milk():
