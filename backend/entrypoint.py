@@ -9,4 +9,4 @@ if __name__ == "__main__":
     # Initialize the database
     initdb()
 
-    run_server()
+    # run_server()

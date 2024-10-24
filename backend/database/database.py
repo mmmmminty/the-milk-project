@@ -1,7 +1,7 @@
 import psycopg2
 from psycopg2 import sql
 from contextlib import contextmanager
-from database.milk import addMilk, viewMilk
+# from database.milk import milk
 from logger_config import logger
 import sys
 

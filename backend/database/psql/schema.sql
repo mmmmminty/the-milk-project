@@ -23,8 +23,9 @@ CREATE TABLE IF NOT EXISTS DonatedMilk (
     milk_id INTEGER NOT NULL
 );
 
+
 CREATE TABLE IF NOT EXISTS Milk (
-    id INTEGER PRIMARY KEY NOT NULL,
+    id SERIAL PRIMARY KEY, -- added serial to automaticallly generate new id per row 
     expiry TIMESTAMP NOT NULL,
     expressed TIMESTAMP NOT NULL,
     frozen BOOLEAN NOT NULL,
