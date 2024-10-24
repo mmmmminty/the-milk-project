@@ -76,3 +76,9 @@ CREATE TABLE IF NOT EXISTS AssignedTo (
     FOREIGN KEY (nurse_id) REFERENCES Nurse(id),
     PRIMARY KEY (baby_id, nurse_id)
 );
+
+-- CREATE VIEW sorted_milk AS SELECT * FROM Milk ORDER BY expiry ASC;
+CREATE VIEW unverified_milk AS
+SELECT *
+FROM Milk
+WHERE verified_id IS NULL;
