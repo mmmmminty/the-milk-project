@@ -1,8 +1,10 @@
-import unittest
-from database_test import database_tests
+import os
 from database.database import initdb
 from app import run_server
-from logger_config import logger
+
+from utils.logger_config import logger
+
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 ### MAIN APPLICATION ###
 if __name__ == "__main__":
@@ -11,7 +13,5 @@ if __name__ == "__main__":
     # Initialize the database
     initdb()
 
-    # runner = unittest.TextTestRunner()
-    # runner.run(database_tests())
-
+    # Run the server
     run_server()

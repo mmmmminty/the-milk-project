@@ -1,6 +1,5 @@
 from flask import jsonify, Blueprint, request
-from database.database import get_db_cursor
-from database.milk.milk import fetch_milks, fetch_unverified_milk, create_milk, fetch_milk
+from database.tables.milk import fetch_milks, fetch_unverified_milk, create_milk, fetch_milk, fetch_update_milk
 
 # Create a blueprint for your routes
 bp = Blueprint('routes', __name__)
@@ -47,7 +46,7 @@ def post_unverified_milk():
     if expressed_date is None:
         return jsonify({'error': 'Expressed date is required'}), 400
 
-    milkId = create_milk(mother_id, baby_id, expressed_date, frozen)
+    milk_id = create_milk(mother_id, baby_id, expressed_date, frozen)
     return jsonify({'milk_id': milk_id}), 200
 
 
@@ -63,7 +62,7 @@ def update_milk():
     if milk_id is None:
         return jsonify({'error': 'Milk ID is required'}), 400
     
-    verifiedBy = data.get('verified_id') # verified id of nurse, optional
+    verified_by = data.get('verified_id') # verified id of nurse, optional
     additives = data.get('additives') #[additive1, additive2], optional
     defrosted = data.get('defrosted') # boolean, optional
 

@@ -1,8 +1,9 @@
-from backend.database.database import get_db_cursor
-from backend.logger_config import logger
-from datetime import datetime, timedelta
+import uuid
+from database.database import get_db_cursor
+from datetime import datetime
 
-from backend.utils.expiry import calculate_expiry_timestamp
+from utils.logger_config import logger
+from utils.expiry import calculate_expiry_timestamp
 
 # Returns a list of all the milk records in the database
 def fetch_milks():
@@ -59,7 +60,7 @@ def create_milk(mother_id, baby_id, expressionDate, frozen):
         try:
             expressionDate = datetime.fromisoformat(expressionDate)
             expiry = calculate_expiry_timestamp(expressionDate, frozen, False)
-            uuid = str(uuid.uuid4())
+            milk_id = str(uuid.uuid4())
 
             if expiry:
                 cur.execute(
@@ -67,7 +68,7 @@ def create_milk(mother_id, baby_id, expressionDate, frozen):
                     INSERT INTO Milk (id, expiry, expressed, frozen, defrosted, modified)
                     VALUES (%s, %s, %s, %s, %s, %s) RETURNING id;
                     """,
-                    (uuid, expiry, expressionDate, frozen, False, False)
+                    (milk_id, expiry, expressionDate, frozen, False, False)
                 )
             else:
                 cur.execute(
@@ -75,11 +76,8 @@ def create_milk(mother_id, baby_id, expressionDate, frozen):
                     INSERT INTO Milk (id, expressed, frozen, defrosted, modified)
                     VALUES (%s, %s, %s, %s, %s) RETURNING id;
                     """,
-                    (uuid, expressionDate, frozen, False, False)
+                    (milk_id, expressionDate, frozen, False, False)
                 )
-            
-            # Get the milk_id of the new milk record
-            milk_id = cur.fetchone()[0]
 
             # Link the new milk record with the mother
             cur.execute(
