@@ -23,8 +23,8 @@ def initdb():
     logger.info("Tables created")
 
     # Do other stuff on startup
-    execute_sql_file("database/psql/test_data.sql")
-    logger.info("Test data inserted")
+    # execute_sql_file("database/psql/test_data.sql")
+    # logger.info("Test data inserted")
     
     # ...
 
