@@ -1,10 +1,10 @@
 -- Additive table
-INSERT INTO Additive (name) VALUES 
-('Vitamin D'), 
-('Iron'), 
-('Calcium'), 
-('Probiotics'), 
-('Omega-3') 
+INSERT INTO Additive (name, customExpiryModifier) VALUES 
+('Vitamin D', 0), 
+('Iron', 0), 
+('Calcium', 0), 
+('Probiotics', 0), 
+('Omega-3', 0) 
 ON CONFLICT DO NOTHING;
 
 -- Mother table
