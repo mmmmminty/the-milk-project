@@ -23,12 +23,11 @@ CREATE TABLE IF NOT EXISTS Nurse (
 
 CREATE TABLE IF NOT EXISTS DonatedMilk (
     id INTEGER PRIMARY KEY NOT NULL,
-    milk_id INTEGER NOT NULL
+    milk_id UUID NOT NULL
 );
 
-
 CREATE TABLE IF NOT EXISTS Milk (
-    id INTEGER PRIMARY KEY NOT NULL, -- added serial to automaticallly generate new id per row 
+    id UUID PRIMARY KEY NOT NULL, 
     expiry TIMESTAMP NOT NULL,
     expressed TIMESTAMP NOT NULL,
     frozen BOOLEAN NOT NULL,
@@ -41,7 +40,7 @@ CREATE TABLE IF NOT EXISTS Milk (
 );
 
 CREATE TABLE IF NOT EXISTS Contains (
-    milk_id INTEGER NOT NULL,
+    milk_id UUID NOT NULL,
     additive_name VARCHAR(255) NOT NULL,
     amount INTEGER NOT NULL,
     FOREIGN KEY (milk_id) REFERENCES Milk(id),
@@ -50,7 +49,7 @@ CREATE TABLE IF NOT EXISTS Contains (
 );
 
 CREATE TABLE IF NOT EXISTS ExpressedBy (
-    milk_id INTEGER NOT NULL,
+    milk_id UUID NOT NULL,
     mother_id INTEGER NOT NULL,
     FOREIGN KEY (milk_id) REFERENCES Milk(id),
     FOREIGN KEY (mother_id) REFERENCES Mother(id),
@@ -58,7 +57,7 @@ CREATE TABLE IF NOT EXISTS ExpressedBy (
 );
 
 CREATE TABLE IF NOT EXISTS ExpressedFor (
-    milk_id INTEGER NOT NULL,
+    milk_id UUID NOT NULL,
     baby_id INTEGER NOT NULL,
     FOREIGN KEY (milk_id) REFERENCES Milk(id),
     FOREIGN KEY (baby_id) REFERENCES Baby(id),
