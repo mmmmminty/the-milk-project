@@ -1,7 +1,6 @@
-from backend.utils.expiry import ADDITIVE_DEFAULT_EXPIRY_MODIFIER
+from utils.constants import ADDITIVE_DEFAULT_EXPIRY_MODIFIER
 from database.database import get_db_cursor
-from datetime import datetime, timedelta
-from logger_config import logger
+from utils.logger_config import logger
 
 def add_additive_to_milk(additive, milk_id):
     additive = additive.upper()

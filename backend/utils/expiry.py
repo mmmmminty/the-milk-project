@@ -1,14 +1,11 @@
 from datetime import datetime, timedelta
 
-from backend.logger_config import logger
-from backend.database.additives.additives import fetch_additives
-from backend.database.milk.milk import fetch_milk
-
-ADDITIVE_DEFAULT_EXPIRY_MODIFIER = 0
+import database
+from utils.constants import ADDITIVE_DEFAULT_EXPIRY_MODIFIER
+from utils.logger_config import logger
 
 # Call this when calculating the expiry timestamp for a milk that has just been created.
 def calculate_expiry_timestamp(expressionDate, frozen, defrosted):
-    expressionDate = datetime.fromisoformat(expressionDate)
     if (frozen):
         expiry = None
     elif (defrosted): 
@@ -20,8 +17,8 @@ def calculate_expiry_timestamp(expressionDate, frozen, defrosted):
 
 # Call this when calculating the new expiry timestamp for a milk that has been modified.
 def calculate_expiry_timestamp_from_milk(milk_id):
-    milk = fetch_milk(milk_id)
-    additives = fetch_additives(milk_id)
+    milk = database.tables.milk.fetch_milk(milk_id)
+    additives = database.tables.milk.fetch_additives(milk_id)
 
     if milk:
         expressionDate = milk.get('expressionDate')
