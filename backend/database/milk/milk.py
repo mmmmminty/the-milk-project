@@ -59,22 +59,23 @@ def create_milk(mother_id, baby_id, expressionDate, frozen):
         try:
             expressionDate = datetime.fromisoformat(expressionDate)
             expiry = calculate_expiry_timestamp(expressionDate, frozen, False)
+            uuid = str(uuid.uuid4())
 
             if expiry:
                 cur.execute(
                     """
-                    INSERT INTO Milk (expiry, expressed, frozen, defrosted, modified)
-                    VALUES (%s, %s, %s, %s, %s) RETURNING id;
+                    INSERT INTO Milk (id, expiry, expressed, frozen, defrosted, modified)
+                    VALUES (%s, %s, %s, %s, %s, %s) RETURNING id;
                     """,
-                    (expiry, expressionDate, frozen, False, False)
+                    (uuid, expiry, expressionDate, frozen, False, False)
                 )
             else:
                 cur.execute(
                     """
-                    INSERT INTO Milk (expressed, frozen, defrosted, modified)
-                    VALUES (%s, %s, %s, %s) RETURNING id;
+                    INSERT INTO Milk (id, expressed, frozen, defrosted, modified)
+                    VALUES (%s, %s, %s, %s, %s) RETURNING id;
                     """,
-                    (expressionDate, frozen, False, False)
+                    (uuid, expressionDate, frozen, False, False)
                 )
             
             # Get the milk_id of the new milk record
