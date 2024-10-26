@@ -1,30 +1,20 @@
 import psycopg2
-from psycopg2 import sql
 from contextlib import contextmanager
-# from database.milk import milk
-from logger_config import logger
-import sys
 
-DB_NAME = "milkdb"
-DB_USER = "postgres"
-DB_PASSWORD = sys.argv[1]
-DB_HOST = "localhost"
-DB_PORT = "5432"
-
-SCHEMA_FILE_PATH = "database/psql/schema.sql"
-TEST_DATA_FILE_PATH = "database/psql/test_data.sql"
+from utils.constants import DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, SCHEMA_FILE_PATH, TEST_DATA_FILE_PATH
+from utils.logger_config import logger
 
 def initdb():
     logger.info("Initializing the database")
     get_db_connection()
 
     # Create tables
-    execute_sql_file("database/psql/schema.sql")
+    execute_sql_file(SCHEMA_FILE_PATH)
     logger.info("Tables created")
 
     # Do other stuff on startup
-    # execute_sql_file("database/psql/test_data.sql")
-    # logger.info("Test data inserted")
+    execute_sql_file(TEST_DATA_FILE_PATH)
+    logger.info("Test data inserted")
     
     # ...
 

@@ -1,6 +1,0 @@
-#!/bin/bash
-
-sudo chmod o+x .
-sudo service postgresql start
-sudo -u postgres psql -f ./database.sql
-python3 backend.py
