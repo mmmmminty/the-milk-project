@@ -1,8 +1,7 @@
+from backend.utils.expiry import ADDITIVE_DEFAULT_EXPIRY_MODIFIER
 from database.database import get_db_cursor
 from datetime import datetime, timedelta
 from logger_config import logger
-
-ADDITIVE_DEFAULT_EXPIRY_MODIFIER = 24
 
 def add_additive_to_milk(additive, milk_id):
     additive = additive.upper()
@@ -40,3 +39,28 @@ def add_additive_to_milk(additive, milk_id):
     
     logger.info(f"Additive {additive} added to milk {milk_id}")
     return True
+
+def fetch_additives(milk_id):
+    with get_db_cursor() as cur:
+        try:
+            cur.execute(
+                """
+                SELECT Additive.name, Contains.amount, Additive.customExpiryModifier FROM Contains 
+                JOIN Additive ON Contains.additive_name = Additive.name
+                WHERE milk_id = %s;
+                """,
+                (milk_id,)
+            )
+            additives = cur.fetchall()
+
+            if not additives:
+                logger.info(f"No additives found for milk {milk_id}")
+                return None
+            else:
+                logger.info(f"Fetched additives for milk {milk_id}")
+                additive_dict = {additive['name']: (additive['amount'], additive['customExpiryModifier']) for additive in additives}
+                return additive_dict
+            
+        except Exception as e:
+            logger.error(f"Error fetching additives: {e}")
+            return None
