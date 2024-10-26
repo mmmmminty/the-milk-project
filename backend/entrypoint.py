@@ -1,4 +1,7 @@
+import unittest
+from database_test import database_tests
 from database.database import initdb
+from app import run_server
 from logger_config import logger
 
 ### MAIN APPLICATION ###
@@ -7,5 +10,8 @@ if __name__ == "__main__":
     
     # Initialize the database
     initdb()
-    
-    # TODO: Spin up HTTP server
+
+    # runner = unittest.TextTestRunner()
+    # runner.run(database_tests())
+
+    run_server()

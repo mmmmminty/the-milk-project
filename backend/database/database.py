@@ -1,7 +1,7 @@
 import psycopg2
 from psycopg2 import sql
 from contextlib import contextmanager
-from database.milk import *
+# from database.milk import milk
 from logger_config import logger
 import sys
 
@@ -19,12 +19,12 @@ def initdb():
     get_db_connection()
 
     # Create tables
-    execute_sql_file(SCHEMA_FILE_PATH)
+    execute_sql_file("database/psql/schema.sql")
     logger.info("Tables created")
 
     # Do other stuff on startup
-    execute_sql_file(TEST_DATA_FILE_PATH)
-    logger.info("Test data inserted")
+    # execute_sql_file("database/psql/test_data.sql")
+    # logger.info("Test data inserted")
     
     # ...
 

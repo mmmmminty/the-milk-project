@@ -1,10 +1,10 @@
 -- Additive table
-INSERT INTO Additive (name) VALUES 
-('Vitamin D'), 
-('Iron'), 
-('Calcium'), 
-('Probiotics'), 
-('Omega-3') 
+INSERT INTO Additive (name, customExpiryModifier) VALUES 
+('Vitamin D', 0), 
+('Iron', 0), 
+('Calcium', 0), 
+('Probiotics', 0), 
+('Omega-3', 0) 
 ON CONFLICT DO NOTHING;
 
 -- Mother table
@@ -34,45 +34,46 @@ INSERT INTO Nurse (id, name) VALUES
 (5, 'Nurse Clara')
 ON CONFLICT DO NOTHING;
 
--- DonatedMilk table
-INSERT INTO DonatedMilk (id, milk_id) VALUES 
-(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)
-ON CONFLICT DO NOTHING;
-
 -- Milk table
 INSERT INTO Milk (id, expiry, expressed, frozen, defrosted, modified, donated_id, verified_id) VALUES 
-(1, '2024-01-15 12:00:00', '2023-12-10 08:00:00', TRUE, FALSE, FALSE, 1, 1),
-(2, '2024-02-20 14:00:00', '2023-12-11 09:00:00', TRUE, TRUE, TRUE, 2, 2),
-(3, '2024-03-25 10:30:00', '2023-12-12 10:30:00', FALSE, TRUE, FALSE, 3, 3),
-(4, '2024-04-30 08:00:00', '2023-12-13 11:00:00', FALSE, FALSE, TRUE, 4, 4),
-(5, '2024-05-10 11:15:00', '2023-12-14 12:15:00', TRUE, FALSE, FALSE, 5, 5)
+('f1ea645f-4efa-4612-889c-0f271548bd83', '2024-01-15 12:00:00', '2023-12-10 08:00:00', TRUE, FALSE, FALSE, NULL, 1),
+('60253dad-74e8-4ec7-abb7-ec91bc7d39f7', '2024-02-20 14:00:00', '2023-12-11 09:00:00', TRUE, TRUE, TRUE, NULL, 2),
+('f67ea1e4-4aea-496b-b30b-41a76ba1394f', '2024-03-25 10:30:00', '2023-12-12 10:30:00', FALSE, TRUE, FALSE, NULL, 3),
+('be7e2418-37d4-42f3-bdb0-3fa3e7c95a84', '2024-04-30 08:00:00', '2023-12-13 11:00:00', FALSE, FALSE, TRUE, NULL, 4),
+('7301d088-aed2-4810-9412-4389a3965f44', '2024-05-10 11:15:00', '2023-12-14 12:15:00', TRUE, FALSE, FALSE, NULL, 5),
+('05ce303e-a473-4ef7-906a-ba6471f5a880', '2024-05-10 11:15:00', '2023-12-14 12:15:00', TRUE, FALSE, FALSE, NULL, NULL),
+('c749124d-cbb6-423e-a354-df6cc92786ae', '2024-05-10 11:15:00', '2023-12-14 12:15:00', TRUE, FALSE, FALSE, NULL, NULL)
 ON CONFLICT DO NOTHING;
 
 -- Contains table
 INSERT INTO Contains (milk_id, additive_name, amount) VALUES 
-(1, 'Vitamin D', 100), 
-(2, 'Iron', 200), 
-(3, 'Calcium', 150), 
-(4, 'Probiotics', 250), 
-(5, 'Omega-3', 300)
+('f1ea645f-4efa-4612-889c-0f271548bd83', 'Vitamin D', 100), 
+('60253dad-74e8-4ec7-abb7-ec91bc7d39f7', 'Iron', 200), 
+('f67ea1e4-4aea-496b-b30b-41a76ba1394f', 'Calcium', 150), 
+('be7e2418-37d4-42f3-bdb0-3fa3e7c95a84', 'Probiotics', 250), 
+('7301d088-aed2-4810-9412-4389a3965f44', 'Omega-3', 300)
 ON CONFLICT DO NOTHING;
 
 -- ExpressedBy table
 INSERT INTO ExpressedBy (milk_id, mother_id) VALUES 
-(1, 1), 
-(2, 2), 
-(3, 3), 
-(4, 4), 
-(5, 5)
+('f1ea645f-4efa-4612-889c-0f271548bd83', 1), 
+('60253dad-74e8-4ec7-abb7-ec91bc7d39f7', 2), 
+('f67ea1e4-4aea-496b-b30b-41a76ba1394f', 3), 
+('be7e2418-37d4-42f3-bdb0-3fa3e7c95a84', 4), 
+('7301d088-aed2-4810-9412-4389a3965f44', 5),
+('05ce303e-a473-4ef7-906a-ba6471f5a880', 5),
+('c749124d-cbb6-423e-a354-df6cc92786ae', 5)
 ON CONFLICT DO NOTHING;
 
 -- ExpressedFor table
 INSERT INTO ExpressedFor (milk_id, baby_id) VALUES 
-(1, 1), 
-(2, 2), 
-(3, 3), 
-(4, 4), 
-(5, 5)
+('f1ea645f-4efa-4612-889c-0f271548bd83', 1), 
+('60253dad-74e8-4ec7-abb7-ec91bc7d39f7', 2), 
+('f67ea1e4-4aea-496b-b30b-41a76ba1394f', 3), 
+('be7e2418-37d4-42f3-bdb0-3fa3e7c95a84', 4), 
+('7301d088-aed2-4810-9412-4389a3965f44', 5),
+('05ce303e-a473-4ef7-906a-ba6471f5a880', 5),
+('c749124d-cbb6-423e-a354-df6cc92786ae', 5)
 ON CONFLICT DO NOTHING;
 
 -- MotherOf table
