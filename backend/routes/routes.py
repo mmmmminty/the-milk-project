@@ -85,7 +85,7 @@ def delete_milk():
 
     result = fetch_remove_milk(milk_id)
     
-     if result:
+    if result:
         return jsonify({'message': 'Milk deleted successfully'}), 200
     else:
         return jsonify({'error': 'Failed to delete milk or milk not found'}), 400
