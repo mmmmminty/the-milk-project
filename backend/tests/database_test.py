@@ -3,7 +3,7 @@ import unittest
 import uuid
 from database.tables.staff import create_nurse, delete_nurse, fetch_nurse, link_nurse_to_baby
 from database.tables.family import create_baby, create_mother_and_baby, delete_family, fetch_all_babies, fetch_babies, fetch_baby, fetch_mother, fetch_mothers
-from database.tables.additives import add_additive_to_milk, fetch_additives
+from database.tables.additives import add_additive_to_milk, create_additive, fetch_additive_by_name, fetch_additives, fetch_all_additives, update_additive_expiry_modifier
 from database.database import execute_sql_file
 from database.tables.milk import create_milk, delete_milk, fetch_milk, fetch_milks, fetch_milks_by_baby, fetch_milks_by_mother, update_milk
 
@@ -29,6 +29,27 @@ class milk_tests(unittest.TestCase):
 
         # Test relations
         # TODO
+
+    def test_fetch_milk_with_additives(self):
+        setup_test_env(True)
+        milk_id = create_milk(1, '7e66e1bd-22d3-45f1-9d87-d32fa40dc36e', "2021-01-01T00:00:00", False)
+        self.assertIsNotNone(milk_id)
+
+        add_additive_to_milk('Vitamin D', 100, milk_id)
+
+        milk = fetch_milk(milk_id)
+
+        expected_additives = {
+            'VITAMIN D': (100, 0)
+        }
+        self.assertEqual(milk.get('id'), milk_id)
+        self.assertEqual(milk.get('expiry'), datetime.fromisoformat("2021-01-03T00:00:00"))
+        self.assertEqual(milk.get('expressed'), datetime.fromisoformat("2021-01-01T00:00:00"))
+        self.assertEqual(milk.get('frozen'), False)
+        self.assertEqual(milk.get('defrosted'), False)
+        self.assertEqual(milk.get('modified'), False)
+        self.assertEqual(milk.get('verified_id'), None)
+        self.assertEqual(milk.get('additives'), expected_additives)
 
     def test_fetch_milks(self):
         setup_test_env(True)
@@ -171,6 +192,81 @@ class additive_tests(unittest.TestCase):
             'VITAMIN C': (300, 0)
         }
         self.assertEqual(additives, expected_additives)
+    
+    def test_increase_quantity(self):     
+        setup_test_env(True)
+
+        milk = fetch_milk('f1ea645f-4efa-4612-889c-0f271548bd83')
+        self.assertIsNotNone(milk)
+
+        # Fetch the additives
+        additives = fetch_additives(milk.get('id'))
+        expected_additives = {
+            'VITAMIN D': (100, 0)
+        }
+        self.assertEqual(additives, expected_additives)
+
+        # Add more of the same additive
+        self.assertTrue(add_additive_to_milk('Vitamin D', 200, milk.get('id')))
+
+        # Fetch the additives
+        additives = fetch_additives(milk.get('id'))
+        expected_additives = {
+            'VITAMIN D': (300, 0)
+        }
+        self.assertEqual(additives, expected_additives)
+    
+    def test_increase_expiry_modifier(self):
+        setup_test_env(True)
+
+        milk = fetch_milk('f1ea645f-4efa-4612-889c-0f271548bd83')
+        self.assertIsNotNone(milk)
+
+        # Fetch the additives
+        additives = fetch_additives(milk.get('id'))
+        expected_additives = {
+            'VITAMIN D': (100, 0)
+        }
+        self.assertEqual(additives, expected_additives)
+
+        self.assertTrue(update_additive_expiry_modifier('Vitamin D', 24))
+
+        # Fetch the additives
+        additives = fetch_additives(milk.get('id'))
+        expected_additives = {
+            'VITAMIN D': (100, 24)
+        }
+        self.assertEqual(additives, expected_additives)
+
+    def test_create_and_fetch_additives(self):
+        setup_test_env(False)
+
+        additives = fetch_all_additives()
+        self.assertIsNone(additives)
+
+        additive = create_additive('viTAmIn a', 48)
+        self.assertEqual(additive, 'VITAMIN A')
+        
+        create_additive('viTAmIn e', 48)
+        create_additive('viTAmIn d', 48)
+
+        self.assertIsNone(create_additive('viTAmIn a', 24))
+        additives = fetch_all_additives()
+        expected_additives = ['VITAMIN A', 'VITAMIN E', 'VITAMIN D']
+        self.assertEqual(additives, expected_additives)
+    
+    def test_fetch_additive_by_name(self):
+        setup_test_env(False)
+
+        additive = create_additive('viTAmIn a', 48)
+        self.assertEqual(additive, 'VITAMIN A')
+
+        additive = fetch_additive_by_name(additive)
+        expected = {
+            'name': 'VITAMIN A',
+            'custom_expiry_modifier': 48
+        }
+        self.assertEqual(additive, expected)
 
 class family_tests(unittest.TestCase):
     def test_create_mother_and_baby(self):
