@@ -41,7 +41,7 @@ def calculate_expiry_timestamp_from_milk(milk_id):
 def additive_expiry_strategy_minimum(additives):
     min_modifier = float('inf')
     for additive in additives:
-        custom_modifier = additive.get('customExpiryModifier', ADDITIVE_DEFAULT_EXPIRY_MODIFIER)
+        custom_modifier = additive.get('custom_expiry_modifier', ADDITIVE_DEFAULT_EXPIRY_MODIFIER)
         if custom_modifier < min_modifier:
             min_modifier = custom_modifier
 
