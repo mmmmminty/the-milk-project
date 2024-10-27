@@ -174,3 +174,20 @@ def update_milk(milk_id, expiry=None, expressed=None, frozen=None, defrosted=Non
         except Exception as e:
             logger.error(f"Error updating milk: {e}")
             return False
+        
+def delete_milk(milk_id):
+    with get_db_cursor() as cur:
+        try:
+            cur.execute(
+                """
+                DELETE FROM Milk
+                WHERE id = %s;
+                """,
+                (milk_id,)
+            )
+            logger.info(f"Deleted milk: {milk_id}")
+            return True
+        
+        except Exception as e:
+            logger.error(f"Error deleting milk: {e}")
+            return False

@@ -47,3 +47,17 @@ def link_nurse_to_baby(nurse_id, baby_id):
             logger.error(f"Error linking nurse to baby: {e}")
             return False
         
+def delete_nurse(id):
+    with get_db_cursor() as cur:
+        try:
+            cur.execute('''
+                DELETE FROM Nurse WHERE id = %s;
+            ''', (id,))
+        
+            logger.info(f"Deleted Nurse: {id}")
+            return True
+        
+        except Exception as e:
+            logger.error(f"Error deleting nurse: {e}")
+            return False
+        
