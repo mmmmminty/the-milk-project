@@ -51,6 +51,20 @@ def create_baby(mrn, baby_name):
             logger.error(f"Error creating baby: {e}")
             return None
         
+def fetch_mothers():
+    with get_db_cursor() as cur:
+        try:
+            cur.execute('''
+                SELECT id FROM Mother;
+            ''')
+            mothers = cur.fetchall()
+            logger.info(f"Fetched mothers")
+            return [mother[0] for mother in mothers]
+        
+        except Exception as e:
+            logger.error(f"Error fetching mothers: {e}")
+            return None
+        
 def fetch_mother(mrn):
     with get_db_cursor() as cur:
         try:
@@ -64,6 +78,20 @@ def fetch_mother(mrn):
         
         except Exception as e:
             logger.error(f"Error fetching mother: {e}")
+            return None
+        
+def fetch_all_babies():
+    with get_db_cursor() as cur:
+        try:
+            cur.execute('''
+                SELECT id FROM Baby;
+            ''')
+            babies = cur.fetchall()
+            logger.info(f"Fetched babies")
+            return [baby[0] for baby in babies]
+        
+        except Exception as e:
+            logger.error(f"Error fetching babies: {e}")
             return None
 
 def fetch_babies(mrn):
@@ -95,3 +123,31 @@ def fetch_baby(id):
         except Exception as e:
             logger.error(f"Error fetching baby: {e}")
             return None
+        
+def delete_family(mrn):
+    with get_db_cursor() as cur:
+        try:
+            cur.execute('''
+                SELECT id FROM Baby
+                JOIN MotherOf ON Baby.id = MotherOf.baby_id
+                WHERE MotherOf.mother_id = %s;
+            ''', (mrn,))
+            babies = cur.fetchall()
+
+            for baby in babies:
+                baby_id = baby[0]
+                cur.execute('''
+                    DELETE FROM Baby WHERE id = %s;
+                ''', (baby_id,))
+            logger.info(f"Deleted Babies for MRN: {mrn}")
+
+            cur.execute('''
+                DELETE FROM Mother WHERE id = %s;
+            ''', (mrn,))
+            
+            logger.info(f"Deleted Mother and associated tables: {mrn}")
+            return True
+        
+        except Exception as e:
+            logger.error(f"Error deleting mother/baby and associated tables: {e}")
+            return False

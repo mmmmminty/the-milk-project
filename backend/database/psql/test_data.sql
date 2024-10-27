@@ -1,5 +1,5 @@
 -- Additive table
-INSERT INTO Additive (name, customExpiryModifier) VALUES 
+INSERT INTO Additive (name, custom_expiry_modifier) VALUES 
 ('VITAMIN D', 0), 
 ('IRON', 0), 
 ('CALCIUM', 0), 
