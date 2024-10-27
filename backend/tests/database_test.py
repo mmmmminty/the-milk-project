@@ -1,11 +1,10 @@
 from datetime import datetime
 import unittest
-import uuid
 from database.tables.staff import create_nurse, delete_nurse, fetch_nurse, link_nurse_to_baby
 from database.tables.family import create_baby, create_mother_and_baby, delete_family, fetch_all_babies, fetch_babies, fetch_baby, fetch_mother, fetch_mothers
 from database.tables.additives import add_additive_to_milk, create_additive, fetch_additive_by_name, fetch_additives, fetch_all_additives, update_additive_expiry_modifier
 from database.database import execute_sql_file
-from database.tables.milk import create_milk, delete_milk, fetch_milk, fetch_milks, fetch_milks_by_baby, fetch_milks_by_mother, update_milk
+from database.tables.milk import create_milk, delete_milk, fetch_milk, fetch_milks, fetch_milks_by_baby, fetch_milks_by_mother, fetch_unverified_milks, update_milk
 
 # WHEN TESTING, YOU MUST CHANGE THE DB_PASSWORD CONSTANT IN THE CONSTANTS.PY FILE TO THE PASSWORD OF YOUR DATABASE
 
@@ -63,6 +62,14 @@ class milk_tests(unittest.TestCase):
             'c749124d-cbb6-423e-a354-df6cc92786ae'
         ]
         self.assertEqual(fetch_milks(), expected_uuids)
+
+    def test_fetch_unverified_milks(self):
+        setup_test_env(True)
+        all_milk = fetch_milks_by_mother(1)
+        self.assertEqual(all_milk, ['f1ea645f-4efa-4612-889c-0f271548bd83', 'c749124d-cbb6-423e-a354-df6cc92786ae'])
+
+        unverified_milk = fetch_unverified_milks(1)
+        self.assertEqual(unverified_milk, ['c749124d-cbb6-423e-a354-df6cc92786ae'])
 
     def test_fetch_by_mother(self):
         setup_test_env(False)
@@ -389,6 +396,7 @@ class staff_tests(unittest.TestCase):
         milk = fetch_milk(milk_id)
         self.assertIsNone(milk.get('verified_id'))
 
+# NOTE: Remove 'backend/' from the path when running coverage
 def setup_test_env(defaultData):
     execute_sql_file("backend/database/psql/restart.sql")
     execute_sql_file("backend/database/psql/schema.sql")

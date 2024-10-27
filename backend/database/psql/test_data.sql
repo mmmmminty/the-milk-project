@@ -63,7 +63,7 @@ INSERT INTO ExpressedBy (milk_id, mother_id) VALUES
 ('be7e2418-37d4-42f3-bdb0-3fa3e7c95a84', 4), 
 ('7301d088-aed2-4810-9412-4389a3965f44', 5),
 ('05ce303e-a473-4ef7-906a-ba6471f5a880', 5),
-('c749124d-cbb6-423e-a354-df6cc92786ae', 5)
+('c749124d-cbb6-423e-a354-df6cc92786ae', 1)
 ON CONFLICT DO NOTHING;
 
 -- ExpressedFor table

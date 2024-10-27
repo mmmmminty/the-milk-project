@@ -88,18 +88,23 @@ def fetch_milk(id):
             return None
 
 # Returns a list of all the unverified milk for the nurses 
-def fetch_unverified_milk(mother_id):
+def fetch_unverified_milks(mother_id):
     with get_db_cursor() as cur:
         try:
-            cur.execute("SELECT * FROM unverified_milk;")  
-            unverified_data = cur.fetchall()
-            columns = [desc[0] for desc in cur.description]
-            unverified_list = [dict(zip(columns, row)) for row in unverified_data]
-            logger.info(f"Fetched unverified milk list: {unverified_list}")
-            return unverified_list
-        
+            cur.execute(
+                """
+                SELECT Milk.id FROM Milk
+                JOIN ExpressedBy ON Milk.id = ExpressedBy.milk_id
+                WHERE ExpressedBy.mother_id = %s AND Milk.verified_id IS NULL;
+                """,
+                (mother_id,)
+            )
+            milk_data = cur.fetchall()
+            milk_list = [milk[0] for milk in milk_data]
+            logger.info(f"Fetched unverified milk list for mother {mother_id}: {milk_list}")
+            return milk_list
         except Exception as e:
-            logger.error(f"Error fetching unverified milk: {e}")
+            logger.error(f"Error fetching unverified milks for mother {mother_id}: {e}")
             return None
     
 # Creates a new milk record in the database
