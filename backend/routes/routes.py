@@ -30,6 +30,21 @@ def get_unverified_milk():
     unverified_list = fetch_unverified_milk()
     return jsonify(unverified_list)
 
+@bp.route('/milk/verify', methods=['PUT'])
+def put_verify_milk():
+    milk_id = request.args.get('milk_id')
+    if milk_id is None:
+        return jsonify({'error': 'Milk ID is required'}), 400
+    
+    nurse_id = request.args.get('nurse_id')
+    if nurse_id is None:
+        return jsonify({'error': 'Nurse ID is required'}), 400
+    
+    if update_milk(milk_id, verified_by=nurse_id):
+        return jsonify({'message': 'Milk verified!'}), 200
+    else:
+        return jsonify({'error': 'Failed to verify milk'}), 400
+        
 @bp.route('/milk/', methods=['POST'])
 def post_unverified_milk():
     data = request.get_json()
