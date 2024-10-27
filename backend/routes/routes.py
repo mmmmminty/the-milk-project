@@ -1,5 +1,5 @@
 from flask import jsonify, Blueprint, request
-from database.tables.milk import fetch_milks, fetch_unverified_milk, create_milk, fetch_milk, fetch_update_milk
+from database.tables.milk import fetch_milks, fetch_unverified_milk, create_milk, fetch_milk, update_milk, delete_milk
 
 # Create a blueprint for your routes
 bp = Blueprint('routes', __name__)
@@ -54,7 +54,7 @@ def post_unverified_milk():
 
 # updates milk id, with parameters additives, defrost, verify 
 @bp.route('/milk/', methods=['PUT'])
-def update_milk():
+def fetch_update_milk():
     data = request.get_json()
 
     milk_id = data.get('id') 
@@ -66,7 +66,7 @@ def update_milk():
     additives = data.get('additives') #[additive1, additive2], optional
     defrosted = data.get('defrosted') # boolean, optional
 
-    updated_milk = fetch_update_milk(milk_id, verified_by, additives, defrosted)
+    updated_milk = update_milk(milk_id, verified_by, additives, defrosted)
     
     if updated_milk:
         return jsonify({'message': 'Milk updated successfully', 'milk': updated_milk}), 200
@@ -75,14 +75,16 @@ def update_milk():
 
 #query string gives milk id, milk id is deleted 
 
-@bp.route('/milk/', methods=['DEL'])
-def delete_milk():
+@bp.route('/milk/', methods=['DELETE'])
+def fetch_delete_milk():
     milk_id = request.args.get('id')
 
     if milk_id is None:
         return jsonify({'error': 'Milk ID is required'}), 400
 
-    result = fetch_remove_milk(milk_id)
+    result = delete_milk(milk_id)
+
+    print(result)
     
     if result:
         return jsonify({'message': 'Milk deleted successfully'}), 200
