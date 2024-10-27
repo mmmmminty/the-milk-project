@@ -2,7 +2,7 @@ CREATE SCHEMA IF NOT EXISTS public;
 
 CREATE TABLE IF NOT EXISTS Additive (
     name VARCHAR(255) PRIMARY KEY NOT NULL,
-    customExpiryModifier INTEGER
+    custom_expiry_modifier INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS Mother (
