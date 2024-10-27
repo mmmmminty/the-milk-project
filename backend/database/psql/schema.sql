@@ -11,9 +11,8 @@ CREATE TABLE IF NOT EXISTS Mother (
 );
 
 CREATE TABLE IF NOT EXISTS Baby (
-    id INTEGER PRIMARY KEY NOT NULL,
+    id UUID PRIMARY KEY NOT NULL,
     name VARCHAR(255) NOT NULL,
-    dob TIMESTAMP NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Nurse (
@@ -58,14 +57,14 @@ CREATE TABLE IF NOT EXISTS ExpressedBy (
 
 CREATE TABLE IF NOT EXISTS ExpressedFor (
     milk_id UUID NOT NULL,
-    baby_id INTEGER NOT NULL,
+    baby_id UUID NOT NULL,
     FOREIGN KEY (milk_id) REFERENCES Milk(id),
     FOREIGN KEY (baby_id) REFERENCES Baby(id),
     PRIMARY KEY (milk_id, baby_id)
 );
 
 CREATE TABLE IF NOT EXISTS MotherOf (
-    baby_id INTEGER NOT NULL,
+    baby_id UUID NOT NULL,
     mother_id INTEGER NOT NULL,
     FOREIGN KEY (baby_id) REFERENCES Baby(id),
     FOREIGN KEY (mother_id) REFERENCES Mother(id),
@@ -73,7 +72,7 @@ CREATE TABLE IF NOT EXISTS MotherOf (
 );
 
 CREATE TABLE IF NOT EXISTS AssignedTo (
-    baby_id INTEGER NOT NULL,
+    baby_id UUID NOT NULL,
     nurse_id INTEGER NOT NULL,
     FOREIGN KEY (baby_id) REFERENCES Baby(id),
     FOREIGN KEY (nurse_id) REFERENCES Nurse(id),
