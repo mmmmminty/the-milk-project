@@ -17,12 +17,12 @@ INSERT INTO Mother (id, name) VALUES
 ON CONFLICT DO NOTHING;
 
 -- Baby table
-INSERT INTO Baby (id, name, dob) VALUES 
-(1, 'Emma Johnson', '2023-05-10 08:30:00'),
-(2, 'Liam Gonzalez', '2022-11-20 14:45:00'),
-(3, 'Noah Ahmed', '2023-02-15 09:00:00'),
-(4, 'Olivia Brown', '2023-01-25 07:30:00'),
-(5, 'Sophia Li', '2023-06-05 12:20:00')
+INSERT INTO Baby (id, name) VALUES 
+('7e66e1bd-22d3-45f1-9d87-d32fa40dc36e', 'Emma Johnson'),
+('14c48ae0-6151-49da-8762-6e5b52967029', 'Liam Gonzalez'),
+('bc106505-e709-4d25-b086-1a4cccf8c8ae', 'Noah Ahmed'),
+('5ce77853-b53b-4ce4-bbb3-ff39410ca9fd', 'Olivia Brown'),
+('929563dd-e9c6-4f6b-99e8-fc56089744f1', 'Sophia Li')
 ON CONFLICT DO NOTHING;
 
 -- Nurse table
@@ -67,29 +67,29 @@ ON CONFLICT DO NOTHING;
 
 -- ExpressedFor table
 INSERT INTO ExpressedFor (milk_id, baby_id) VALUES 
-('f1ea645f-4efa-4612-889c-0f271548bd83', 1), 
-('60253dad-74e8-4ec7-abb7-ec91bc7d39f7', 2), 
-('f67ea1e4-4aea-496b-b30b-41a76ba1394f', 3), 
-('be7e2418-37d4-42f3-bdb0-3fa3e7c95a84', 4), 
-('7301d088-aed2-4810-9412-4389a3965f44', 5),
-('05ce303e-a473-4ef7-906a-ba6471f5a880', 5),
-('c749124d-cbb6-423e-a354-df6cc92786ae', 5)
+('f1ea645f-4efa-4612-889c-0f271548bd83', '7e66e1bd-22d3-45f1-9d87-d32fa40dc36e'), 
+('60253dad-74e8-4ec7-abb7-ec91bc7d39f7', '14c48ae0-6151-49da-8762-6e5b52967029'), 
+('f67ea1e4-4aea-496b-b30b-41a76ba1394f', 'bc106505-e709-4d25-b086-1a4cccf8c8ae'), 
+('be7e2418-37d4-42f3-bdb0-3fa3e7c95a84', '5ce77853-b53b-4ce4-bbb3-ff39410ca9fd'), 
+('7301d088-aed2-4810-9412-4389a3965f44', '929563dd-e9c6-4f6b-99e8-fc56089744f1'),
+('05ce303e-a473-4ef7-906a-ba6471f5a880', '929563dd-e9c6-4f6b-99e8-fc56089744f1'),
+('c749124d-cbb6-423e-a354-df6cc92786ae', '929563dd-e9c6-4f6b-99e8-fc56089744f1')
 ON CONFLICT DO NOTHING;
 
 -- MotherOf table
 INSERT INTO MotherOf (baby_id, mother_id) VALUES 
-(1, 1), 
-(2, 2), 
-(3, 3), 
-(4, 4), 
-(5, 5)
+('7e66e1bd-22d3-45f1-9d87-d32fa40dc36e', 1), 
+('14c48ae0-6151-49da-8762-6e5b52967029', 2), 
+('bc106505-e709-4d25-b086-1a4cccf8c8ae', 3), 
+('5ce77853-b53b-4ce4-bbb3-ff39410ca9fd', 4), 
+('929563dd-e9c6-4f6b-99e8-fc56089744f1', 5)
 ON CONFLICT DO NOTHING;
 
 -- AssignedTo table
 INSERT INTO AssignedTo (baby_id, nurse_id) VALUES 
-(1, 1), 
-(2, 2), 
-(3, 3), 
-(4, 4), 
-(5, 5)
+('7e66e1bd-22d3-45f1-9d87-d32fa40dc36e', 1), 
+('14c48ae0-6151-49da-8762-6e5b52967029', 2), 
+('bc106505-e709-4d25-b086-1a4cccf8c8ae', 3), 
+('5ce77853-b53b-4ce4-bbb3-ff39410ca9fd', 4), 
+('929563dd-e9c6-4f6b-99e8-fc56089744f1', 5)
 ON CONFLICT DO NOTHING;
