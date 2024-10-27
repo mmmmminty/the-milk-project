@@ -19,6 +19,48 @@ def fetch_milks():
             logger.error(f"Error fetching milks: {e}")
             return None
 
+# Returns a list of all the milk records in the database for a specific baby
+def fetch_milks_by_baby(baby_id):
+    with get_db_cursor() as cur:
+        try:
+            cur.execute(
+                """
+                SELECT Milk.id FROM Milk
+                JOIN ExpressedFor ON Milk.id = ExpressedFor.milk_id
+                WHERE ExpressedFor.baby_id = %s;
+                """,
+                (baby_id,)
+            )
+            milk_data = cur.fetchall()
+            milk_list = [milk[0] for milk in milk_data]
+            logger.info(f"Fetched milk list for baby {baby_id}: {milk_list}")
+            return milk_list
+        
+        except Exception as e:
+            logger.error(f"Error fetching milks for baby {baby_id}: {e}")
+            return None
+
+# Returns a list of all the milk records in the database for a specific mother
+def fetch_milks_by_mother(mother_id):
+    with get_db_cursor() as cur:
+        try:
+            cur.execute(
+                """
+                SELECT Milk.id FROM Milk
+                JOIN ExpressedBy ON Milk.id = ExpressedBy.milk_id
+                WHERE ExpressedBy.mother_id = %s;
+                """,
+                (mother_id,)
+            )
+            milk_data = cur.fetchall()
+            milk_list = [milk[0] for milk in milk_data]
+            logger.info(f"Fetched milk list for mother {mother_id}: {milk_list}")
+            return milk_list
+        
+        except Exception as e:
+            logger.error(f"Error fetching milks for mother {mother_id}: {e}")
+            return None
+
 # Returns a single milk record from the database
 def fetch_milk(id): 
     with get_db_cursor() as cur: 
@@ -40,7 +82,7 @@ def fetch_milk(id):
             return None
 
 # Returns a list of all the unverified milk for the nurses 
-def fetch_unverified_milk():
+def fetch_unverified_milk(mother_id):
     with get_db_cursor() as cur:
         try:
             cur.execute("SELECT * FROM unverified_milk;")  
@@ -104,6 +146,31 @@ def create_milk(mother_id, baby_id, expressionDate, frozen):
             logger.error(f"Error creating milk: {e}")
             return None
 
-# Updates a milk record in the database
-def fetch_update_milk(milk_id, verified_by, additives, defrosted): 
-    return
+# Updates an existing milk record in the database    
+def update_milk(milk_id, expiry=None, expressed=None, frozen=None, defrosted=None, modified=None, verified_by=None):
+    with get_db_cursor() as cur:
+        try:
+            cur.execute(
+                """
+                UPDATE Milk
+                SET expiry = COALESCE(%s, expiry),
+                    expressed = COALESCE(%s, expressed),
+                    frozen = COALESCE(%s, frozen),
+                    defrosted = COALESCE(%s, defrosted),
+                    modified = COALESCE(%s, modified),
+                    verified_id = COALESCE(%s, verified_id)
+                WHERE id = %s;
+                """,
+                (expiry, expressed, frozen, defrosted, modified, verified_by, milk_id)
+            )
+
+            updated_fields = [field_name for field_name, field_value in zip(
+                ['expiry', 'expressed', 'frozen', 'defrosted', 'modified', 'verified_by'],
+                [expiry, expressed, frozen, defrosted, modified, verified_by]
+            ) if field_value is not None]
+            logger.info(f"Updated milk ({milk_id}) fields: {updated_fields}")
+            return True
+        
+        except Exception as e:
+            logger.error(f"Error updating milk: {e}")
+            return False

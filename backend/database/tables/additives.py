@@ -2,7 +2,7 @@ from utils.constants import ADDITIVE_DEFAULT_EXPIRY_MODIFIER
 from database.database import get_db_cursor
 from utils.logger_config import logger
 
-def add_additive_to_milk(additive, milk_id):
+def add_additive_to_milk(additive, amount, milk_id):
     additive = additive.upper()
 
     with get_db_cursor() as cur:
@@ -10,7 +10,7 @@ def add_additive_to_milk(additive, milk_id):
             # This will create a new contains table tied to the same additive if it already exists, otherwise it will create a new additive.
             cur.execute(
                 """
-                SELECT id FROM Additive WHERE name = %s;
+                SELECT name FROM Additive WHERE name = %s;
                 """,
                 (additive,)
             )
@@ -19,7 +19,7 @@ def add_additive_to_milk(additive, milk_id):
             if not additive_entry:
                 cur.execute(
                     """
-                    INSERT INTO Additive (name, customExpiry)
+                    INSERT INTO Additive (name, customExpiryModifier)
                     VALUES (%s, %s)
                     """,
                     (additive, ADDITIVE_DEFAULT_EXPIRY_MODIFIER)
@@ -27,10 +27,10 @@ def add_additive_to_milk(additive, milk_id):
 
             cur.execute(
                 """
-                INSERT INTO Contains (additive, milk_id)
-                VALUES (%s, %s);
+                INSERT INTO Contains (additive_name, milk_id, amount)
+                VALUES (%s, %s, %s);
                 """,
-                (additive, milk_id)
+                (additive, milk_id, amount)
             )
         except Exception as e:
             logger.error(f"Error adding additive to milk: {e}")
@@ -56,8 +56,11 @@ def fetch_additives(milk_id):
                 logger.info(f"No additives found for milk {milk_id}")
                 return None
             else:
+                additive_dict = {}
+                for additive in additives:
+                    additive_dict[additive[0]] = (additive[1], additive[2])
+
                 logger.info(f"Fetched additives for milk {milk_id}")
-                additive_dict = {additive['name']: (additive['amount'], additive['customExpiryModifier']) for additive in additives}
                 return additive_dict
             
         except Exception as e:
