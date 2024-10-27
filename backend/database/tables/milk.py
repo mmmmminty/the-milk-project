@@ -1,4 +1,5 @@
 import uuid
+from database.tables.additives import fetch_additives
 from database.database import get_db_cursor
 from datetime import datetime
 
@@ -69,8 +70,13 @@ def fetch_milk(id):
             milk_data = cur.fetchone()  
 
             if milk_data:
-                columns = [desc[0] for desc in cur.description]  # Get the column names
-                milk = dict(zip(columns, milk_data))  # Map column names to values
+                columns = [desc[0] for desc in cur.description]
+                milk = dict(zip(columns, milk_data))
+
+                additives = fetch_additives(id)
+                if additives:
+                    milk['additives'] = additives
+
                 logger.info(f"Fetched milk: {milk}")
                 return milk
             else:
