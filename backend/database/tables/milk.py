@@ -113,18 +113,6 @@ def create_milk(mother_id, expiry=None, expressed=None, volume=None, frozen=Fals
         try:
             milk_id = str(uuid.uuid4())
 
-            if expressed:
-                expressed = datetime.fromisoformat(expressed)
-                expiry = calculate_expiry_timestamp(expressed, frozen, False)
-
-            cur.execute(
-                """
-                INSERT INTO Milk (id, expiry, expressed, volume, frozen, defrosted, fed, verified_id)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s);
-                """,
-                (milk_id, expiry, expressed, volume, frozen, defrosted, fed, verified_by)
-            )
-
             # Link the new milk record with the mother
             cur.execute(
                 """
@@ -189,41 +177,26 @@ def update_milk(milk_id, expiry=None, expressed=None, volume=None, frozen=False,
                     ('frozen', frozen), ('defrosted', defrosted), ('fed', fed), ('verified_id', verified_by)
                 ] if field[1] is not None
             ]
+            
             logger.info(f"Updated milk ({milk_id}) fields: {updated_fields}")
             return True
         
         except Exception as e:
             logger.error(f"Error updating milk: {e}")
             return False
-        
-def fetch_delete_milk(milk_id):
+          
+# Deletes a milk record and related fields from the database (cascading)
+def delete_milk(milk_id):
     with get_db_cursor() as cur:
         try:
             cur.execute(
                 """
-                DELETE FROM contains WHERE milk_id = %s;
+                DELETE FROM Milk
+                WHERE id = %s;
                 """,
                 (milk_id,)
             )
-            cur.execute(
-                """
-                DELETE FROM expressedby WHERE milk_id = %s;
-                """,
-                (milk_id,)
-            )
-            cur.execute(
-                """
-                DELETE FROM expressedfor WHERE milk_id = %s;
-                """,
-                (milk_id,)
-            )
-            # Now delete the milk record
-            cur.execute(
-                """
-                DELETE FROM Milk WHERE id = %s;
-                """,
-                (milk_id,)
-            )
+            logger.info(f"Deleted milk: {milk_id}")
             return True
         
         except Exception as e:
