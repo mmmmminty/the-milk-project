@@ -246,9 +246,47 @@ def baby_register():
     else:
         return jsonify({'error': 'Nurse not found'}), 400
     
+@bp.route('/family/mother/', methods=['GET'])
+def mother_get(): 
+    id = request.args.get('id')
+
+    if id is None:
+        return jsonify({'error': 'Input Error'}), 400
+    
+    result = fetch_mother(id)
+    if result:
+        return jsonify(result), 200
+    else:
+        return jsonify({'error': 'Nurse not found'}), 400
+
+@bp.route('/family/baby/', methods=['GET'])
+def baby_get(): 
+    id = request.args.get('id')
+
+    if id is None:
+        return jsonify({'error': 'Input Error'}), 400
+    
+    result = fetch_baby(id)
+    if result:
+        return jsonify(result), 200
+    else:
+        return jsonify({'error': 'baby not found'}), 400
+    
+@bp.route('/family/babies/', methods=['GET'])
+def babies_get(): 
+    id = request.args.get('mother_id') # requests mothers ID
+
+    if id is None:
+        return jsonify({'error': 'Input Error'}), 400
+    
+    result = fetch_babies(id)
+    if result:
+        return jsonify(result), 200
+    else:
+        return jsonify({'error': 'request error'}), 400
 
 @bp.route('/family/', methods=['DELETE'])
-def baby_delete(): 
+def family_delete(): 
     mrn = request.args.get('mrn')   
     result = delete_family(mrn)
 
