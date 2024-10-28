@@ -1,8 +1,8 @@
 from flask import jsonify, Blueprint, request
-from database.tables.milk import fetch_milks, fetch_unverified_milks, create_milk, fetch_milk, update_milk, fetch_delete_milk
+from database.tables.milk import fetch_milks, fetch_unverified_milks, create_milk, fetch_milk, update_milk, delete_milk
 from database.tables.staff import create_nurse, fetch_nurse, link_nurse_to_baby, delete_nurse 
-from database.tables.milk import fetch_additives, create_additive, fetch_all_additives, fetch_additive_by_name, update_additive_expiry_modifier
-
+from database.tables.additives import add_additive_to_milk, fetch_additives, create_additive, fetch_all_additives, fetch_additive_by_name, update_additive_expiry_modifier
+from database.tables.family import create_mother_and_baby, create_baby, delete_family, fetch_mothers, fetch_mother, fetch_all_babies, fetch_babies, fetch_baby, delete_family
 
 # Create a blueprint for your routes
 bp = Blueprint('routes', __name__)
@@ -75,12 +75,18 @@ def post_unverified_milk():
 def update_milk():
     data = request.get_json()
 
-    milk_id = data.get('id') 
+    milk_id = data.get('milk_id') 
 
     if milk_id is None:
         return jsonify({'error': 'Milk ID is required'}), 400
     
-    verified_by = data.get('verified_id') # verified id of nurse, optional
+    expiry = data.get('expiry')
+    expressed = data.get('expressed')
+    volume = data.get('volume')
+    frozen = data.get('frozen')
+    defrosted = data.get('defrosted')
+    fed = data.get('false')
+    verified_by = data.get('verified_by')
     additives = data.get('additives') #[additive1, additive2], optional
     defrosted = data.get('defrosted') # boolean, optional
 
@@ -142,6 +148,22 @@ def get_nurse():
     else:
         return jsonify({'error': 'Nurse not found'}), 400
 
+@bp.route('/nurse/', methods=['POST'])
+def nurse_create(): 
+    data = request.get_json()
+    id = data.id 
+    name = data.name 
+
+    if id is None | name is None:
+        return jsonify({'error': 'Input Error'}), 400
+    
+    result = create_nurse(id, name)
+
+    if result:
+        return jsonify(result), 200
+    else:
+        return jsonify({'error': 'Nurse not found'}), 400
+
 @bp.route('/nurse/assign', methods=['POST'])
 def assign_nurse(): 
     data = request.get_json()
@@ -160,7 +182,7 @@ def assign_nurse():
         return jsonify({'error': 'Bad request'}), 400
     
 
-@bp.route('/nurse/assign', methods=['DELETE'])
+@bp.route('/nurse/', methods=['DELETE'])
 def remove_nurse(): 
     id = request.args.get('id')
   
@@ -176,14 +198,122 @@ def remove_nurse():
     
 #additives 
 
-@bp.route('/milk/additive', methods=['GET'])
-def get_nurse(): 
+@bp.route('/additive/', methods=['GET'])
+def additive_get(): 
     id = request.args.get('id')
 
     if id is None:
         return jsonify({'error': 'Input Error'}), 400
     
     result = fetch_additives(id)
+    if result:
+        return jsonify(result), 200
+    else:
+        return jsonify({'error': 'Additive not found'}), 400
+
+# inputs additive, amount, milk id 
+@bp.route('/milk/additive/', methods=['POST'])
+def additive_post(): 
+    data = request.get_json()
+
+    additive = data.additive
+    amount = data.amount 
+    milk_id = data.milkId
+
+    if id is None:
+        return jsonify({'error': 'Input Error'}), 400
+    
+    result = add_additive_to_milk(additive, amount, milk_id)
+
+    if result:
+        return jsonify(result), 200
+    else:
+        return jsonify({'error': 'Additive request error'}), 400
+
+#family 
+
+@bp.route('/family/register/', methods=['POST'])
+def family_register(): 
+    data = request.get_json()
+
+    mrn = data.mrn
+    mother_name = data.motherName 
+    baby_name = data.babyName
+
+    if id is None:
+        return jsonify({'error': 'Input Error'}), 400
+    
+    result = create_mother_and_baby(mrn, mother_name, baby_name)
+    if result:
+        return jsonify(result), 200
+    else:
+        return jsonify({'error': 'Request error'}), 400
+
+@bp.route('/family/baby/', methods=['POST'])
+def baby_register(): 
+    data = request.get_json()
+
+    mother_id = data.motherId
+    mrn = data.mrn
+    baby_name = data.babyName
+
+    result = create_baby(mother_id, mrn, baby_name)
+
+    if mother_id is None | mrn is None | baby_name is None:
+        return jsonify({'error': 'Input Error'}), 400
+    
+    if result:
+        return jsonify(result), 200
+    else:
+        return jsonify({'error': 'Nurse not found'}), 400
+    
+@bp.route('/family/mother/', methods=['GET'])
+def mother_get(): 
+    id = request.args.get('id')
+
+    if id is None:
+        return jsonify({'error': 'Input Error'}), 400
+    
+    result = fetch_mother(id)
+    if result:
+        return jsonify(result), 200
+    else:
+        return jsonify({'error': 'Nurse not found'}), 400
+
+@bp.route('/family/baby/', methods=['GET'])
+def baby_get(): 
+    id = request.args.get('id')
+
+    if id is None:
+        return jsonify({'error': 'Input Error'}), 400
+    
+    result = fetch_baby(id)
+    if result:
+        return jsonify(result), 200
+    else:
+        return jsonify({'error': 'baby not found'}), 400
+    
+@bp.route('/family/babies/', methods=['GET'])
+def babies_get(): 
+    id = request.args.get('mother_id') # requests mothers ID
+
+    if id is None:
+        return jsonify({'error': 'Input Error'}), 400
+    
+    result = fetch_babies(id)
+    if result:
+        return jsonify(result), 200
+    else:
+        return jsonify({'error': 'request error'}), 400
+
+@bp.route('/family/', methods=['DELETE'])
+def family_delete(): 
+    mrn = request.args.get('mrn')   
+    result = delete_family(mrn)
+
+    if mrn is None:
+        return jsonify({'error': 'Input Error'}), 400
+    
     if result:
         return jsonify(result), 200
     else:
