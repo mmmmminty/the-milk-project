@@ -1,5 +1,5 @@
 from flask import jsonify, Blueprint, request
-from database.tables.milk import fetch_milks, fetch_unverified_milk, create_milk, fetch_milk, fetch_update_milk, fetch_delete_milk
+from database.tables.milk import fetch_milks, fetch_unverified_milks, create_milk, fetch_milk, update_milk, fetch_delete_milk
 from database.tables.staff import create_nurse, fetch_nurse, link_nurse_to_baby, delete_nurse 
 
 # Create a blueprint for your routes
@@ -28,7 +28,7 @@ def get_milk():
 
 @bp.route('/milk/unverified', methods=['GET'])
 def get_unverified_milk():
-    unverified_list = fetch_unverified_milk()
+    unverified_list = fetch_unverified_milks()
     return jsonify(unverified_list)
 
 @bp.route('/milk/verify', methods=['PUT'])
@@ -82,7 +82,7 @@ def update_milk():
     additives = data.get('additives') #[additive1, additive2], optional
     defrosted = data.get('defrosted') # boolean, optional
 
-    updated_milk = fetch_update_milk(milk_id, verified_by, additives, defrosted)
+    updated_milk = update_milk(milk_id, verified_by, additives, defrosted)
     
     if updated_milk:
         return jsonify({'message': 'Milk updated successfully', 'milk': updated_milk}), 200
