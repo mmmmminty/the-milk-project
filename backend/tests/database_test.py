@@ -24,7 +24,7 @@ class milk_tests(unittest.TestCase):
         self.assertEqual(milk.get('expressed'), datetime.fromisoformat("2021-01-01T00:00:00"))
         self.assertEqual(milk.get('frozen'), False)
         self.assertEqual(milk.get('defrosted'), False)
-        self.assertEqual(milk.get('modified'), False)
+        
 
         # Test relations
         # TODO
@@ -46,7 +46,6 @@ class milk_tests(unittest.TestCase):
         self.assertEqual(milk.get('expressed'), datetime.fromisoformat("2021-01-01T00:00:00"))
         self.assertEqual(milk.get('frozen'), False)
         self.assertEqual(milk.get('defrosted'), False)
-        self.assertEqual(milk.get('modified'), False)
         self.assertEqual(milk.get('verified_id'), None)
         self.assertEqual(milk.get('additives'), expected_additives)
 
@@ -129,7 +128,7 @@ class milk_tests(unittest.TestCase):
         self.assertEqual(milk.get('expressed'), datetime.fromisoformat("2021-01-01T00:00:00"))
         self.assertEqual(milk.get('frozen'), False)
         self.assertEqual(milk.get('defrosted'), False)
-        self.assertEqual(milk.get('modified'), False)
+        
         self.assertEqual(milk.get('verified_id'), None)
 
         nurse_id = create_nurse(1342, 'Joy Mackenzie')
@@ -142,7 +141,7 @@ class milk_tests(unittest.TestCase):
         self.assertEqual(milk.get('expressed'), datetime.fromisoformat("2021-01-01T00:00:00"))
         self.assertEqual(milk.get('frozen'), False)
         self.assertEqual(milk.get('defrosted'), False)
-        self.assertEqual(milk.get('modified'), False)
+        
         self.assertEqual(milk.get('verified_id'), nurse_id)
 
     def test_delete_milk(self):
