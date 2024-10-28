@@ -195,7 +195,8 @@ def update_milk(milk_id, expiry=None, expressed=None, volume=None, frozen=False,
         except Exception as e:
             logger.error(f"Error updating milk: {e}")
             return False
-        
+          
+# Deletes a milk record and related fields from the database (cascading)
 def delete_milk(milk_id):
     with get_db_cursor() as cur:
         try:

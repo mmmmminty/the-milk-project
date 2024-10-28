@@ -344,7 +344,7 @@ class staff_tests(unittest.TestCase):
         setup_test_env(False)
 
         nurse_id = create_nurse(1342, 'Joy Mackenzie')
-        self.assertIsNotNone(nurse_id)
+        self.assertTrue(nurse_id)
 
         nurse = fetch_nurse(nurse_id)
         self.assertEqual(nurse.get('id'), 1342)
