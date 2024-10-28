@@ -12,7 +12,7 @@ class milk_tests(unittest.TestCase):
     def test_create_and_fetch_milk(self):
         # Setup
         setup_test_env(True)
-        milk_id = create_milk(1, '7e66e1bd-22d3-45f1-9d87-d32fa40dc36e', "2021-01-01T00:00:00", False)
+        milk_id = create_milk(1, expressed="2021-01-01T00:00:00")
 
         # Make sure the milk was created
         self.assertIsNotNone(milk_id)
@@ -22,16 +22,15 @@ class milk_tests(unittest.TestCase):
         self.assertEqual(milk.get('id'), milk_id)
         self.assertEqual(milk.get('expiry'), datetime.fromisoformat("2021-01-03T00:00:00"))
         self.assertEqual(milk.get('expressed'), datetime.fromisoformat("2021-01-01T00:00:00"))
+        self.assertEqual(milk.get('volume'), None)
         self.assertEqual(milk.get('frozen'), False)
         self.assertEqual(milk.get('defrosted'), False)
-        
-
-        # Test relations
-        # TODO
+        self.assertEqual(milk.get('fed'), False)
+        self.assertEqual(milk.get('verified_id'), None)
 
     def test_fetch_milk_with_additives(self):
         setup_test_env(True)
-        milk_id = create_milk(1, '7e66e1bd-22d3-45f1-9d87-d32fa40dc36e', "2021-01-01T00:00:00", False)
+        milk_id = create_milk(1, expressed="2021-01-01T00:00:00")
         self.assertIsNotNone(milk_id)
 
         add_additive_to_milk('Vitamin D', 100, milk_id)
@@ -77,10 +76,10 @@ class milk_tests(unittest.TestCase):
         self.assertIsNotNone(mother_id)
         self.assertIsNotNone(baby_id)
 
-        milk_id1 = create_milk(mother_id, baby_id, "2021-01-01T00:00:00", False)
-        milk_id2 = create_milk(mother_id, baby_id, "2021-01-02T00:00:00", False)
-        milk_id3 = create_milk(mother_id, baby_id, "2021-01-03T00:00:00", False)
-        milk_id4 = create_milk(mother_id, baby_id, "2021-01-04T00:00:00", False)       
+        milk_id1 = create_milk(mother_id, expressed="2021-01-01T00:00:00")
+        milk_id2 = create_milk(mother_id, expressed="2021-01-02T00:00:00")
+        milk_id3 = create_milk(mother_id, expressed="2021-01-03T00:00:00")
+        milk_id4 = create_milk(mother_id, expressed="2021-01-04T00:00:00")       
 
         self.assertIsNotNone(milk_id1)
         self.assertIsNotNone(milk_id2)
@@ -91,7 +90,7 @@ class milk_tests(unittest.TestCase):
         self.assertEqual(milks, [milk_id1, milk_id2, milk_id3, milk_id4])
 
     def test_fetch_by_baby(self):
-        setup_test_env(False)
+        setup_test_env(True)
         mother_id, baby_id = create_mother_and_baby(1323, 'Japo Braun', 'Mel Braun')
         twin_id = create_baby(mother_id, 'Poe Braun')
 
@@ -99,10 +98,10 @@ class milk_tests(unittest.TestCase):
         self.assertIsNotNone(baby_id)
         self.assertIsNotNone(twin_id)
 
-        milk_id1 = create_milk(mother_id, baby_id, "2021-01-01T00:00:00", False)
-        milk_id2 = create_milk(mother_id, baby_id, "2021-01-02T00:00:00", False)
-        milk_id3 = create_milk(mother_id, twin_id, "2021-01-03T00:00:00", False)
-        milk_id4 = create_milk(mother_id, twin_id, "2021-01-04T00:00:00", False)       
+        milk_id1 = create_milk(mother_id, expressed="2021-01-01T00:00:00")
+        milk_id2 = create_milk(mother_id, expressed="2021-01-02T00:00:00")
+        milk_id3 = create_milk(mother_id, expressed="2021-01-03T00:00:00")
+        milk_id4 = create_milk(mother_id, expressed="2021-01-04T00:00:00")   
 
         self.assertIsNotNone(milk_id1)
         self.assertIsNotNone(milk_id2)
@@ -110,7 +109,7 @@ class milk_tests(unittest.TestCase):
         self.assertIsNotNone(milk_id4)
 
         milks = fetch_milks_by_baby(baby_id)
-        self.assertEqual(milks, [milk_id1, milk_id2])
+        self.assertEqual(milks, [milk_id1, milk_id2, milk_id3, milk_id4])
 
     def test_update_milk(self):
         setup_test_env(False)
@@ -119,7 +118,7 @@ class milk_tests(unittest.TestCase):
         self.assertIsNotNone(mother_id)
         self.assertIsNotNone(baby_id)
 
-        milk_id = create_milk(mother_id, baby_id, "2021-01-01T00:00:00", False)
+        milk_id = create_milk(mother_id, expressed="2021-01-01T00:00:00")
         self.assertIsNotNone(milk_id)
 
         milk = fetch_milk(milk_id)
@@ -379,7 +378,7 @@ class staff_tests(unittest.TestCase):
         self.assertIsNotNone(mother_id)
         self.assertIsNotNone(baby_id)
 
-        milk_id = create_milk(mother_id, baby_id, "2021-01-01T00:00:00", False)
+        milk_id = create_milk(mother_id, expressed="2021-01-01T00:00:00")
         self.assertIsNotNone(milk_id)
 
         nurse_id = create_nurse(1342, 'Joy Mackenzie')
