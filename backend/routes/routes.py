@@ -1,7 +1,7 @@
 from flask import jsonify, Blueprint, request
-from database.tables.milk import fetch_milks, fetch_unverified_milks, create_milk, fetch_milk, update_milk, fetch_delete_milk
+from database.tables.milk import fetch_milks, fetch_unverified_milks, create_milk, fetch_milk, update_milk, delete_milk
 from database.tables.staff import create_nurse, fetch_nurse, link_nurse_to_baby, delete_nurse 
-from database.tables.milk import add_additive_to_milk, fetch_additives, create_additive, fetch_all_additives, fetch_additive_by_name, update_additive_expiry_modifier
+from database.tables.additives import add_additive_to_milk, fetch_additives, create_additive, fetch_all_additives, fetch_additive_by_name, update_additive_expiry_modifier
 from database.tables.family import create_mother_and_baby, create_baby, delete_family, fetch_mothers, fetch_mother, fetch_all_babies, fetch_babies, fetch_baby, delete_family
 
 # Create a blueprint for your routes
@@ -220,11 +220,11 @@ def additive_post():
     amount = data.amount 
     milk_id = data.milkId
 
-
     if id is None:
         return jsonify({'error': 'Input Error'}), 400
     
     result = add_additive_to_milk(additive, amount, milk_id)
+
     if result:
         return jsonify(result), 200
     else:
