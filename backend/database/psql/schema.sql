@@ -21,17 +21,17 @@ CREATE TABLE IF NOT EXISTS Nurse (
 );
 
 CREATE TABLE IF NOT EXISTS DonatedMilk (
-    id INTEGER PRIMARY KEY NOT NULL,
-    milk_id UUID NOT NULL
+    id INTEGER PRIMARY KEY NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Milk (
     id UUID PRIMARY KEY NOT NULL, 
-    expiry TIMESTAMP NOT NULL,
-    expressed TIMESTAMP NOT NULL,
+    expiry TIMESTAMP,
+    expressed TIMESTAMP,
+    volume INTEGER,
     frozen BOOLEAN NOT NULL,
     defrosted BOOLEAN NOT NULL,
-    modified BOOLEAN NOT NULL,
+    fed BOOLEAN NOT NULL,
     donated_id INTEGER,
     verified_id INTEGER,
     FOREIGN KEY (verified_id) REFERENCES Nurse(id) ON DELETE SET NULL,

@@ -118,7 +118,7 @@ def create_milk(mother_id, baby_id, expressionDate, frozen):
             if expiry:
                 cur.execute(
                     """
-                    INSERT INTO Milk (id, expiry, expressed, frozen, defrosted, modified)
+                    INSERT INTO Milk (id, expiry, expressed, frozen, fed, defrosted)
                     VALUES (%s, %s, %s, %s, %s, %s) RETURNING id;
                     """,
                     (milk_id, expiry, expressionDate, frozen, False, False)
@@ -126,7 +126,7 @@ def create_milk(mother_id, baby_id, expressionDate, frozen):
             else:
                 cur.execute(
                     """
-                    INSERT INTO Milk (id, expressed, frozen, defrosted, modified)
+                    INSERT INTO Milk (id, expressed, frozen, fed, defrosted)
                     VALUES (%s, %s, %s, %s, %s) RETURNING id;
                     """,
                     (milk_id, expressionDate, frozen, False, False)
@@ -158,7 +158,7 @@ def create_milk(mother_id, baby_id, expressionDate, frozen):
             return None
 
 # Updates an existing milk record in the database    
-def update_milk(milk_id, expiry=None, expressed=None, frozen=None, defrosted=None, modified=None, verified_by=None):
+def update_milk(milk_id, expiry=None, expressed=None, frozen=None, defrosted=None, fed=None, verified_by=None):
     with get_db_cursor() as cur:
         try:
             cur.execute(
@@ -168,16 +168,16 @@ def update_milk(milk_id, expiry=None, expressed=None, frozen=None, defrosted=Non
                     expressed = COALESCE(%s, expressed),
                     frozen = COALESCE(%s, frozen),
                     defrosted = COALESCE(%s, defrosted),
-                    modified = COALESCE(%s, modified),
+                    fed = COALESCE(%s, fed),
                     verified_id = COALESCE(%s, verified_id)
                 WHERE id = %s;
                 """,
-                (expiry, expressed, frozen, defrosted, modified, verified_by, milk_id)
+                (expiry, expressed, frozen, defrosted, fed, verified_by, milk_id)
             )
 
             updated_fields = [field_name for field_name, field_value in zip(
-                ['expiry', 'expressed', 'frozen', 'defrosted', 'modified', 'verified_by'],
-                [expiry, expressed, frozen, defrosted, modified, verified_by]
+                ['expiry', 'expressed', 'frozen', 'defrosted', 'fed', 'verified_by'],
+                [expiry, expressed, frozen, defrosted, fed, verified_by]
             ) if field_value is not None]
             logger.info(f"Updated milk ({milk_id}) fields: {updated_fields}")
             return True
