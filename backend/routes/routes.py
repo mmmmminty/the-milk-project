@@ -75,12 +75,18 @@ def post_unverified_milk():
 def update_milk():
     data = request.get_json()
 
-    milk_id = data.get('id') 
+    milk_id = data.get('milk_id') 
 
     if milk_id is None:
         return jsonify({'error': 'Milk ID is required'}), 400
     
-    verified_by = data.get('verified_id') # verified id of nurse, optional
+    expiry = data.get('expiry')
+    expressed = data.get('expressed')
+    volume = data.get('volume')
+    frozen = data.get('frozen')
+    defrosted = data.get('defrosted')
+    fed = data.get('false')
+    verified_by = data.get('verified_by')
     additives = data.get('additives') #[additive1, additive2], optional
     defrosted = data.get('defrosted') # boolean, optional
 
@@ -142,6 +148,22 @@ def get_nurse():
     else:
         return jsonify({'error': 'Nurse not found'}), 400
 
+@bp.route('/nurse/', methods=['POST'])
+def nurse_create(): 
+    data = request.get_json()
+    id = data.id 
+    name = data.name 
+
+    if id is None | name is None:
+        return jsonify({'error': 'Input Error'}), 400
+    
+    result = create_nurse(id, name)
+
+    if result:
+        return jsonify(result), 200
+    else:
+        return jsonify({'error': 'Nurse not found'}), 400
+
 @bp.route('/nurse/assign', methods=['POST'])
 def assign_nurse(): 
     data = request.get_json()
@@ -160,7 +182,7 @@ def assign_nurse():
         return jsonify({'error': 'Bad request'}), 400
     
 
-@bp.route('/nurse/assign', methods=['DELETE'])
+@bp.route('/nurse/', methods=['DELETE'])
 def remove_nurse(): 
     id = request.args.get('id')
   
@@ -198,12 +220,11 @@ def additive_post():
     amount = data.amount 
     milk_id = data.milkId
 
-    result = add_additive_to_milk(additive, amount, milk_id)
 
     if id is None:
         return jsonify({'error': 'Input Error'}), 400
     
-    result = fetch_additives(id)
+    result = add_additive_to_milk(additive, amount, milk_id)
     if result:
         return jsonify(result), 200
     else:
