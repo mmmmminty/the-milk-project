@@ -1,6 +1,8 @@
 from flask import jsonify, Blueprint, request
 from database.tables.milk import fetch_milks, fetch_unverified_milks, create_milk, fetch_milk, update_milk, fetch_delete_milk
 from database.tables.staff import create_nurse, fetch_nurse, link_nurse_to_baby, delete_nurse 
+from database.tables.milk import fetch_additives, create_additive, fetch_all_additives, fetch_additive_by_name, update_additive_expiry_modifier
+
 
 # Create a blueprint for your routes
 bp = Blueprint('routes', __name__)
@@ -172,4 +174,17 @@ def remove_nurse():
     else:
         return jsonify({'error': 'Bad request'}), 400
     
+#additives 
 
+@bp.route('/milk/additive', methods=['GET'])
+def get_nurse(): 
+    id = request.args.get('id')
+
+    if id is None:
+        return jsonify({'error': 'Input Error'}), 400
+    
+    result = fetch_additives(id)
+    if result:
+        return jsonify(result), 200
+    else:
+        return jsonify({'error': 'Nurse not found'}), 400
