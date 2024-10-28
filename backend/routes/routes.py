@@ -1,5 +1,6 @@
 from flask import jsonify, Blueprint, request
 from database.tables.milk import fetch_milks, fetch_unverified_milk, create_milk, fetch_milk, fetch_update_milk, fetch_delete_milk
+from database.tables.staff import create_nurse, fetch_nurse, link_nurse_to_baby, delete_nurse 
 
 # Create a blueprint for your routes
 bp = Blueprint('routes', __name__)
@@ -103,3 +104,72 @@ def delete_milk():
         return jsonify({'message': 'Milk deleted successfully'}), 200
     else:
         return jsonify({'error': 'Failed to delete milk or milk not found'}), 400
+    
+
+# Staff 
+#given name and id the nurse is created 
+@bp.route('/nurse/', methods=['POST'])
+def add_nurse(): 
+    data = request.get_json()
+
+    nurse_id = data.get("id")
+    nurse_name = data.get('name')
+  
+    if nurse_id is None | nurse_name is None:
+        return jsonify({'error': 'Input Error'}), 400
+   
+    result = create_nurse(nurse_id, nurse_name)
+
+    if result:
+        return jsonify({'message': 'Nurse added successfully'}), 200
+    else:
+        return jsonify({'error': 'Bad request'}), 400
+    
+# Staff 
+#given name and id the nurse is created 
+@bp.route('/nurse/', methods=['GET'])
+def get_nurse(): 
+    id = request.args.get('id')
+
+    if id is None:
+        return jsonify({'error': 'Input Error'}), 400
+    
+    result = fetch_nurse(id)
+    if result:
+        return jsonify(result), 200
+    else:
+        return jsonify({'error': 'Nurse not found'}), 400
+
+@bp.route('/nurse/assign', methods=['POST'])
+def assign_nurse(): 
+    data = request.get_json()
+
+    nurse_id = data.get("nurseId")
+    baby_id = data.get('babyId')
+  
+    if nurse_id is None | baby_id is None:
+        return jsonify({'error': 'Input Error'}), 400
+   
+    result = link_nurse_to_baby(nurse_id, baby_id)
+
+    if result:
+        return jsonify({'message': 'Assignment added successfully'}), 200
+    else:
+        return jsonify({'error': 'Bad request'}), 400
+    
+
+@bp.route('/nurse/assign', methods=['DELETE'])
+def remove_nurse(): 
+    id = request.args.get('id')
+  
+    if id is None:
+        return jsonify({'error': 'Input Error'}), 400
+   
+    result = delete_nurse(id)
+
+    if result:
+        return jsonify({'message': 'Deleted successfully'}), 200
+    else:
+        return jsonify({'error': 'Bad request'}), 400
+    
+
