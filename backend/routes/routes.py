@@ -30,7 +30,8 @@ def get_milk():
 
 @bp.route('/milk/unverified', methods=['GET'])
 def get_unverified_milk():
-    unverified_list = fetch_unverified_milks()
+    mother_id = request.args.get('id')
+    unverified_list = fetch_unverified_milks(mother_id)
     return jsonify(unverified_list)
 
 @bp.route('/milk/verify', methods=['PUT'])
@@ -53,22 +54,20 @@ def post_unverified_milk():
     data = request.get_json()
 
     mother_id = data.get('mother_id')
-    baby_id = data.get('baby_id')
+    #baby_id = data.get('baby_id')
     expressed_date = data.get('expressed_date')
     frozen = data.get('frozen', False) 
 
     if mother_id is None:
         return jsonify({'error': 'Mother ID is required'}), 400
-    if baby_id is None:
-        return jsonify({'error': 'Baby ID is required'}), 400
+    # if baby_id is None:
+    #     return jsonify({'error': 'Baby ID is required'}), 400
     if expressed_date is None:
         return jsonify({'error': 'Expressed date is required'}), 400
 
-    milk_id = create_milk(mother_id, baby_id, expressed_date, frozen)
+    milk_id = create_milk(mother_id, None , expressed_date, 100, frozen)
     return jsonify({'milk_id': milk_id}), 200
 
-
-#WHATEVERS UNDER HERE HAS NOT BEEN IMPLEMENTED 
 
 # updates milk id, with parameters additives, defrost, verify 
 @bp.route('/milk/', methods=['PUT'])
@@ -106,7 +105,7 @@ def delete_milk():
     if milk_id is None:
         return jsonify({'error': 'Milk ID is required'}), 400
 
-    result = fetch_delete_milk(milk_id)
+    result = delete_milk(milk_id)
     
     if result:
         return jsonify({'message': 'Milk deleted successfully'}), 200
