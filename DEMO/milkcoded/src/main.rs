@@ -43,7 +43,7 @@ fn main() -> Result<()> {
     loop {
         std::thread::sleep(std::time::Duration::from_secs(2));
         print!("\x1b[2J\x1b[H");
-        println!("{}\n", to_block_string("MILK"));
+        println!("{}\n", to_block_string("THE MILK PROJECT"));
         println!("\x1b[1mWelcome to the Milk Project!\x1b[0m");
         println!("Current Assigned Baby: {}.", test_data.babies[0].name);
 
