@@ -64,3 +64,4 @@ def label_maker(mother_id, mother_name = "", baby_name = "", mrn = "", embedded_
     
         
     a4.save(f"./backend/images/a4_label_page_{mother_id}.png")
+    return f"./backend/images/a4_label_page_{mother_id}.png"
