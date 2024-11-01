@@ -1,6 +1,6 @@
 from PIL import Image, ImageOps, ImageDraw, ImageFont
 
-from qr_code import qr_code_maker
+from backend.utils.qr_code import qr_code_maker
 from backend.database.tables.family import fetch_mother
 from backend.database.tables.milk import create_milk
 import math
@@ -49,11 +49,11 @@ def label_maker(mother_id, mother_name = "", baby_name = "", mrn = "", embedded_
 
             qr_info = f"https://www.milkproject.com/milk/?id={milk_id}"
 
-            qr_name = f"{milk_id}.png"
+            qr_file_path = f"./images/{milk_id}.png"
             if (embedded_image_name is None):
-                qr_path = qr_code_maker(qr_info, qr_name)
+                qr_path = qr_code_maker(qr_info, qr_file_path)
             else:
-                qr_path = qr_code_maker(qr_info, qr_name, embedded_image_name)
+                qr_path = qr_code_maker(qr_info, qr_file_path, embedded_image_name)
             qr_code_image = Image.open(qr_path)
             qr_code_image = qr_code_image.resize((500, 500))
             blank_label_image.paste(qr_code_image, (75, 450))
