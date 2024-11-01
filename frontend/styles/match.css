@@ -30,3 +30,7 @@
 .not-match h1 {
   color: #ff0000;
 }
+
+li {
+  color: white;
+}
