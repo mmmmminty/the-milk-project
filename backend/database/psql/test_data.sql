@@ -1,6 +1,6 @@
 -- Additive table
 INSERT INTO Additive (name, custom_expiry_modifier) VALUES 
-('VITAMIN D', 0), 
+('VITAMIN D', 10), 
 ('IRON', 0), 
 ('CALCIUM', 0), 
 ('PROBIOTIC ALPHA', 0), 

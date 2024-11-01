@@ -1,5 +1,5 @@
 from flask import jsonify, Blueprint, request
-from database.tables.milk import fetch_milks, fetch_unverified_milks, create_milk, fetch_milk, update_milk, delete_milk
+from database.tables.milk import fetch_milks, fetch_unverified_milks, create_milk, fetch_milk, update_milk, delete_milk, fetch_unverified_milks_all
 from database.tables.staff import create_nurse, fetch_nurse, link_nurse_to_baby, delete_nurse 
 from database.tables.additives import add_additive_to_milk, fetch_additives, create_additive, fetch_all_additives, fetch_additive_by_name, update_additive_expiry_modifier
 from database.tables.family import create_mother_and_baby, create_baby, delete_family, fetch_mothers, fetch_mother, fetch_all_babies, fetch_babies, fetch_baby, delete_family
@@ -28,19 +28,31 @@ def get_milk():
     
     return jsonify(milk_instance)
 
+#Given mother ID, shows all the unverified milks for that mother 
 @bp.route('/milk/unverified', methods=['GET'])
 def get_unverified_milk():
     mother_id = request.args.get('id')
     unverified_list = fetch_unverified_milks(mother_id)
     return jsonify(unverified_list)
 
+#given nurse ID, returns list of all unverified milk
+@bp.route('/milk/unverifiedlist', methods=['GET'])
+def get_unverified_milk_all():
+    print('in here!')
+    nurse_id = request.args.get('id')
+    unverified_list = fetch_unverified_milks_all(nurse_id)
+    return jsonify(unverified_list)
+
 @bp.route('/milk/verify', methods=['PUT'])
 def put_verify_milk():
-    milk_id = request.args.get('milk_id')
+    data = request.get_json()
+    milk_id = data.get("milk_id")
+    nurse_id = data.get("nurse_id")
+    # milk_id = request.args.get('milk_id')
     if milk_id is None:
         return jsonify({'error': 'Milk ID is required'}), 400
     
-    nurse_id = request.args.get('nurse_id')
+    # nurse_id = request.args.get('nurse_id')
     if nurse_id is None:
         return jsonify({'error': 'Nurse ID is required'}), 400
     
@@ -65,13 +77,13 @@ def post_unverified_milk():
     if expressed_date is None:
         return jsonify({'error': 'Expressed date is required'}), 400
 
-    milk_id = create_milk(mother_id, None , expressed_date, 100, frozen)
+    milk_id = create_milk(mother_id, None , expressed_date, None, frozen)
     return jsonify({'milk_id': milk_id}), 200
 
 
 # updates milk id, with parameters additives, defrost, verify 
 @bp.route('/milk/', methods=['PUT'])
-def update_milk():
+def server_update_milk():
     data = request.get_json()
 
     milk_id = data.get('milk_id') 
@@ -84,12 +96,11 @@ def update_milk():
     volume = data.get('volume')
     frozen = data.get('frozen')
     defrosted = data.get('defrosted')
-    fed = data.get('false')
+    fed = data.get('fed')
     verified_by = data.get('verified_by')
-    additives = data.get('additives') #[additive1, additive2], optional
-    defrosted = data.get('defrosted') # boolean, optional
+    #additives = data.get('additives') #[additive1, additive2], optional
 
-    updated_milk = update_milk(milk_id, verified_by, additives, defrosted)
+    updated_milk = update_milk(milk_id, expiry, expressed, volume, frozen, defrosted, fed, verified_by)
     
     if updated_milk:
         return jsonify({'message': 'Milk updated successfully', 'milk': updated_milk}), 200
@@ -98,8 +109,8 @@ def update_milk():
 
 #query string gives milk id, milk id is deleted 
 
-@bp.route('/milk/', methods=['DEL'])
-def delete_milk():
+@bp.route('/milk/', methods=['DELETE'])
+def server_delete_milk():
     milk_id = request.args.get('id')
 
     if milk_id is None:
@@ -122,7 +133,7 @@ def add_nurse():
     nurse_id = data.get("id")
     nurse_name = data.get('name')
   
-    if nurse_id is None | nurse_name is None:
+    if nurse_id is None or nurse_name is None:
         return jsonify({'error': 'Input Error'}), 400
    
     result = create_nurse(nurse_id, nurse_name)
@@ -147,30 +158,14 @@ def get_nurse():
     else:
         return jsonify({'error': 'Nurse not found'}), 400
 
-@bp.route('/nurse/', methods=['POST'])
-def nurse_create(): 
-    data = request.get_json()
-    id = data.id 
-    name = data.name 
-
-    if id is None | name is None:
-        return jsonify({'error': 'Input Error'}), 400
-    
-    result = create_nurse(id, name)
-
-    if result:
-        return jsonify(result), 200
-    else:
-        return jsonify({'error': 'Nurse not found'}), 400
-
 @bp.route('/nurse/assign', methods=['POST'])
 def assign_nurse(): 
     data = request.get_json()
 
-    nurse_id = data.get("nurseId")
-    baby_id = data.get('babyId')
+    nurse_id = data.get("nurse_id")
+    baby_id = data.get('baby_id')
   
-    if nurse_id is None | baby_id is None:
+    if nurse_id is None or baby_id is None:
         return jsonify({'error': 'Input Error'}), 400
    
     result = link_nurse_to_baby(nurse_id, baby_id)
@@ -199,7 +194,7 @@ def remove_nurse():
 
 @bp.route('/additive/', methods=['GET'])
 def additive_get(): 
-    id = request.args.get('id')
+    id = request.args.get('milk_id')
 
     if id is None:
         return jsonify({'error': 'Input Error'}), 400
@@ -209,6 +204,24 @@ def additive_get():
         return jsonify(result), 200
     else:
         return jsonify({'error': 'Additive not found'}), 400
+    
+@bp.route('/milk/additive/', methods=['POST'])
+def add_additive(): 
+    data = request.get_json()
+
+    milk_id = data.get("milk_id")
+    additive = data.get('additive')
+    amount = data.get('amount')
+
+    if milk_id is None or additive is None or amount is None:
+        return jsonify({'error': 'Input Error'}), 400
+    
+    result = add_additive_to_milk(additive, amount, milk_id)
+
+    if result:
+        return jsonify({'successfully added additive to milk!'}), 200
+    else:
+        return jsonify({'error': 'Invalid request'}), 400
 
 # inputs additive, amount, milk id 
 @bp.route('/milk/additive/', methods=['POST'])
@@ -258,7 +271,7 @@ def baby_register():
 
     result = create_baby(mother_id, mrn, baby_name)
 
-    if mother_id is None | mrn is None | baby_name is None:
+    if mother_id is None or mrn is None or baby_name is None:
         return jsonify({'error': 'Input Error'}), 400
     
     if result:

@@ -1,4 +1,3 @@
-CREATE SCHEMA IF NOT EXISTS public;
 
 CREATE TABLE IF NOT EXISTS Additive (
     name VARCHAR(255) PRIMARY KEY NOT NULL,
@@ -79,8 +78,7 @@ CREATE TABLE IF NOT EXISTS AssignedTo (
     PRIMARY KEY (baby_id, nurse_id)
 );
 
--- CREATE VIEW sorted_milk AS SELECT * FROM Milk ORDER BY expiry ASC;
-CREATE VIEW unverified_milk AS
+CREATE OR REPLACE VIEW unverified_milk AS
 SELECT *
 FROM Milk
 WHERE verified_id IS NULL;
