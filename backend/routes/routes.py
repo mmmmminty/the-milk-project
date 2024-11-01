@@ -106,7 +106,7 @@ def delete_milk():
     if milk_id is None:
         return jsonify({'error': 'Milk ID is required'}), 400
 
-    result = fetch_delete_milk(milk_id)
+    result = delete_milk(milk_id)
     
     if result:
         return jsonify({'message': 'Milk deleted successfully'}), 200

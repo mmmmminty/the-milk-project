@@ -5,6 +5,11 @@ from database.tables.family import create_baby, create_mother_and_baby, delete_f
 from database.tables.additives import add_additive_to_milk, create_additive, fetch_additive_by_name, fetch_additives, fetch_all_additives, update_additive_expiry_modifier
 from database.database import execute_sql_file
 from database.tables.milk import create_milk, delete_milk, fetch_milk, fetch_milks, fetch_milks_by_baby, fetch_milks_by_mother, fetch_unverified_milks, update_milk
+from utils.qr_code import qr_code_maker
+from utils.label_maker import label_maker
+from pathlib import Path
+from pyzbar.pyzbar import decode
+from PIL import Image
 
 # WHEN TESTING, YOU MUST CHANGE THE DB_PASSWORD CONSTANT IN THE CONSTANTS.PY FILE TO THE PASSWORD OF YOUR DATABASE
 
@@ -396,24 +401,55 @@ class staff_tests(unittest.TestCase):
 
 # NOTE: Remove 'backend/' from the path when running coverage
 def setup_test_env(defaultData):
-    execute_sql_file("backend/database/psql/restart.sql")
-    execute_sql_file("backend/database/psql/schema.sql")
+    execute_sql_file("./database/psql/restart.sql")
+    execute_sql_file("./database/psql/schema.sql")
 
     if defaultData:
-        execute_sql_file("backend/database/psql/test_data.sql")
+        execute_sql_file("./database/psql/test_data.sql")
 
 class utils_tests(unittest.TestCase):
     def test_create_qrcode(self):
+        setup_test_env(False)
+
+        link = "https://www.google.com/"
+        file_name1 = "./backend/images/test_qr_code1.png"
+
+        qr_code_maker(link, file_name1)
+        self.assertTrue(Path(file_name1).is_file())
+        decoded_data = decode(Image.open(file_name1))
+
+        file_name2 = "./backend/images/test_qr_code2.png"
+        embedded_image_name = "./backend/images/colours.png"
+        qr_code_maker(link, file_name2, embedded_image_name)
+        self.assertTrue(Path(file_name2).is_file())
+        decoded_data = decode(Image.open(file_name2))
+
+        Path(file_name1).unlink()
+        Path(file_name2).unlink()
+
+
+    def test_create_label(self):
         setup_test_env(False)
 
         mother_id, baby_id = create_mother_and_baby(1323, 'Japo Braun', 'Mel Braun')
         self.assertIsNotNone(mother_id)
         self.assertIsNotNone(baby_id)
 
-        mother = fetch_mother(mother_id)
-        self.assertEqual(mother.get('id'), mother_id)
-        self.assertEqual(mother.get('name'), 'Japo Braun')
+        embedded_image_path = "./backend/images/colours.png"
+
+        label_maker(mother_id)
+        file_name = f"./backend/images/a4_label_page_{mother_id}.png"
+        self.assertTrue(Path(file_name).is_file())
+        Path(file_name).unlink()
+
+        label_maker(mother_id, embedded_image_path = embedded_image_path)
+        file_name = f"./backend/images/a4_label_page_{mother_id}.png"
+        self.assertTrue(Path(file_name).is_file())
+        Path(file_name).unlink()
 
         baby = fetch_baby(baby_id)
         self.assertEqual(baby.get('id'), baby_id)
         self.assertEqual(baby.get('name'), 'Mel Braun')
+
+if (__name__ == "__main__"):
+    unittest.main()
