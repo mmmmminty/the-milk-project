@@ -1,0 +1,189 @@
+.log-patient {
+  min-height: 40%;
+  width: 50%;
+  border-radius: 2%;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background-color: #967eb9;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+label {
+  color: white;
+  font-size: 150%;
+  font-weight: bold;
+  min-width: max-content;
+  margin: 0;
+  padding: 0;
+}
+
+input[type="datetime-local"] {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 15px;
+  background-color: #cdc0d2;
+  border: 2px solid #b2a0b6;
+  color: black;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0.5rem;
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.5);
+  cursor: pointer;
+}
+
+/* Radio button styles */
+.radio-group {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.radio-label input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.radio-custom {
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid white;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  background: #cdc0d2;
+}
+
+.radio-label input[type="radio"]:checked + .radio-custom::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: #4d2c58;
+}
+
+.radio-label:hover .radio-custom {
+  background-color: #d8cedd;
+}
+
+/* Nutrient input styles */
+.nutrients-input {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.nutrient-add-group {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.nutrient-input {
+  padding: 0.5rem;
+  border-radius: 15px;
+  background-color: #cdc0d2;
+  border: 2px solid #b2a0b6;
+  color: black;
+  font-size: 1rem;
+}
+
+/* Nutrient list styles */
+.nutrients-list {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+}
+
+.nutrient-item {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 1.2rem;
+  margin: 0;         /* Removed margin (was 0.2rem 0) */
+  padding: 0.1rem 0; /* Reduced padding (was 0.2rem 0) */
+}
+
+.bullet {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.delete-btn {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.8;
+}
+
+.delete-btn:hover {
+  opacity: 1;
+}
+
+/* Button styles */
+button {
+  margin-top: 2rem;
+  padding: 0.7vw 8vw;
+  background-color: white;
+  font-size: 130%;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  align-self: center;
+}
+
+button:hover {
+  background-color: #f0f0f0;
+}
+
+.add-btn {
+  padding: 0.5rem 1rem;
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Nutrient input field sizes */
+#nutrientName {
+  flex: 2;
+}
+
+#nutrientValue {
+  flex: 1;
+}
+
+#nutrientUnit {
+  width: 80px;
+}
