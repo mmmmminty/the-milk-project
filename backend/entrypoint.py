@@ -1,5 +1,10 @@
+import os
 from database.database import initdb
-from logger_config import logger
+from app import run_server
+
+from utils.logger_config import logger
+
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 ### MAIN APPLICATION ###
 if __name__ == "__main__":
@@ -7,5 +12,6 @@ if __name__ == "__main__":
     
     # Initialize the database
     initdb()
-    
-    # TODO: Spin up HTTP server
+
+    # Run the server
+    run_server()

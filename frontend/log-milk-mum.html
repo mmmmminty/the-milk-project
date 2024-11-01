@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/log-milk-mum.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Milk Log (Mum)</title>
+  </head>
+
+  <body>
+    <div class="container">
+
+        <img src="assets/logo.png" id="logo" />
+
+        <div class="log-milk">
+            <h1>Milk #num</h1> <!---- add unique milk id -->
+            <p class="baby-name">Baby's Full Name:</p> <!---- get baby name from somewhere? -->
+
+            <div class="input-group">
+                <label>Express Time:</label>
+                <input type="datetime-local" id="expressTime" step="any">
+            </div>
+
+            <button type="button">Save</button> <!---- send data to backend -->
+        </div>
+
+    </div>
+  </body>
+
+  <script src="src/log-milk.js"></script>
+
+</html>
