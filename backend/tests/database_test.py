@@ -401,3 +401,19 @@ def setup_test_env(defaultData):
 
     if defaultData:
         execute_sql_file("backend/database/psql/test_data.sql")
+
+class utils_tests(unittest.TestCase):
+    def test_create_qrcode(self):
+        setup_test_env(False)
+
+        mother_id, baby_id = create_mother_and_baby(1323, 'Japo Braun', 'Mel Braun')
+        self.assertIsNotNone(mother_id)
+        self.assertIsNotNone(baby_id)
+
+        mother = fetch_mother(mother_id)
+        self.assertEqual(mother.get('id'), mother_id)
+        self.assertEqual(mother.get('name'), 'Japo Braun')
+
+        baby = fetch_baby(baby_id)
+        self.assertEqual(baby.get('id'), baby_id)
+        self.assertEqual(baby.get('name'), 'Mel Braun')
