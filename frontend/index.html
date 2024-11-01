@@ -13,23 +13,29 @@
   </head>
   <body>
     <div class="container">
-      <div class="login-box">
-        <h2>Sign In</h2>
-        <div class="credential-box">
-          <input type="email" placeholder="email" required>
-          <input type="password" placeholder="password" required>
-    
-          <div class="remember-me">
-            <label>
-              <input type="checkbox"> Remember me
-            </label>
-            <a href="#">Forgot password?</a>
+      <img src="assets/logo.png" id="logo" />
+      <div class="main-content-container semi-transparent-bg">
+        <h1>Sign in</h1>
+        <form id="sign-in-form" class="auth-form" method="POST">
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
           </div>
-        </div>
-        <button type="button">Log In</button>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+          <div class="more-auth-options">
+            <div id="remember-me-container">
+              <input type="checkbox" id="remember-me" name="remember-me" />
+              <label for="remember-me">Remember me</label>
+            </div>
+            <a href="forgot-password.html">Forgot password?</a>
+          </div>
+          <button type="submit">Log in</button>
+        </form>
       </div>
     </div>
-    <script src="src/global.js"></script>
-
+    <script src="scripts/global.js"></script>
   </body>
 </html>

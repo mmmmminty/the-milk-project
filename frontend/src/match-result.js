@@ -4,38 +4,44 @@ document.getElementById('back-match').addEventListener('click', () => {
 });
 
 // Provide milk info
-apiCall(`milk?id=${milkId}`, 'GET', {}, token).then(milkInfo => {
-    document.querySelector('.baby-name').textContent = "Baby's Full Name: ";
-    document.querySelector('.express-date').textContent = "Express Date: " + milkInfo.Expressed;
-    document.querySelector('.storing-type').textContent = "Storing Type: " + 
-        (milkInfo.Frozen ? "Frozen" : "Fridge") + 
-        (milk.Defrosted ? " (defrosted)" : " (chilled)");
-    document.querySelector('.expiry-date').textContent = "Expiry Date: " + milkInfo.Expiry;
+const response = await fetch(`http://localhost:${BACKEND_PORT}/milk?id=${milkId}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: {},
+  });
 
-    const nutrientsList = document.querySelector('.nutrients-list');
-    const nutrients = milkInfo.Additives;
-    nutrients.forEach(nutrient => {
-        const listItem = document.createElement('li');
-        listItem.textContent = nutrient;
-        nutrientsList.appendChild(listItem);
-    });
-})
+const milkInfo = await response.json();
 
-// Provide patient info
-apiCall(`milk?id=${milkId}`, 'GET', {}, token).then(milkInfo => {
-    document.getElementById('milk').textContent = "Milk's Code #" + milkId;
-    document.querySelector('.baby-name').textContent = "Baby's Full Name: ";
-    document.querySelector('.express-date').textContent = "Express Date: " + milkInfo.Expressed;
-    document.querySelector('.storing-type').textContent = "Storing Type: " + 
-        (milkInfo.Frozen ? "Frozen" : "Fridge") + 
-        (milk.Defrosted ? " (defrosted)" : " (chilled)");
-    document.querySelector('.expiry-date').textContent = "Expiry Date: " + milkInfo.Expiry;
+document.querySelector('.baby-name').textContent = "Baby's Full Name: ";
+document.querySelector('.express-date').textContent = "Express Date: " + milkInfo.Expressed;
+document.querySelector('.storing-type').textContent = "Storing Type: " + 
+    (milkInfo.Frozen ? "Frozen" : "Fridge") + 
+    (milk.Defrosted ? " (defrosted)" : " (chilled)");
+document.querySelector('.expiry-date').textContent = "Expiry Date: " + milkInfo.Expiry;
 
-    const nutrientsList = document.querySelector('.nutrients-list');
-    const nutrients = milkInfo.Additives;
-    nutrients.forEach(nutrient => {
-        const listItem = document.createElement('li');
-        listItem.textContent = nutrient;
-        nutrientsList.appendChild(listItem);
-    });
-})
+const nutrientsList = document.querySelector('.nutrients-list');
+const nutrients = milkInfo.Additives;
+nutrients.forEach(nutrient => {
+    const listItem = document.createElement('li');
+    listItem.textContent = nutrient;
+    nutrientsList.appendChild(listItem);
+});
+
+// Provide Patient info
+const response_patient = await fetch(`http://localhost:${BACKEND_PORT}/patient?id=${patientId}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: {},
+  });
+
+const patientInfo = await response.json();
+document.getElementById('patient').textContent = "Patient's Code #" + patientId;
+document.querySelector('.patient-name').textContent = "Patient's Full Name: " + patientInfo.name;
+document.querySelector('.gender').textContent = "Gender: " + patientInfo.gender;
+document.querySelector('.dob').textContent = "Date of Birth: " + patientInfo.dob;
+document.querySelector('.status').textContent = "Status: " + (patientInfo.status ? "Baby" : "Mom");
+
