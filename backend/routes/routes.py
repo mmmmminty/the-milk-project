@@ -1,8 +1,10 @@
-from flask import jsonify, Blueprint, request
+from flask import jsonify, Blueprint, request, send_from_directory
 from database.tables.milk import fetch_milks, fetch_unverified_milks, create_milk, fetch_milk, update_milk, delete_milk, fetch_unverified_milks_all
 from database.tables.staff import create_nurse, fetch_nurse, link_nurse_to_baby, delete_nurse 
 from database.tables.additives import add_additive_to_milk, fetch_additives, create_additive, fetch_all_additives, fetch_additive_by_name, update_additive_expiry_modifier
 from database.tables.family import create_mother_and_baby, create_baby, delete_family, fetch_mothers, fetch_mother, fetch_all_babies, fetch_babies, fetch_baby, delete_family
+from utils.label_maker import label_maker
+import os
 
 # Create a blueprint for your routes
 bp = Blueprint('routes', __name__)
@@ -330,3 +332,19 @@ def family_delete():
         return jsonify(result), 200
     else:
         return jsonify({'error': 'Nurse not found'}), 400
+    
+@bp.route('/print/', methods=['GET'])
+def make_label(): 
+    data = request.get_json()
+
+    mother_id = data.motherId
+
+    result = label_maker(mother_id)
+
+    if mother_id is None:
+        return jsonify({'error': 'Input Error'}), 400
+    
+    if os.path.exists(result):
+        return send_from_directory('backend/images', os.path.basename(result))
+    else:
+        return jsonify({'error': 'Label creation failed'}), 500
