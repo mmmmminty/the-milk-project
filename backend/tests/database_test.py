@@ -396,8 +396,8 @@ class staff_tests(unittest.TestCase):
 
 # NOTE: Remove 'backend/' from the path when running coverage
 def setup_test_env(defaultData):
-    execute_sql_file("backend/database/psql/restart.sql")
-    execute_sql_file("backend/database/psql/schema.sql")
+    execute_sql_file("./backend/database/psql/restart.sql")
+    execute_sql_file("./backend/database/psql/schema.sql")
 
     if defaultData:
-        execute_sql_file("backend/database/psql/test_data.sql")
+        execute_sql_file("./backend/database/psql/test_data.sql")
