@@ -106,6 +106,37 @@ def fetch_unverified_milks(mother_id):
         except Exception as e:
             logger.error(f"Error fetching unverified milks for mother {mother_id}: {e}")
             return None
+
+# Returns a list of all the unverified milk for the nurses 
+def fetch_unverified_milks_all(nurse_id):
+      with get_db_cursor() as cur:
+        try:
+            #Check if nurse_id exists
+            cur.execute(
+                """
+                SELECT 1 FROM Nurse WHERE id = %s;
+                """,
+                (nurse_id,)
+            )
+            if cur.fetchone() is None:
+                logger.info(f"Nurse ID {nurse_id} is invalid.")
+                return {"error": "Invalid nurse ID"}
+
+            #Fetch unverified milks from the view
+            cur.execute(
+                """
+                SELECT * FROM unverified_milk;
+                """
+            )
+            milk_data = cur.fetchall()
+
+            milk_list = [milk[0] for milk in milk_data]
+            logger.info(f"Fetched unverified milk list for nurse {nurse_id}: {milk_list}")
+            return milk_list
+
+        except Exception as e:
+            logger.error(f"Error fetching unverified milks for nurse {nurse_id}: {e}")
+            return {"error": "Error fetching unverified milk data"}
     
 # Creates a new milk record in the database
 def create_milk(mother_id, expiry=None, expressed=None, volume=None, frozen=False, defrosted=False, fed=False, verified_by=None):
