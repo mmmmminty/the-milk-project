@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS AssignedTo (
 );
 
 -- CREATE VIEW sorted_milk AS SELECT * FROM Milk ORDER BY expiry ASC;
-CREATE VIEW unverified_milk AS
+CREATE OR REPLACE VIEW unverified_milk AS
 SELECT *
 FROM Milk
 WHERE verified_id IS NULL;
