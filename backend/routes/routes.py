@@ -225,9 +225,9 @@ def add_additive():
 def family_register(): 
     data = request.get_json()
 
-    mrn = data.mrn
-    mother_name = data.motherName 
-    baby_name = data.babyName
+    mrn = data.get("mrn")
+    mother_name =  data.get("mother_name")
+    baby_name = data.get("baby_name")
 
     if id is None:
         return jsonify({'error': 'Input Error'}), 400
@@ -242,13 +242,13 @@ def family_register():
 def baby_register(): 
     data = request.get_json()
 
-    mother_id = data.motherId
-    mrn = data.mrn
-    baby_name = data.babyName
+    mother_id = data.get("mother_id")
+    mrn = data.get("mrn")
+    baby_name = data.get("baby_name")
 
     result = create_baby(mother_id, mrn, baby_name)
 
-    if mother_id is None | mrn is None | baby_name is None:
+    if mother_id is None or mrn is None or baby_name is None:
         return jsonify({'error': 'Input Error'}), 400
     
     if result:
@@ -271,12 +271,12 @@ def mother_get():
 
 @bp.route('/family/baby/', methods=['GET'])
 def baby_get(): 
-    id = request.args.get('id')
+    mrn = request.args.get('mrn')
 
-    if id is None:
+    if mrn is None:
         return jsonify({'error': 'Input Error'}), 400
     
-    result = fetch_baby(id)
+    result = fetch_baby(mrn)
     if result:
         return jsonify(result), 200
     else:
@@ -284,8 +284,8 @@ def baby_get():
     
 @bp.route('/family/babies/', methods=['GET'])
 def babies_get(): 
-    id = request.args.get('mother_id') # requests mothers ID
-
+    id = request.args.get('mother_id')
+    
     if id is None:
         return jsonify({'error': 'Input Error'}), 400
     
@@ -310,16 +310,17 @@ def family_delete():
     
 @bp.route('/print/', methods=['GET'])
 def make_label(): 
-    data = request.get_json()
+    id = request.args.get('mother_id')
 
-    mother_id = data.motherId
+    result = label_maker(id)
 
-    result = label_maker(mother_id)
-
-    if mother_id is None:
+    if id is None:
         return jsonify({'error': 'Input Error'}), 400
     
     if os.path.exists(result):
-        return send_from_directory('backend/images', os.path.basename(result))
+        #send_from_directory('backend/images', os.path.basename(result))
+        return jsonify({'success': 'Input Error'}), 200
+        
+        #return send_from_directory('backend/images', os.path.basename(result))
     else:
         return jsonify({'error': 'Label creation failed'}), 500
