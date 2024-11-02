@@ -1,7 +1,33 @@
+button {
+  width: 100%;
+  max-width: none;
+}
+
 .hide {
   display: none;
 }
 
-.show {
-  display: block;
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+.more-auth-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.main-content-container {
+  height: 550px;
+  width: 90%;
+  max-width: 650px;
+  padding: 30px;
+}
+button {
+  font-family: "Inria Sans", sans-serif;
 }

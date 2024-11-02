@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
   <head>
     <link
       href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@400;700&display=swap"
@@ -14,7 +14,7 @@
   <body>
     <div class="container">
       <img src="assets/logo.png" id="logo" />
-      <div class="match-result not-match">
+      <div class="main-content-container not-match">
         <h1>NOT A MATCH</h1>
         <div class="info">
           <div class="sub-info" id="milk">
@@ -23,7 +23,11 @@
               <p class="baby-name">Baby's Full Name:</p>
               <p class="express-date">Express Date:</p>
               <p class="storing-type">Storing Type:</p>
-              <p class="additional-nutrients">Additional Nutrient :</p>
+              <div class="nutrients">
+                <p class="additional-nutrients">Additional Nutrients:</p>
+                <ul class="nutrients-list">
+                </ul>
+              </div>
               <p class="expiry-date">Expiry Date:</p>
             </div>
           </div>
@@ -37,8 +41,9 @@
             </div>
           </div>
         </div>
-        <button type="button">Back</button>
+        <button type="button" id="back-match">Back</button>
       </div>
     </div>
   </body>
+  <script src="src/match-result.js"></script>
 </html>

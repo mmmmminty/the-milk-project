@@ -1,10 +1,19 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #3a3a3a;
+}
+
 body {
   font-family: "Inria Sans", sans-serif;
-  padding: 0px;
-  margin: 0px;
   height: 100%;
   width: 100%;
   background-color: #7f48a3;
+}
+
+.semi-transparent-bg {
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 .container {
@@ -44,6 +53,10 @@ body {
   text-indent: 4%;
 }
 
+h1 {
+  color: white;
+}
+
 h2 {
   margin: 0;
   padding: 0;
@@ -78,14 +91,56 @@ button {
   font-weight: bold;
   border: none;
   border-radius: 12px;
-  padding: 0.7vw 8vw;
+  padding: 12px;
   cursor: pointer;
-  margin-top: 4vw;
-  margin-bottom: 4vw;
+  width: 80%;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+label {
+  color: white;
+}
+
+input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
 button:hover {
   background-color: #f0f0f0;
+}
+
+.main-content-container {
+  height: 90%;
+  width: 65%;
+  border-radius: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-content-container h1 {
+  margin: 0;
+  padding: 0;
+  padding-top: 70px;
+  font-size: 65px;
+  opacity: 1;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 @media only screen and (max-width: 1400px) {
