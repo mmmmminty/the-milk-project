@@ -6,7 +6,7 @@ const apiRequest = async (url, method, body = null) => {
     method,
     headers: {
       "Content-Type": "application/json",
-      token: getToken(),
+      authorization: getToken(),
     },
   };
 
