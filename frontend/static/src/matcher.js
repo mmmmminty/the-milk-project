@@ -112,9 +112,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         const url = `http://localhost:5500/validate?milk_id=${milkID}&baby_id=${patientID}`;
         const valid = await get(url);
         if (valid) {
-          window.location.href = "http://localhost:5500/frontend/its-a-match.html";
+          window.location.href = "http://localhost:5500/match";
         } else {
-          window.location.href = "http://localhost:5500/frontend/not-a-match.html";
+          window.location.href = "http://localhost:5500/notmatch";
         }
       } else {
         alert("Please scan both QR codes first.");
