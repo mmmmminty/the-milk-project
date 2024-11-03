@@ -2,8 +2,9 @@ from PIL import Image, ImageOps, ImageDraw, ImageFont
 
 from utils.qr_code import qr_code_maker
 from database.tables.family import fetch_mother
-from database.tables.milk import create_milk
+from database.tables.milk import create_milk, fetch_milk
 import math
+import os
 
 def label_maker(mother_id, mother_name = "", baby_name = "", mrn = "", embedded_image_path = None):
     a4_x = 7000
@@ -44,10 +45,10 @@ def label_maker(mother_id, mother_name = "", baby_name = "", mrn = "", embedded_
             if (mother_name is None):
                 mother_name = fetch_mother(mother_id)
             
-            milk_id = create_milk(mother_id)
-            # milk_id ="1234test"
+            milk_id = create_milk(mother_id=mother_id)
+            new_milk = fetch_milk(milk_id)
 
-            qr_info = f"https://www.milkproject.com/milk/?id={milk_id}"
+            qr_info = f"https://www.milkproject.com/milk?id={milk_id}"
 
             qr_file_path = f"./images/{milk_id}.png"
             if (embedded_image_path is None):
@@ -59,9 +60,10 @@ def label_maker(mother_id, mother_name = "", baby_name = "", mrn = "", embedded_
             blank_label_image.paste(qr_code_image, (75, 450))
             
             a4.paste(blank_label_image, (math.floor(a4_y * pos_y), math.floor(a4_x * pos_x)))
-            print(pos_y, pos_x)
-            print(y, x)
-    
+            try:
+                os.remove(qr_path)
+            except FileNotFoundError:
+                print("File not found.")
         
     a4.save(f"./images/a4_label_page_{mother_id}.png")
     return f"./images/a4_label_page_{mother_id}.png"

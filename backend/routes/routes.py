@@ -1,4 +1,4 @@
-from flask import jsonify, Blueprint, request, send_from_directory, render_template
+from flask import jsonify, Blueprint, request, render_template, send_file
 from database.tables.milk import fetch_milks, fetch_unverified_milks, create_milk, fetch_milk, update_milk, delete_milk, fetch_unverified_milks_all
 from database.tables.staff import create_nurse, fetch_nurse, link_nurse_to_baby, delete_nurse 
 from database.tables.additives import add_additive_to_milk, fetch_additives, create_additive, fetch_all_additives, fetch_additive_by_name, update_additive_expiry_modifier
@@ -339,9 +339,10 @@ def family_delete():
     else:
         return jsonify({'error': 'Nurse not found'}), 400
     
-@bp.route('/print/', methods=['GET'])
+@bp.route('/print/', methods=['POST'])
 def make_label(): 
-    id = request.args.get('mother_id')
+    data = request.get_json()
+    id = data.get('mother_id')
 
     result = label_maker(id)
 
@@ -349,9 +350,6 @@ def make_label():
         return jsonify({'error': 'Input Error'}), 400
     
     if os.path.exists(result):
-        #send_from_directory('backend/images', os.path.basename(result))
-        return jsonify({'success': 'Input Error'}), 200
-        
-        #return send_from_directory('backend/images', os.path.basename(result))
+        return send_file(result, mimetype='image/png')
     else:
         return jsonify({'error': 'Label creation failed'}), 500
