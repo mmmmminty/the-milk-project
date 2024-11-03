@@ -1,5 +1,6 @@
 from datetime import datetime
 import unittest
+from database.validation import ValidationType, validate
 from database.tables.staff import create_nurse, delete_nurse, fetch_nurse, link_nurse_to_baby
 from database.tables.family import create_baby, create_mother_and_baby, delete_family, fetch_all_babies, fetch_babies, fetch_baby, fetch_mother, fetch_mothers
 from database.tables.additives import add_additive_to_milk, create_additive, fetch_additive_by_name, fetch_additives, fetch_all_additives, update_additive_expiry_modifier
@@ -408,6 +409,49 @@ class staff_tests(unittest.TestCase):
 
         milk = fetch_milk(milk_id)
         self.assertIsNone(milk.get('verified_id'))
+
+class validation_tests(unittest.TestCase):
+    def test_validate_ok(self):
+        setup_test_env(True)
+
+        mother_id, baby_ids = create_mother_and_baby('Japo Braun', [(generate_unique_id(numeric=True), 'Mel Braun')])
+        self.assertIsNotNone(mother_id)
+        self.assertIsNotNone(baby_ids)
+
+        milk_id = create_milk(mother_id, expressed="2025-01-01T00:00:00")
+        self.assertIsNotNone(milk_id)
+
+        # Test the milk is safe for baby
+        validation = validate(milk_id, baby_ids[0])
+        self.assertEqual(validation[0], ValidationType.OK_VALID_FEED)
+
+    def test_validate_not_expressed_for(self):
+        setup_test_env(True)
+
+        mother_id, baby_ids = create_mother_and_baby('Japo Braun', [(generate_unique_id(numeric=True), 'Mel Braun')])
+        self.assertIsNotNone(mother_id)
+        self.assertIsNotNone(baby_ids)
+
+        milk_id = create_milk(mother_id, expressed="2025-01-01T00:00:00")
+        self.assertIsNotNone(milk_id)
+
+        # Test the milk is not expressed for the baby
+        validation = validate(milk_id, 4)
+        self.assertEqual(validation[0], ValidationType.ERR_NOT_EXPRESSED_FOR)
+
+    def test_validate_expired(self):
+        setup_test_env(True)
+
+        mother_id, baby_ids = create_mother_and_baby('Japo Braun', [(generate_unique_id(numeric=True), 'Mel Braun')])
+        self.assertIsNotNone(mother_id)
+        self.assertIsNotNone(baby_ids)
+
+        milk_id = create_milk(mother_id, expressed="2021-01-01T00:00:00")
+        self.assertIsNotNone(milk_id)
+
+        # Test the milk has expired
+        validation = validate(milk_id, baby_ids[0])
+        self.assertEqual(validation[0], ValidationType.ERR_EXPIRED)
 
 # NOTE: Remove 'backend/' from the path when running coverage
 def setup_test_env(defaultData):
