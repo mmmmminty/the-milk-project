@@ -3,7 +3,7 @@ import unittest
 from database.tables.staff import create_nurse, delete_nurse, fetch_nurse, link_nurse_to_baby
 from database.tables.family import create_baby, create_mother_and_baby, delete_family, fetch_all_babies, fetch_babies, fetch_baby, fetch_mother, fetch_mothers
 from database.tables.additives import add_additive_to_milk, create_additive, fetch_additive_by_name, fetch_additives, fetch_all_additives, update_additive_expiry_modifier
-from database.database import execute_sql_file
+from database.database import execute_sql_file, generate_unique_id
 from database.tables.milk import create_milk, delete_milk, fetch_milk, fetch_milks, fetch_milks_by_baby, fetch_milks_by_mother, fetch_unverified_milks, update_milk
 
 # WHEN TESTING, YOU MUST CHANGE THE DB_PASSWORD CONSTANT IN THE CONSTANTS.PY FILE TO THE PASSWORD OF YOUR DATABASE
@@ -71,7 +71,7 @@ class milk_tests(unittest.TestCase):
 
     def test_fetch_by_mother(self):
         setup_test_env(False)
-        mother_id, baby_id = create_mother_and_baby(1323, 'Japo Braun', 'Mel Braun')
+        mother_id, baby_id = create_mother_and_baby('Japo Braun', [(generate_unique_id(numeric=True), 'Mel Braun')])
 
         self.assertIsNotNone(mother_id)
         self.assertIsNotNone(baby_id)
@@ -91,12 +91,12 @@ class milk_tests(unittest.TestCase):
 
     def test_fetch_by_baby(self):
         setup_test_env(True)
-        mother_id, baby_id = create_mother_and_baby(1323, 'Japo Braun', 'Mel Braun')
-        twin_id = create_baby(mother_id, 'Poe Braun')
+        mother_id, baby_ids = create_mother_and_baby('Japo Braun', [(generate_unique_id(numeric=True), 'Mel Braun')])
+        twin_ids = create_baby(mother_id, [(generate_unique_id(numeric=True), 'Poe Braun')])
 
         self.assertIsNotNone(mother_id)
-        self.assertIsNotNone(baby_id)
-        self.assertIsNotNone(twin_id)
+        self.assertIsNotNone(baby_ids)
+        self.assertIsNotNone(twin_ids)
 
         milk_id1 = create_milk(mother_id, expressed="2021-01-01T00:00:00")
         milk_id2 = create_milk(mother_id, expressed="2021-01-02T00:00:00")
@@ -108,13 +108,13 @@ class milk_tests(unittest.TestCase):
         self.assertIsNotNone(milk_id3)
         self.assertIsNotNone(milk_id4)
 
-        milks = fetch_milks_by_baby(baby_id)
+        milks = fetch_milks_by_baby(baby_ids[0])
         self.assertEqual(milks, [milk_id1, milk_id2, milk_id3, milk_id4])
 
     def test_update_milk(self):
         setup_test_env(False)
 
-        mother_id, baby_id = create_mother_and_baby(1323, 'Japo Braun', 'Mel Braun')
+        mother_id, baby_id = create_mother_and_baby('Japo Braun', [(generate_unique_id(numeric=True), 'Mel Braun')])
         self.assertIsNotNone(mother_id)
         self.assertIsNotNone(baby_id)
 
@@ -277,66 +277,81 @@ class family_tests(unittest.TestCase):
     def test_create_mother_and_baby(self):
         setup_test_env(False)
 
-        mother_id, baby_id = create_mother_and_baby(1323, 'Japo Braun', 'Mel Braun')
+        mother_id, baby_ids = create_mother_and_baby('Japo Braun', [(generate_unique_id(numeric=True), 'Mel Braun')])
         self.assertIsNotNone(mother_id)
-        self.assertIsNotNone(baby_id)
+        self.assertIsNotNone(baby_ids)
 
         mother = fetch_mother(mother_id)
         self.assertEqual(mother.get('id'), mother_id)
         self.assertEqual(mother.get('name'), 'Japo Braun')
 
-        baby = fetch_baby(baby_id)
-        self.assertEqual(baby.get('id'), baby_id)
+        baby = fetch_baby(baby_ids[0])
+        self.assertEqual(baby.get('id'), baby_ids[0])
         self.assertEqual(baby.get('name'), 'Mel Braun')
 
-    def test_create_baby_on_mother(self):
+    def test_create_babies_on_mother(self):
         setup_test_env(False)
 
-        mother_id, baby_id = create_mother_and_baby(1323, 'Japo Braun', 'Mel Braun')
-        twin_id = create_baby(mother_id, 'Poe Braun')
+        mother_id, baby_ids = create_mother_and_baby('Japo Braun', [(generate_unique_id(numeric=True), 'Mel Braun'), (generate_unique_id(numeric=True), 'Poe Braun')])
         self.assertIsNotNone(mother_id)
-        self.assertIsNotNone(baby_id)
-        self.assertIsNotNone(twin_id)
+        self.assertIsNotNone(baby_ids)
 
-        baby = fetch_baby(baby_id)
+        baby = fetch_baby(baby_ids[0])
         self.assertEqual(baby.get('name'), 'Mel Braun')
-        twin = fetch_baby(twin_id)
+        twin = fetch_baby(baby_ids[1])
         self.assertEqual(twin.get('name'), 'Poe Braun')
 
-        self.assertEqual(fetch_babies(mother_id), [(baby_id,), (twin_id,)])
+        self.assertEqual(fetch_babies(mother_id), [(baby_ids[0],), (baby_ids[1],)])
+
+    def test_create_many_babies_on_mother(self):
+        setup_test_env(False)
+        mother_id, baby_id = create_mother_and_baby('Japo Braun', [(generate_unique_id(numeric=True), 'Mel Braun')])
+        twin_ids = create_baby(mother_id, [(generate_unique_id(numeric=True), 'Poe Braun'), (generate_unique_id(numeric=True), 'Finn Braun'), (generate_unique_id(numeric=True), 'Jasper Braun')])
+        self.assertIsNotNone(mother_id)
+        self.assertIsNotNone(baby_id)
+        self.assertIsNotNone(twin_ids)
+
+        baby = fetch_baby(baby_id[0])
+        self.assertEqual(baby.get('name'), 'Mel Braun')
+
+        for twin_id in twin_ids:
+            twin = fetch_baby(twin_id)
+            self.assertIsNotNone(twin)
+            self.assertTrue((twin_id,) in fetch_babies(mother_id))
+
 
     def test_fetch_babies(self):
         setup_test_env(False)
 
-        mother_id, baby_id = create_mother_and_baby(1323, 'Japo Braun', 'Mel Braun')
-        twin_id = create_baby(mother_id, 'Poe Braun')
+        mother_id, baby_ids = create_mother_and_baby('Japo Braun', [(generate_unique_id(numeric=True), 'Mel Braun')])
+        twin_ids = create_baby(mother_id, [(generate_unique_id(numeric=True), 'Poe Braun')])
         self.assertIsNotNone(mother_id)
-        self.assertIsNotNone(baby_id)
-        self.assertIsNotNone(twin_id)
+        self.assertIsNotNone(baby_ids)
+        self.assertIsNotNone(twin_ids)
 
-        self.assertEqual(fetch_babies(mother_id), [(baby_id,), (twin_id,)])
+        self.assertEqual(fetch_babies(mother_id), [(baby_ids[0],), (twin_ids[0],)])
 
     def test_delete_family(self):
         setup_test_env(False)
 
-        _, baby_id1 = create_mother_and_baby(5323, 'Sol Hicko', 'Bob Hicko')
-        _, baby_id2 = create_mother_and_baby(6432, 'Fiona Spades', 'Jack Spades')
+        mother_id1, baby_ids1 = create_mother_and_baby('Sol Hicko', [(generate_unique_id(numeric=True), 'Bob Hicko')])
+        mother_id2, baby_ids2 = create_mother_and_baby('Fiona Spades', [(generate_unique_id(numeric=True), 'Jack Spades')])
 
-        mother_id, baby_id = create_mother_and_baby(1323, 'Japo Braun', 'Mel Braun')
-        twin_id = create_baby(mother_id, 'Poe Braun')
+        mother_id, baby_ids = create_mother_and_baby('Japo Braun', [(generate_unique_id(numeric=True), 'Mel Braun')])
+        twin_ids = create_baby(mother_id, [(generate_unique_id(numeric=True), 'Poe Braun')])
         self.assertIsNotNone(mother_id)
-        self.assertIsNotNone(baby_id)
-        self.assertIsNotNone(twin_id)
+        self.assertIsNotNone(baby_ids)
+        self.assertIsNotNone(twin_ids)
 
         self.assertTrue(delete_family(mother_id))
         self.assertIsNone(fetch_mother(mother_id))
-        self.assertIsNone(fetch_baby(baby_id))
-        self.assertIsNone(fetch_baby(twin_id))
+        self.assertIsNone(fetch_baby(baby_ids[0]))
+        self.assertIsNone(fetch_baby(twin_ids[0]))
 
-        expected_mothers = [5323, 6432]
+        expected_mothers = [mother_id1, mother_id2]
         self.assertEqual(fetch_mothers(), expected_mothers)
 
-        expected_babies = [baby_id1, baby_id2]
+        expected_babies = [baby_ids1[0], baby_ids2[0]]
         self.assertEqual(fetch_all_babies(), expected_babies)
 
 class staff_tests(unittest.TestCase):
@@ -353,14 +368,14 @@ class staff_tests(unittest.TestCase):
     def test_link_nurse_to_baby(self):
         setup_test_env(False)
 
-        mother_id, baby_id = create_mother_and_baby(1323, 'Japo Braun', 'Mel Braun')
+        mother_id, baby_ids = create_mother_and_baby('Japo Braun', [(generate_unique_id(numeric=True), 'Mel Braun')])
         self.assertIsNotNone(mother_id)
-        self.assertIsNotNone(baby_id)
+        self.assertIsNotNone(baby_ids)
 
         nurse_id = create_nurse(1342, 'Joy Mackenzie')
         self.assertIsNotNone(nurse_id)
 
-        self.assertTrue(link_nurse_to_baby(nurse_id, baby_id))
+        self.assertTrue(link_nurse_to_baby(nurse_id, baby_ids[0]))
     
     def test_delete_nurse(self):
         setup_test_env(False)
@@ -374,7 +389,7 @@ class staff_tests(unittest.TestCase):
     def test_delete_nurse_linked_to_milk(self):
         setup_test_env(False)
 
-        mother_id, baby_id = create_mother_and_baby(1323, 'Japo Braun', 'Mel Braun')
+        mother_id, baby_id = create_mother_and_baby('Japo Braun', [(generate_unique_id(numeric=True), 'Mel Braun')])
         self.assertIsNotNone(mother_id)
         self.assertIsNotNone(baby_id)
 
