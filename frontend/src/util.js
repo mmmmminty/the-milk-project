@@ -1,5 +1,3 @@
-import { BACKEND_PORT } from "./config";
-
 export function getToken() {
   return localStorage.getItem("token");
 }
