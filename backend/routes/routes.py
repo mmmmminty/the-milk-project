@@ -38,9 +38,9 @@ def milk_nurse():
 def patient_baby(): 
     return render_template("log-patient-baby.html")
 
-@bp.route("/scanner/")
+@bp.route("/matcher/")
 def scanner(): 
-    return render_template("scanner.html")
+    return render_template("matcher.html")
 
 @bp.route('/milks/', methods=['GET'])
 def get_milks():
