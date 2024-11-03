@@ -342,11 +342,19 @@ def family_delete():
 @bp.route('/print/', methods=['POST'])
 def make_label(): 
     data = request.get_json()
-    id = data.get('mother_id')
+    mother_id = data.get('mother_id')
+    expressed_date = data.get('expressed_date')
+    baby_MRN = data.get('baby_id')
+    embedded_image_path = data.get('embedded_image_path')
+    frozen = data.get('frozen', False) 
 
-    result = label_maker(id)
+    milk_ids = []
+    for x in range(14):
+        milk_id = create_milk(mother_id, None, expressed_date, None, frozen)
+        milk_ids.append(milk_id)
+    result = label_maker(mother_id, milk_ids, baby_MRN=baby_MRN, embedded_image_path=embedded_image_path)
 
-    if id is None:
+    if mother_id is None:
         return jsonify({'error': 'Input Error'}), 400
     
     if os.path.exists(result):
