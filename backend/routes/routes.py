@@ -3,10 +3,15 @@ from database.tables.milk import fetch_milks, fetch_unverified_milks, create_mil
 from database.tables.staff import create_nurse, fetch_nurse, link_nurse_to_baby, delete_nurse 
 from database.tables.additives import add_additive_to_milk, fetch_additives, create_additive, fetch_all_additives, fetch_additive_by_name, update_additive_expiry_modifier
 from database.tables.family import create_mother_and_baby, create_baby, delete_family, fetch_mothers, fetch_mother, fetch_all_babies, fetch_babies, fetch_baby, delete_family
+<<<<<<< HEAD
 from utils.label_maker import label_maker
 from utils.qr_code import baby_qr_code_maker
 from database.validation import validate, ValidationType 
 import os
+=======
+#from utils.label_maker import label_maker un comment these 
+#import os un comment these
+>>>>>>> bd34134 (commented out the error)
 
 bp = Blueprint('routes', __name__)
 
