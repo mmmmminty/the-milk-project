@@ -5,8 +5,6 @@ from database.tables.additives import add_additive_to_milk, fetch_additives, cre
 from database.tables.family import create_mother_and_baby, create_baby, delete_family, fetch_mothers, fetch_mother, fetch_all_babies, fetch_babies, fetch_baby, delete_family
 from utils.label_maker import label_maker
 from database.validation import validate, ValidationType 
-from utils.qr_code import baby_qr_code_maker
-
 import os
 
 bp = Blueprint('routes', __name__)
