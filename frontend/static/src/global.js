@@ -1,5 +1,4 @@
-import { BACKEND_PORT } from "./config";
-import { isUserLoggedIn, setToken } from "./util";
+import { getToken } from "./util";
 import { login } from "./api";
 
 console.log("Global JS loaded");
