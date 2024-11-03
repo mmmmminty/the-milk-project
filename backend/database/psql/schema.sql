@@ -6,28 +6,31 @@ CREATE TABLE IF NOT EXISTS Additive (
 );
 
 CREATE TABLE IF NOT EXISTS Mother (
-    id INTEGER PRIMARY KEY NOT NULL,
+    id BIGINT PRIMARY KEY NOT NULL,
     name VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Baby (
-    id UUID PRIMARY KEY NOT NULL,
+    id BIGINT PRIMARY KEY NOT NULL,
     name VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Nurse (
-    id INTEGER PRIMARY KEY NOT NULL,
+    id BIGINT PRIMARY KEY NOT NULL,
     name VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS DonatedMilk (
-    id INTEGER PRIMARY KEY NOT NULL
+    id BIGINT PRIMARY KEY NOT NULL,
+    pdhm_batch BIGINT,
+    humavant_batch BIGINT
 );
 
 CREATE TABLE IF NOT EXISTS Milk (
     id UUID PRIMARY KEY NOT NULL, 
     expiry TIMESTAMP,
     expressed TIMESTAMP,
+    batch INTEGER,
     volume INTEGER,
     frozen BOOLEAN NOT NULL,
     defrosted BOOLEAN NOT NULL,
@@ -49,7 +52,7 @@ CREATE TABLE IF NOT EXISTS Contains (
 
 CREATE TABLE IF NOT EXISTS ExpressedBy (
     milk_id UUID NOT NULL,
-    mother_id INTEGER NOT NULL,
+    mother_id BIGINT NOT NULL,
     FOREIGN KEY (milk_id) REFERENCES Milk(id) ON DELETE CASCADE,
     FOREIGN KEY (mother_id) REFERENCES Mother(id) ON DELETE CASCADE,
     PRIMARY KEY (milk_id, mother_id)
@@ -57,23 +60,23 @@ CREATE TABLE IF NOT EXISTS ExpressedBy (
 
 CREATE TABLE IF NOT EXISTS ExpressedFor (
     milk_id UUID NOT NULL,
-    baby_id UUID NOT NULL,
+    baby_id BIGINT NOT NULL,
     FOREIGN KEY (milk_id) REFERENCES Milk(id) ON DELETE CASCADE,
     FOREIGN KEY (baby_id) REFERENCES Baby(id) ON DELETE CASCADE,
     PRIMARY KEY (milk_id, baby_id)
 );
 
 CREATE TABLE IF NOT EXISTS MotherOf (
-    baby_id UUID NOT NULL,
-    mother_id INTEGER NOT NULL,
+    baby_id BIGINT NOT NULL,
+    mother_id BIGINT NOT NULL,
     FOREIGN KEY (baby_id) REFERENCES Baby(id) ON DELETE CASCADE,
     FOREIGN KEY (mother_id) REFERENCES Mother(id) ON DELETE CASCADE,
     PRIMARY KEY (baby_id, mother_id)
 );
 
 CREATE TABLE IF NOT EXISTS AssignedTo (
-    baby_id UUID NOT NULL,
-    nurse_id INTEGER NOT NULL,
+    baby_id BIGINT NOT NULL,
+    nurse_id BIGINT NOT NULL,
     FOREIGN KEY (baby_id) REFERENCES Baby(id) ON DELETE CASCADE,
     FOREIGN KEY (nurse_id) REFERENCES Nurse(id) ON DELETE CASCADE,
     PRIMARY KEY (baby_id, nurse_id)
