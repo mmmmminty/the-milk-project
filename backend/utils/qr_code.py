@@ -1,12 +1,12 @@
 import qrcode
 from PIL import Image
 
-def qr_code_maker(qr_info, qr_file_path, embedded_image_path = None):
+def qr_code_maker(qr_info, qr_file_path, embedded_image_path=None):
     new_qr_code = qrcode.QRCode(
-        version = 10,
-        error_correction = qrcode.constants.ERROR_CORRECT_H,
-        box_size = 10,
-        border = 4,
+        version=10,
+        error_correction=qrcode.constants.ERROR_CORRECT_H,
+        box_size=10,
+        border=4,
     )
 
     new_qr_code.add_data(qr_info)
@@ -22,12 +22,12 @@ def qr_code_maker(qr_info, qr_file_path, embedded_image_path = None):
     new_qr_img.save(qr_file_path)
     return qr_file_path
     
-def baby_qr_code_maker(baby_MRN, qr_file_path, embedded_image_path = None):
+def baby_qr_code_maker(baby_MRN, qr_file_path, embedded_image_path=None):
     new_qr_code = qrcode.QRCode(
-        version = 10,
-        error_correction = qrcode.constants.ERROR_CORRECT_H,
-        box_size = 10,
-        border = 4,
+        version=10,
+        error_correction=qrcode.constants.ERROR_CORRECT_H,
+        box_size=10,
+        border=4,
     )
 
     new_qr_code.add_data(baby_MRN)
