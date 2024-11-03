@@ -4,6 +4,7 @@ from database.tables.staff import create_nurse, fetch_nurse, link_nurse_to_baby,
 from database.tables.additives import add_additive_to_milk, fetch_additives, create_additive, fetch_all_additives, fetch_additive_by_name, update_additive_expiry_modifier
 from database.tables.family import create_mother_and_baby, create_baby, delete_family, fetch_mothers, fetch_mother, fetch_all_babies, fetch_babies, fetch_baby, delete_family
 from utils.label_maker import label_maker
+from database.validation import validate, ValidationType 
 import os
 
 bp = Blueprint('routes', __name__)
@@ -249,6 +250,39 @@ def add_additive():
         return jsonify({'successfully added additive to milk!'}), 200
     else:
         return jsonify({'error': 'Invalid request'}), 400
+
+@bp.route('/validate/', methods=['GET'])
+def server_validate(): 
+    milk_id = request.args.get('milk_id')
+    baby_id = request.args.get('baby_id')
+
+    if milk_id is None or baby_id is None:
+        return jsonify({'error': 'Input Error'}), 400
+    
+    validation_type, extra_info  = validate(milk_id, baby_id)
+
+    if validation_type == ValidationType.ERR_NOT_EXPRESSED_FOR:
+        return jsonify({
+            'status': validation_type.value,
+            'true_baby_id': extra_info
+        }), 200
+    elif validation_type == ValidationType.ERR_EXPIRED:
+        return jsonify({
+            'status': validation_type.value,
+            'expiry_date': extra_info.strftime("%Y-%m-%d %H:%M:%S")  
+        }), 200
+    elif validation_type == ValidationType.ERR_CONTAINS_ALLERGEN:
+        return jsonify({
+            'status': validation_type.value,
+            'allergens': extra_info  
+        }), 200
+    elif validation_type == ValidationType.OK_VALID_FEED:
+        return jsonify({
+            'status': validation_type.value,
+            'message': 'Milk is safe for the baby'
+        }), 200
+    else:
+        return jsonify({'error': 'Unexpected validation outcome'}), 500
 
 #family 
 
