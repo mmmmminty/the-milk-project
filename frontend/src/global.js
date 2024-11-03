@@ -2,21 +2,16 @@ import { BACKEND_PORT } from "./config";
 import { isUserLoggedIn, setToken } from "./util";
 import { login } from "./api";
 
-document
-  .getElementById("login-form")
-  .addEventListener("submit", async (event) => {
-    event.preventDefault();
+console.log("Global JS loaded");
 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+document.getElementById("login-btn").addEventListener("click", (event) => {
+  event.preventDefault();
 
-    const data = await login(username, password);
+  console.log("Logging in...");
 
-    if (data.token) {
-      setToken(data.token);
-    }
+  login(username, password);
 
-    if (isUserLoggedIn()) {
-      window.location.href = "/dashboard";
-    }
-  });
+  if (getToken() !== null) {
+    window.location.href = "/scanner.html";
+  }
+});
