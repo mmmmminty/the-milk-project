@@ -127,7 +127,7 @@ async function get(url) {
       const response = await fetch(url);
       if (!response.ok) throw new Error(`Error: ${response.statusText}`);
       const result = await response.json();
-      return result.isValid;
+      return result.status === "Milk is safe for baby";
   } catch (error) {
       console.error("Error fetching data:", error);
       return false;
