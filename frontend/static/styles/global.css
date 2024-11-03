@@ -9,7 +9,8 @@ body {
   font-family: "Inria Sans", sans-serif;
   height: 100%;
   width: 100%;
-  background-color: #7f48a3;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(174,129,190,1) 0%, rgba(103,51,136,1) 100%);
 }
 
 .semi-transparent-bg {
