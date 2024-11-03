@@ -4,6 +4,7 @@ from database.tables.staff import create_nurse, fetch_nurse, link_nurse_to_baby,
 from database.tables.additives import add_additive_to_milk, fetch_additives, create_additive, fetch_all_additives, fetch_additive_by_name, update_additive_expiry_modifier
 from database.tables.family import create_mother_and_baby, create_baby, delete_family, fetch_mothers, fetch_mother, fetch_all_babies, fetch_babies, fetch_baby, delete_family
 from utils.label_maker import label_maker
+from utils.qr_code import baby_qr_code_maker
 import os
 
 bp = Blueprint('routes', __name__)
@@ -355,6 +356,22 @@ def make_label():
     result = label_maker(mother_id, milk_ids, baby_MRN=baby_MRN, embedded_image_path=embedded_image_path)
 
     if mother_id is None:
+        return jsonify({'error': 'Input Error'}), 400
+    
+    if os.path.exists(result):
+        return send_file(result, mimetype='image/png')
+    else:
+        return jsonify({'error': 'Label creation failed'}), 500
+    
+@bp.route('/print/baby', methods=['POST'])
+def make_baby_qr(): 
+    data = request.get_json()
+    baby_MRN = data.get('baby_id')
+    embedded_image_path = data.get('embedded_image_path')
+    qr_file_path = f"./images/qr_{baby_MRN}.png"
+    result = baby_qr_code_maker(baby_MRN, qr_file_path, embedded_image_path=embedded_image_path)
+
+    if baby_MRN is None:
         return jsonify({'error': 'Input Error'}), 400
     
     if os.path.exists(result):
