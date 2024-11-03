@@ -1,5 +1,5 @@
 import { BACKEND_PORT } from "./config";
-import { getToken } from "./util";
+import { getToken, setToken } from "./util";
 
 const apiRequest = async (url, method, body = null) => {
   const options = {
@@ -29,9 +29,9 @@ export const post = (url, body) => apiRequest(url, "POST", body);
 export const put = (url, body) => apiRequest(url, "PUT", body);
 export const del = (url) => apiRequest(url, "DELETE");
 
-export const login = async (username, password) => {
-  const url = `http://localhost:${BACKEND_PORT}/login`;
-  return await post(url, { username, password });
+export const login = (username, password) => {
+  console.log("Logging in...");
+  setToken("sample-token");
 };
 
 export const getMilk = async (milkId) => {

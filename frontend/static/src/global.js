@@ -1,22 +1,20 @@
-import { BACKEND_PORT } from "./config";
-import { isUserLoggedIn, setToken } from "./util";
-import { login } from "./api";
+// import { getToken } from "./util";
+// import { login } from "./api";
 
-document
-  .getElementById("login-form")
-  .addEventListener("submit", async (event) => {
-    event.preventDefault();
+document.getElementById("login-btn").addEventListener("click", (event) => {
+  event.preventDefault();
 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+  // console.log("Logging in...");
 
-    const data = await login(username, password);
+  // login(username, password);
 
-    if (data.token) {
-      setToken(data.token);
-    }
+  // if (getToken() !== null) {
+  //   window.location.href = "/scanner.html";
+  // }
 
-    if (isUserLoggedIn()) {
-      window.location.href = "/dashboard";
-    }
-  });
+  window.location.href = "/matcher";
+});
+
+// 1. scanner
+// 2. patientbaby
+//
