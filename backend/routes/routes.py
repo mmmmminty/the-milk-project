@@ -47,6 +47,10 @@ def get_milks():
     milk_list = fetch_milks()
     return jsonify(milk_list)
 
+@bp.route('/milk/<milk_id>')
+def milk_info_page(milk_id):
+    return render_template("log-milk-info.html", milk_id=milk_id)
+
 #given a milk id in query string, returns the milk object combined with Mother and baby details 
 
 @bp.route('/milk/', methods=['GET'])
