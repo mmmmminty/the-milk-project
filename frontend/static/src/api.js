@@ -24,10 +24,10 @@ const apiRequest = async (url, method, body = null) => {
   return data;
 };
 
-const get = (url) => apiRequest(url, "GET");
-const post = (url, body) => apiRequest(url, "POST", body);
-const put = (url, body) => apiRequest(url, "PUT", body);
-const del = (url) => apiRequest(url, "DELETE");
+export const get = (url) => apiRequest(url, "GET");
+export const post = (url, body) => apiRequest(url, "POST", body);
+export const put = (url, body) => apiRequest(url, "PUT", body);
+export const del = (url) => apiRequest(url, "DELETE");
 
 export const login = (username, password) => {
   console.log("Logging in...");

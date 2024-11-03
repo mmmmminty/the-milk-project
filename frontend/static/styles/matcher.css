@@ -1,0 +1,38 @@
+.main-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 48px;
+    background: rgba(255, 255, 255, 0.3);
+    width: 600px;
+    height: 497px;
+    padding: 64px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.main-box h2 {
+    font-size: 64px;
+    color: #fff;
+}
+
+.button-box {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.main-box > button {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+}
+
+.scan-success {
+    border: 2px solid rgb(0, 255, 0, 0.3);
+    color : rgb(0, 255, 0, 0.3);
+}
