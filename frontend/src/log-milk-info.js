@@ -1,6 +1,6 @@
-// Listener of Back button
-document.getElementById('back-match').addEventListener('click', () => {
-	window.location.href = 'scanner.html';
+// Listener of Edit button
+document.getElementById('edit').addEventListener('click', () => {
+	window.location.href = 'log-milk-nurse.html';
 });
 
 // Provide milk info
@@ -29,20 +29,3 @@ nutrients.forEach(nutrient => {
     listItem.textContent = nutrient;
     nutrientsList.appendChild(listItem);
 });
-
-// Provide Patient info
-// const response_patient = await fetch(`http://localhost:${BACKEND_PORT}/patient?id=${patientId}`, {
-//     method: "GET",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: {},
-//   });
-
-// const patientInfo = await response.json();
-// document.getElementById('patient').textContent = "Patient's Code #" + patientId;
-// document.querySelector('.patient-name').textContent = "Patient's Full Name: " + patientInfo.name;
-// document.querySelector('.gender').textContent = "Gender: " + patientInfo.gender;
-// document.querySelector('.dob').textContent = "Date of Birth: " + patientInfo.dob;
-// document.querySelector('.status').textContent = "Status: " + (patientInfo.status ? "Baby" : "Mom");
-

@@ -1,3 +1,4 @@
+import uuid
 import psycopg2
 from contextlib import contextmanager
 
@@ -52,3 +53,8 @@ def execute_sql_file(file_path):
 
     with get_db_cursor() as cur:
         cur.execute(sql_script)
+
+def generate_unique_id(numeric=False):
+    if numeric:
+        return uuid.uuid4().int >> 96
+    return str(uuid.uuid4())

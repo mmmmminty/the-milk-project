@@ -139,7 +139,7 @@ def fetch_unverified_milks_all(nurse_id):
             return {"error": "Error fetching unverified milk data"}
     
 # Creates a new milk record in the database
-def create_milk(mother_id, expiry=None, expressed=None, volume=None, frozen=False, defrosted=False, fed=False, verified_by=None):
+def create_milk(mother_id, expiry=None, expressed=None, batch=None, volume=None, frozen=False, defrosted=False, fed=False, verified_by=None):
     with get_db_cursor() as cur:
         try:
             milk_id = str(uuid.uuid4())
@@ -150,10 +150,10 @@ def create_milk(mother_id, expiry=None, expressed=None, volume=None, frozen=Fals
 
             cur.execute(
                 """
-                INSERT INTO Milk (id, expiry, expressed, volume, frozen, defrosted, fed, verified_id)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s);
+                INSERT INTO Milk (id, expiry, expressed, batch, volume, frozen, defrosted, fed, verified_id)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);
                 """,
-                (milk_id, expiry, expressed, volume, frozen, defrosted, fed, verified_by)
+                (milk_id, expiry, expressed, batch, volume, frozen, defrosted, fed, verified_by)
             )
 
             # Link the new milk record with the mother
@@ -189,7 +189,7 @@ def create_milk(mother_id, expiry=None, expressed=None, volume=None, frozen=Fals
             return None
 
 # Updates an existing milk record in the database    
-def update_milk(milk_id, expiry=None, expressed=None, volume=None, frozen=False, defrosted=False, fed=False, verified_by=None):
+def update_milk(milk_id, expiry=None, expressed=None, batch=None, volume=None, frozen=False, defrosted=False, fed=False, verified_by=None):
     with get_db_cursor() as cur:
         try:
             if expressed and expiry:
@@ -204,6 +204,7 @@ def update_milk(milk_id, expiry=None, expressed=None, volume=None, frozen=False,
                 UPDATE Milk
                 SET expiry = COALESCE(%s, expiry),
                     expressed = COALESCE(%s, expressed),
+                    batch = COALESCE(%s, batch),
                     volume = COALESCE(%s, volume),
                     frozen = COALESCE(%s, frozen),
                     defrosted = COALESCE(%s, defrosted),
@@ -211,12 +212,12 @@ def update_milk(milk_id, expiry=None, expressed=None, volume=None, frozen=False,
                     verified_id = COALESCE(%s, verified_id)
                 WHERE id = %s;
                 """,
-                (expiry, expressed, volume, frozen, defrosted, fed, verified_by, milk_id)
+                (expiry, expressed, batch, volume, frozen, defrosted, fed, verified_by, milk_id)
             )
 
             updated_fields = [
                 field for field in [
-                    ('expiry', expiry), ('expressed', expressed), ('volume', volume),
+                    ('expiry', expiry), ('expressed', expressed), ('batch', batch), ('volume', volume),
                     ('frozen', frozen), ('defrosted', defrosted), ('fed', fed), ('verified_id', verified_by)
                 ] if field[1] is not None
             ]

@@ -1,4 +1,4 @@
-from flask import jsonify, Blueprint, request, send_from_directory
+from flask import jsonify, Blueprint, request, render_template, send_file
 from database.tables.milk import fetch_milks, fetch_unverified_milks, create_milk, fetch_milk, update_milk, delete_milk, fetch_unverified_milks_all
 from database.tables.staff import create_nurse, fetch_nurse, link_nurse_to_baby, delete_nurse 
 from database.tables.additives import add_additive_to_milk, fetch_additives, create_additive, fetch_all_additives, fetch_additive_by_name, update_additive_expiry_modifier
@@ -6,8 +6,39 @@ from database.tables.family import create_mother_and_baby, create_baby, delete_f
 from utils.label_maker import label_maker
 import os
 
-# Create a blueprint for your routes
 bp = Blueprint('routes', __name__)
+
+@bp.route("/")
+def Index(): 
+    return render_template("index.html")
+
+@bp.route("/match/")
+def match(): 
+    return render_template("its-a-match.html")
+
+@bp.route("/notmatch/")
+def not_match(): 
+    return render_template("not-a-match.html")
+
+@bp.route("/milkinfo/")
+def milk_info(): 
+    return render_template("log-milk-info.html")
+
+@bp.route("/milkmum/")
+def milk_mum(): 
+    return render_template("log-milk-mum.html")
+
+@bp.route("/patientbaby/")
+def milk_nurse(): 
+    return render_template("log-milk-nurse.html")
+
+@bp.route("/milknurse/")
+def patient_baby(): 
+    return render_template("log-patient-baby.html")
+
+@bp.route("/scanner/")
+def scanner(): 
+    return render_template("scanner.html")
 
 @bp.route('/milks/', methods=['GET'])
 def get_milks():
@@ -225,9 +256,9 @@ def add_additive():
 def family_register(): 
     data = request.get_json()
 
-    mrn = data.mrn
-    mother_name = data.motherName 
-    baby_name = data.babyName
+    mrn = data.get("mrn")
+    mother_name =  data.get("mother_name")
+    baby_name = data.get("baby_name")
 
     if id is None:
         return jsonify({'error': 'Input Error'}), 400
@@ -242,13 +273,13 @@ def family_register():
 def baby_register(): 
     data = request.get_json()
 
-    mother_id = data.motherId
-    mrn = data.mrn
-    baby_name = data.babyName
+    mother_id = data.get("mother_id")
+    mrn = data.get("mrn")
+    baby_name = data.get("baby_name")
 
     result = create_baby(mother_id, mrn, baby_name)
 
-    if mother_id is None | mrn is None | baby_name is None:
+    if mother_id is None or mrn is None or baby_name is None:
         return jsonify({'error': 'Input Error'}), 400
     
     if result:
@@ -271,12 +302,12 @@ def mother_get():
 
 @bp.route('/family/baby/', methods=['GET'])
 def baby_get(): 
-    id = request.args.get('id')
+    mrn = request.args.get('mrn')
 
-    if id is None:
+    if mrn is None:
         return jsonify({'error': 'Input Error'}), 400
     
-    result = fetch_baby(id)
+    result = fetch_baby(mrn)
     if result:
         return jsonify(result), 200
     else:
@@ -284,8 +315,8 @@ def baby_get():
     
 @bp.route('/family/babies/', methods=['GET'])
 def babies_get(): 
-    id = request.args.get('mother_id') # requests mothers ID
-
+    id = request.args.get('mother_id')
+    
     if id is None:
         return jsonify({'error': 'Input Error'}), 400
     
@@ -308,18 +339,25 @@ def family_delete():
     else:
         return jsonify({'error': 'Nurse not found'}), 400
     
-@bp.route('/print/', methods=['GET'])
+@bp.route('/print/', methods=['POST'])
 def make_label(): 
     data = request.get_json()
+    mother_id = data.get('mother_id')
+    expressed_date = data.get('expressed_date')
+    baby_MRN = data.get('baby_id')
+    embedded_image_path = data.get('embedded_image_path')
+    frozen = data.get('frozen', False) 
 
-    mother_id = data.motherId
-
-    result = label_maker(mother_id)
+    milk_ids = []
+    for x in range(14):
+        milk_id = create_milk(mother_id, None, expressed_date, None, frozen)
+        milk_ids.append(milk_id)
+    result = label_maker(mother_id, milk_ids, baby_MRN=baby_MRN, embedded_image_path=embedded_image_path)
 
     if mother_id is None:
         return jsonify({'error': 'Input Error'}), 400
     
     if os.path.exists(result):
-        return send_from_directory('backend/images', os.path.basename(result))
+        return send_file(result, mimetype='image/png')
     else:
         return jsonify({'error': 'Label creation failed'}), 500
